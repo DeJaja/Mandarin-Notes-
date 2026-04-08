@@ -657,7 +657,7 @@ let pr={
 ════════════════════════════════ */
 const PROFILES = [
   {id:'james', defaultName:'Dudu',    color:'#C93A2B', sampleKey:'james_mn-ver', sampleVer:'8'},
-  {id:'gf',    defaultName:'Bubu',    color:'#C4699A', sampleKey:'gf_mn-ver',   sampleVer:'2'},
+  {id:'gf',    defaultName:'Bubu',    color:'#C4699A', sampleKey:'gf_mn-ver',   sampleVer:'3'},
 ];
 let currentUser = null;
 
@@ -686,6 +686,43 @@ const GF_SAMPLE = [
     {chinese:'冰淇淋',pinyin:'bīngqílín',english:'ice cream',type:'word',example:'我最喜欢吃冰淇淋！I love ice cream the most!'},
     {chinese:'椅子',pinyin:'yǐzi',english:'chair',type:'word',example:'我们要不要买几个新的椅子？Shall we buy some new chairs?'},
     {chinese:'桌子下面',pinyin:'zhuōzi xiàmiàn',english:'under the table / beneath the table',type:'phrase',example:'桌子下面有个猫。There is a cat under the table.'},
+  ]},
+  {id:'lesson:g3',fileName:'360句第2册_Lesson1_教学PPT_.pptx',lessonTitle:'360句 L1 — 请问您想喝点儿什么',category:'Daily Life',date:'2025-04-07T11:00:00Z',wordCount:35,vocabulary:[
+    {chinese:'包子',pinyin:'bāozi',english:'steamed bun (filled)',type:'word',example:'你要吃包子吗？Do you want to eat steamed buns?'},
+    {chinese:'饺子',pinyin:'jiǎozi',english:'dumpling',type:'word',example:'饺子好吃吗？Are the dumplings tasty?'},
+    {chinese:'面条儿',pinyin:'miàntiáor',english:'noodles',type:'word',example:'面条儿多少钱？How much are the noodles?'},
+    {chinese:'比萨',pinyin:'bǐsà',english:'pizza',type:'word',example:'你想吃面条儿还是比萨？Do you want noodles or pizza?'},
+    {chinese:'想',pinyin:'xiǎng',english:'would like to / want to (+ verb)',type:'word',example:'今天晚饭你想吃什么？What do you want to eat for dinner tonight?'},
+    {chinese:'还是',pinyin:'háishì',english:'or (used in questions with two choices)',type:'word',example:'你想吃包子还是饺子？Do you want steamed buns or dumplings?'},
+    {chinese:'都',pinyin:'dōu',english:'both / all (comes before verb)',type:'word',example:'苹果和西瓜，我都喜欢。I like both apples and watermelon.'},
+    {chinese:'咱们',pinyin:'zánmen',english:'we / us (includes the listener, informal)',type:'word',example:'咱们今天吃饺子吧。Let\'s eat dumplings today.'},
+    {chinese:'最近',pinyin:'zuìjìn',english:'recently / lately',type:'word',example:'最近你忙吗？Have you been busy lately?'},
+    {chinese:'每',pinyin:'měi',english:'every / each (+ measure word)',type:'word',example:'他每天吃面条儿。He eats noodles every day.'},
+    {chinese:'那',pinyin:'nà',english:'that; then / in that case (conjunction)',type:'word',example:'那咱们今天不吃包子，吃饺子。In that case, let\'s not have buns today — let\'s have dumplings.'},
+    {chinese:'怎么样',pinyin:'zěnmeyàng',english:'how about / what do you think / how is it',type:'word',example:'咱们今天吃面条儿，怎么样？How about we have noodles today?'},
+    {chinese:'主意',pinyin:'zhǔyi',english:'idea / plan',type:'word',example:'好主意！Great idea!'},
+    {chinese:'好主意',pinyin:'hǎo zhǔyi',english:'good idea!',type:'phrase',example:'咱们今天吃饺子吧！好主意！Let\'s have dumplings today! — Good idea!'},
+    {chinese:'特价',pinyin:'tèjià',english:'special offer / on sale',type:'word',example:'今天这种蛋糕特价。This type of cake is on special offer today.'},
+    {chinese:'打折',pinyin:'dǎzhé',english:'discount / on sale (50% off etc.)',type:'word',example:'这个蛋糕打折，真便宜！This cake is discounted — really cheap!'},
+    {chinese:'欢迎光临',pinyin:'huānyíng guānglín',english:'welcome! (used by staff greeting customers)',type:'phrase',example:'欢迎光临！Welcome to our store!'},
+    {chinese:'光临',pinyin:'guānglín',english:'to visit / to come (respectful/formal)',type:'word',example:'欢迎光临！Welcome!'},
+    {chinese:'请问',pinyin:'qǐngwèn',english:'excuse me / may I ask',type:'phrase',example:'请问，您想喝点儿什么？Excuse me, what would you like to drink?'},
+    {chinese:'您',pinyin:'nín',english:'you (formal / respectful form of 你)',type:'word',example:'请问，您想喝点儿什么？What would you like to drink, sir/madam?'},
+    {chinese:'喝',pinyin:'hē',english:'to drink',type:'word',example:'你想喝咖啡还是茶？Do you want to drink coffee or tea?'},
+    {chinese:'点儿',pinyin:'diǎnr',english:'a little / some (softens the quantity)',type:'word',example:'您想喝点儿什么？What would you like to drink?'},
+    {chinese:'红茶',pinyin:'hóngchá',english:'black tea (literally "red tea")',type:'word',example:'我要一杯红茶。I\'d like a cup of black tea.'},
+    {chinese:'大',pinyin:'dà',english:'big / large',type:'word',example:'你想要大杯还是小杯？Do you want a large or small cup?'},
+    {chinese:'小',pinyin:'xiǎo',english:'small',type:'word',example:'你想要大杯还是小杯？Do you want a large or small cup?'},
+    {chinese:'种',pinyin:'zhǒng',english:'kind / type / sort (measure word)',type:'word',example:'这里有多少种水果？How many kinds of fruit are there here?'},
+    {chinese:'蛋糕',pinyin:'dàngāo',english:'cake',type:'word',example:'今天这种蛋糕特价。This type of cake is on special offer today.'},
+    {chinese:'真',pinyin:'zhēn',english:'really / truly (exclamation intensifier)',type:'word',example:'这个蛋糕真好吃！This cake is really delicious!'},
+    {chinese:'贵',pinyin:'guì',english:'expensive',type:'word',example:'太贵了！便宜点儿吧。Way too expensive! A bit cheaper please.'},
+    {chinese:'便宜',pinyin:'piányí',english:'cheap / inexpensive',type:'word',example:'真便宜！我们买点儿吧。Really cheap! Let\'s buy some.'},
+    {chinese:'刷卡',pinyin:'shuā kǎ',english:'pay by card / swipe a card',type:'phrase',example:'您想刷卡还是付现金？Would you like to pay by card or cash?'},
+    {chinese:'付现金',pinyin:'fù xiànjīn',english:'pay cash',type:'phrase',example:'你现在有现金吗？Do you have cash on you?'},
+    {chinese:'矿泉水',pinyin:'kuàngquánshuǐ',english:'mineral water',type:'word',example:'你想要咖啡、茶还是矿泉水？Do you want coffee, tea, or mineral water?'},
+    {chinese:'西瓜',pinyin:'xīguā',english:'watermelon',type:'word',example:'她想买西瓜还是苹果？Does she want to buy watermelon or apple?'},
+    {chinese:'咖啡',pinyin:'kāfēi',english:'coffee',type:'word',example:'你喜欢喝哪种咖啡？Which kind of coffee do you like?'},
   ]},
   {id:'lesson:g2',fileName:'1__九月去北京旅游最好.pdf',lessonTitle:'HSK2 L1 — Writing Practice Characters',category:'Daily Life',date:'2025-04-07T10:00:00Z',wordCount:12,vocabulary:[
     {chinese:'旅',pinyin:'lǚ',english:'travel / journey (character component)',type:'word',example:'旅游 lǚyóu — to travel'},
@@ -803,7 +840,7 @@ function loadLessons(){
   const keys=ls.keys('lesson:');
   const ver=ls.get('mn-ver');
   const isJames=currentUser.id==='james';
-  const targetVer=isJames?'8':'2';
+  const targetVer=isJames?'8':'3';
   if(isJames&&(!keys.length||ver!==targetVer)){
     SAMPLE.forEach(s=>ls.set(s.id,JSON.stringify(s)));
     ls.set('mn-ver',targetVer);
