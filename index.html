@@ -275,43 +275,115 @@ td { padding:13px 16px; font-size:.92rem; vertical-align:middle; }
 .prac-res-num   { font-family:var(--serif); font-size:1.6rem; font-weight:500; }
 .prac-res-lbl   { font-size:.75rem; color:var(--faint); text-transform:uppercase; letter-spacing:.06em; margin-top:3px; }
 
+/* ════════════════════════════════
+   MOBILE — full phone experience
+════════════════════════════════ */
 @media (max-width:680px) {
-  .topbar { padding:0 .75rem; height:auto; flex-wrap:wrap; padding-top:.5rem; padding-bottom:.5rem; gap:6px; }
-  .brand-name { display:none; }
-  .brand-count { display:none; }
-  .nav { flex-wrap:wrap; gap:2px; }
-  .nav-btn { padding:5px 9px; font-size:.72rem; }
-  .main { padding:.85rem; }
+  /* topbar stripped down */
+  .topbar {
+    padding:0 1rem;
+    height:52px;
+  }
+  .brand-name, .brand-count { display:none; }
+  .nav { display:none; } /* hidden — replaced by bottom bar */
+
+  /* main gets bottom padding for the tab bar */
+  .main { padding:.9rem .9rem 80px; }
+
+  /* BOTTOM TAB BAR */
+  .mob-nav {
+    display:flex !important;
+    position:fixed; bottom:0; left:0; right:0; z-index:200;
+    background:var(--surface);
+    border-top:1px solid var(--border2);
+    height:62px;
+    padding-bottom:env(safe-area-inset-bottom);
+  }
+  .mob-tab {
+    flex:1; display:flex; flex-direction:column; align-items:center;
+    justify-content:center; gap:3px;
+    background:transparent; border:none;
+    cursor:pointer; padding:8px 4px;
+    font-family:var(--sans); transition:color .15s;
+    color:var(--faint);
+    -webkit-tap-highlight-color:transparent;
+  }
+  .mob-tab.active { color:var(--red); }
+  .mob-tab-icon  { font-size:20px; line-height:1; }
+  .mob-tab-label { font-size:.6rem; letter-spacing:.03em; }
+
+  /* stats */
   .stats-grid { grid-template-columns:repeat(3,1fr); gap:7px; margin-bottom:1rem; }
-  .stat-num { font-size:1.3rem; }
-  .stat-lbl { font-size:.6rem; }
-  .filter-bar { gap:6px; }
-  .search-inp { font-size:.82rem; }
-  .sel { font-size:.75rem; padding:7px 8px; }
+  .stat-num { font-size:1.2rem; }
+  .stat-lbl { font-size:.58rem; }
+
+  /* filters stack vertically */
+  .filter-bar { flex-direction:column; gap:7px; }
+  .search-wrap { min-width:unset; }
+  .search-inp { font-size:.88rem; }
+  .sel { font-size:.82rem; width:100%; }
+
+  /* vocab CARDS on mobile instead of table */
+  .tbl-wrap { display:none; }
+  .mob-cards { display:flex !important; flex-direction:column; gap:10px; }
+  .mob-vcard {
+    background:var(--card); border:1px solid var(--border);
+    border-radius:var(--r-lg); padding:1rem 1.1rem;
+    cursor:default;
+  }
+  .mob-vcard-zh  { font-family:var(--zh); font-size:1.8rem; line-height:1.2; margin-bottom:3px; }
+  .mob-vcard-pin { font-family:var(--mono); font-style:italic; color:var(--gold); font-size:.85rem; margin-bottom:6px; }
+  .mob-vcard-eng { font-size:.9rem; color:#ccc5bb; line-height:1.5; margin-bottom:7px; }
+  .mob-vcard-foot { display:flex; align-items:center; justify-content:space-between; gap:6px; }
+  .mob-vcard-ex { font-size:.8rem; color:var(--muted); font-style:italic; margin-top:8px; padding-top:8px; border-top:1px solid var(--border); line-height:1.55; }
+
+  /* lessons grid */
   .lessons-grid { grid-template-columns:1fr; }
+  .lessons-hdr { flex-direction:column; align-items:flex-start; gap:10px; }
+
+  /* practice setup */
+  .prac-setup { max-width:100%; }
   .prac-modes { grid-template-columns:1fr 1fr; gap:8px; }
-  .prac-mode-card { padding:1rem .85rem; }
-  .prac-mode-icon { font-size:1.6rem; margin-bottom:.4rem; }
-  .prac-mode-title { font-size:.88rem; }
-  .prac-mode-desc { font-size:.72rem; }
+  .prac-mode-card { padding:.9rem .75rem; }
+  .prac-mode-icon  { font-size:1.5rem; margin-bottom:.35rem; }
+  .prac-mode-title { font-size:.85rem; }
+  .prac-mode-desc  { font-size:.7rem; }
   .prac-opts { padding:1rem; }
-  .prac-opts-row { gap:8px; }
-  .prac-lbl { min-width:60px; font-size:.8rem; }
-  .count-chip { padding:5px 12px; font-size:.78rem; }
-  .fc-card { min-height:220px; padding:1.75rem 1.25rem; }
-  .fc-zh-lg { font-size:clamp(1.4rem,8vw,2.8rem); }
+  .prac-opts-row { flex-direction:column; align-items:flex-start; gap:6px; }
+  .prac-lbl { min-width:unset; font-size:.82rem; }
+  .count-chips { gap:6px; }
+  .count-chip { padding:7px 14px; font-size:.8rem; }
+  .sel { font-size:.82rem; }
+
+  /* flashcard */
+  .fc-card { min-height:200px; padding:1.5rem 1rem; }
+  .fc-zh-lg { font-size:clamp(1.5rem,9vw,2.8rem); }
+  .fc-zh-sm { font-size:clamp(1rem,4vw,1.3rem); }
   .fc-eng-lg { font-size:1rem; }
-  .fc-eng-row { font-size:.95rem; }
+  .fc-eng-row { font-size:.9rem; }
   .fc-pin-row { font-size:.95rem; }
   .fc-actions { gap:8px; }
-  .fc-btn { font-size:.85rem; padding:12px 10px; }
+  .fc-btn { font-size:.88rem; padding:14px 8px; }
+
+  /* quiz */
   .qz-opts { grid-template-columns:1fr; gap:8px; }
-  .qz-q-zh { font-size:2.5rem; }
-  .qz-opt { padding:14px; font-size:.88rem; }
+  .qz-q-zh { font-size:2.8rem; }
+  .qz-q-card { padding:2rem 1.25rem; }
+  .qz-opt { padding:15px 14px; font-size:.9rem; }
+
+  /* type-in */
+  .type-card { padding:2rem 1rem; }
+
+  /* upload */
   .upload-wrap { max-width:100%; }
   .upload-types { grid-template-columns:1fr 1fr; }
+
+  /* results */
   .prac-results { max-width:100%; }
   .prac-res-grid { gap:8px; }
+
+  /* sentence analyser */
+  #sn-ta { min-height:90px; font-size:.9rem; }
 }
 </style>
 </head>
@@ -361,6 +433,25 @@ td { padding:13px 16px; font-size:.92rem; vertical-align:middle; }
     <button onclick="openRename()" title="Rename your profile" style="background:transparent;border:1px solid var(--border);border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--faint);font-size:14px;transition:all .15s;flex-shrink:0" onmouseover="this.style.color='var(--text)';this.style.borderColor='var(--border2)'" onmouseout="this.style.color='var(--faint)';this.style.borderColor='var(--border)'">✎</button>
   </div>
   <div class="main" id="main"></div>
+
+  <!-- MOBILE BOTTOM TAB BAR -->
+  <nav class="mob-nav" id="mob-nav" style="display:none">
+    <button class="mob-tab active" id="mob-review"    onclick="gotoTab('review')">
+      <span class="mob-tab-icon">📖</span><span class="mob-tab-label">Review</span>
+    </button>
+    <button class="mob-tab" id="mob-practice"  onclick="gotoTab('practice')">
+      <span class="mob-tab-icon">🎴</span><span class="mob-tab-label">Practice</span>
+    </button>
+    <button class="mob-tab" id="mob-sentences" onclick="gotoTab('sentences')">
+      <span class="mob-tab-icon">✂️</span><span class="mob-tab-label">Sentences</span>
+    </button>
+    <button class="mob-tab" id="mob-lessons"   onclick="gotoTab('lessons')">
+      <span class="mob-tab-icon">📚</span><span class="mob-tab-label">Lessons</span>
+    </button>
+    <button class="mob-tab" id="mob-upload"    onclick="gotoTab('upload')">
+      <span class="mob-tab-icon">⬆</span><span class="mob-tab-label">Upload</span>
+    </button>
+  </nav>
 
   <!-- RENAME MODAL -->
   <div id="rename-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:999;align-items:center;justify-content:center;padding:1rem">
@@ -796,6 +887,9 @@ function selectUser(id){
   localStorage.setItem('mn-last-user',id);
   document.getElementById('pg-profiles').style.display='none';
   document.getElementById('pg-app').style.display='flex';
+  // show bottom nav on mobile
+  const mobNav=document.getElementById('mob-nav');
+  if(mobNav && isMobile()) mobNav.style.display='flex';
   // update topbar
   const nm=getProfileName(profile);
   const dot=document.getElementById('user-dot');
@@ -875,13 +969,23 @@ function deleteWord(lessonId,chinese){
 }
 
 /* ── nav ── */
+function isMobile(){ return window.innerWidth<=680; }
+
 function gotoTab(tab){
   curTab=tab; expanded=new Set();
   if(tab!=='upload'){busy=false;upMsg='';upPct=0;upOk=false;upErr=false;}
   if(tab==='practice'){pr.screen='setup';}
   if(tab==='sentences'){sn.preview=null;sn.msg='';sn.ok=false;sn.err=false;}
-  ['review','practice','sentences','lessons','upload'].forEach(t=>{const b=document.getElementById('nav-'+t);if(b)b.className='nav-btn'+(t===tab?' active':'');});
+  // update desktop nav
+  ['review','practice','sentences','lessons','upload'].forEach(t=>{
+    const b=document.getElementById('nav-'+t);
+    if(b) b.className='nav-btn'+(t===tab?' active':'');
+    const m=document.getElementById('mob-'+t);
+    if(m) m.className='mob-tab'+(t===tab?' active':'');
+  });
   render();
+  // scroll to top on tab switch (mobile)
+  if(isMobile()) window.scrollTo({top:0,behavior:'smooth'});
 }
 function toggleRow(i){expanded.has(i)?expanded.delete(i):expanded.add(i);render();}
 
@@ -956,7 +1060,31 @@ function renderReview(){
     h+=`</tr>`;
     if(hasEx&&exp)h+=`<tr class="ex-row"><td colspan="9" style="padding:8px 14px 11px 42px"><span style="font-size:.67rem;color:var(--faint);text-transform:uppercase;letter-spacing:.07em;margin-right:8px">Example</span><span style="font-size:.82rem;color:var(--muted);font-style:italic">${esc(v.example)}</span></td></tr>`;
   });
-  h+=`</tbody></table></div>`;return h;
+  h+=`</tbody></table></div>`;
+
+  /* ── MOBILE VOCAB CARDS (hidden on desktop via CSS) ── */
+  h+=`<div class="mob-cards" style="display:none">`;
+  fil.forEach((v,i)=>{
+    const hasEx=!!v.example;
+    const safeZh=v.chinese.replace(/'/g,"\\'").replace(/"/g,'&quot;');
+    const safeLid=v._lid.replace(/'/g,"\\'");
+    h+=`<div class="mob-vcard">`;
+    h+=`<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px">`;
+    h+=`<div class="mob-vcard-zh">${esc(v.chinese)}</div>`;
+    h+=`<button onclick="deleteWord('${safeLid}','${safeZh}')" style="background:transparent;border:none;color:var(--faint);cursor:pointer;font-size:1.1rem;padding:4px;line-height:1;margin-top:2px">&times;</button>`;
+    h+=`</div>`;
+    h+=`<div class="mob-vcard-pin">${esc(v.pinyin)}</div>`;
+    h+=`<div class="mob-vcard-eng">${esc(v.english)}</div>`;
+    h+=`<div class="mob-vcard-foot">`;
+    h+=`<div style="display:flex;gap:5px;flex-wrap:wrap">${bdg(v.type||'word',tc(v.type))} ${bdg(v._lc,cc(v._lc))}</div>`;
+    h+=`<div style="font-size:.72rem;color:var(--faint)">${v._lt.length>18?v._lt.slice(0,18)+'…':v._lt}</div>`;
+    h+=`</div>`;
+    if(hasEx) h+=`<div class="mob-vcard-ex">${esc(v.example)}</div>`;
+    h+=`</div>`;
+  });
+  h+=`</div>`;
+
+  return h;
 }
 
 /* ════════════════════════════════
