@@ -551,6 +551,29 @@ const SAMPLE = [
     {chinese:'临时抱佛脚',pinyin:'lín shí bào fó jiǎo',english:'cram at the last minute / seek help only when desperate',type:'idiom',example:'平时不学习，考试前来临时抱佛脚，怎么可能考得好？Never study then cram before the exam — how can you do well?'},
     {chinese:'功夫',pinyin:'gōng fū',english:'kung fu / martial arts / skill',type:'word',example:''},
   ]},
+  {id:'lesson:s15',fileName:'james_笔记.docx',lessonTitle:'Grammar Notes — 连续 & Daily Vocab',category:'Daily Life',date:'2025-04-13T09:00:00Z',wordCount:20,vocabulary:[
+    {chinese:'连续',pinyin:'liánxù',english:'continuously / in a row / consecutively',type:'word',example:'我连续睡了八个小时。I slept for eight hours straight.'},
+    {chinese:'连续 + 一段时间',pinyin:'liánxù + yī duàn shíjiān',english:'grammar: continuously for a period of time',type:'phrase',example:'连续半个月。Continuously for half a month.'},
+    {chinese:'连续半个月',pinyin:'liánxù bàn gè yuè',english:'for half a month in a row / continuously for half a month',type:'phrase',example:'连续半个月都要打车上班。I had to take a taxi to work every day for half a month in a row.'},
+    {chinese:'连续 + V了 + 时间',pinyin:'liánxù + V le + shíjiān',english:'grammar pattern: continuously did [verb] for [time]',type:'phrase',example:'我连续睡了八个小时。I slept continuously for eight hours.'},
+    {chinese:'我连续睡了八个小时',pinyin:'wǒ liánxù shuì le bā gè xiǎoshí',english:'I slept continuously / straight for eight hours.',type:'sentence',example:''},
+    {chinese:'我的车坏了',pinyin:'wǒ de chē huài le',english:'my car broke down',type:'sentence',example:'我的车坏了，要修一个周，所以连续一个周都要打车上班。My car broke down — it needs a week to fix, so I had to take taxis to work for a whole week.'},
+    {chinese:'打车',pinyin:'dǎ chē',english:'take a taxi / hail a cab',type:'phrase',example:'我连续一个周都要打车上班。I had to take taxis to work every day for a week.'},
+    {chinese:'挣钱',pinyin:'zhèng qián',english:'earn money / make money (through labour)',type:'word',example:''},
+    {chinese:'赚钱',pinyin:'zhuàn qián',english:'make money / earn a profit (more general)',type:'word',example:''},
+    {chinese:'如果需要买东西，我都在淘宝上买',pinyin:'rúguǒ xūyào mǎi dōngxi, wǒ dōu zài Táobǎo shàng mǎi',english:'If I need to buy something, I always buy it on Taobao.',type:'sentence',example:''},
+    {chinese:'商店',pinyin:'shāngdiàn',english:'shop / store',type:'word',example:''},
+    {chinese:'付',pinyin:'fù',english:'pay / pay for',type:'word',example:'你想刷卡还是付现金？Do you want to pay by card or cash?'},
+    {chinese:'小朋友',pinyin:'xiǎo péngyou',english:'young child / little one (friendly term)',type:'word',example:''},
+    {chinese:'同事',pinyin:'tóngshì',english:'colleague / co-worker',type:'word',example:''},
+    {chinese:'注意力容易分散',pinyin:'zhùyìlì róngyì fēnsàn',english:'attention is easily distracted / easily loses focus',type:'phrase',example:'注意力容易分散。My attention is easily distracted.'},
+    {chinese:'教',pinyin:'jiāo',english:'teach / to instruct',type:'word',example:''},
+    {chinese:'曾经',pinyin:'céng jīng',english:'once / previously / used to (past experience)',type:'word',example:'我曾经在中国住过。I used to live in China.'},
+    {chinese:'严重',pinyin:'yánzhòng',english:'serious / severe / grave',type:'word',example:'问题很严重。The problem is very serious.'},
+    {chinese:'缓解',pinyin:'huǎnjiě',english:'relieve / ease / alleviate',type:'word',example:'这个方法可以缓解焦虑。This method can relieve anxiety.'},
+    {chinese:'焦虑',pinyin:'jiāolǜ',english:'anxiety / anxious / worried',type:'word',example:'这个方法可以缓解焦虑。This method can relieve anxiety.'},
+    {chinese:'大概',pinyin:'dàgài',english:'approximately / roughly / probably',type:'word',example:'大概需要一个小时。It takes approximately one hour.'},
+  ]},
   {id:'lesson:s14',fileName:'Sentence Analysis',lessonTitle:'Booking Classes & Scheduling',category:'Daily Life',date:'2025-04-06T09:00:00Z',vocabulary:[
     {chinese:'修改',pinyin:'xiūgǎi',english:'modify / change / edit / revise',type:'word',example:'我修改了我的预约时间。I modified my appointment time.'},
     {chinese:'预约',pinyin:'yùyuē',english:'book / make an appointment / reservation',type:'word',example:'如果你想预约今天晚上的课堂。If you want to book tonight\'s class.'},
@@ -747,8 +770,8 @@ let pr={
    USER SYSTEM
 ════════════════════════════════ */
 const PROFILES = [
-  {id:'james', defaultName:'Dudu',    color:'#C93A2B', sampleKey:'james_mn-ver', sampleVer:'8'},
-  {id:'gf',    defaultName:'Bubu',    color:'#C4699A', sampleKey:'gf_mn-ver',   sampleVer:'3'},
+  {id:'james', defaultName:'Dudu',    color:'#C93A2B', sampleKey:'james_mn-ver', sampleVer:'9'},
+  {id:'gf',    defaultName:'Bubu',    color:'#C4699A', sampleKey:'gf_mn-ver',   sampleVer:'4'},
 ];
 let currentUser = null;
 
@@ -777,6 +800,38 @@ const GF_SAMPLE = [
     {chinese:'冰淇淋',pinyin:'bīngqílín',english:'ice cream',type:'word',example:'我最喜欢吃冰淇淋！I love ice cream the most!'},
     {chinese:'椅子',pinyin:'yǐzi',english:'chair',type:'word',example:'我们要不要买几个新的椅子？Shall we buy some new chairs?'},
     {chinese:'桌子下面',pinyin:'zhuōzi xiàmiàn',english:'under the table / beneath the table',type:'phrase',example:'桌子下面有个猫。There is a cat under the table.'},
+  ]},
+  {id:'lesson:g4',fileName:'360句第2册_Lesson2_教学PPT_.pptx',lessonTitle:'360句 L2 — 爸妈身体怎么样',category:'People & Relationships',date:'2025-04-14T09:00:00Z',wordCount:30,vocabulary:[
+    {chinese:'住',pinyin:'zhù',english:'to live / to reside',type:'word',example:'我住在广州。你住在哪儿？I live in Guangzhou. Where do you live?'},
+    {chinese:'住在',pinyin:'zhù zài',english:'live in / live at (a place)',type:'phrase',example:'你喜欢住在这儿吗？Do you like living here?'},
+    {chinese:'层',pinyin:'céng',english:'floor / level / storey (measure word)',type:'word',example:'我住12层，1206房间。I live on the 12th floor, room 1206.'},
+    {chinese:'高兴',pinyin:'gāoxìng',english:'happy / pleased / glad',type:'word',example:'很高兴认识你。Nice to meet you. (lit. Very happy to know you)'},
+    {chinese:'认识',pinyin:'rènshi',english:'know / be acquainted with / meet',type:'word',example:'很高兴认识你。Nice to meet you.'},
+    {chinese:'很高兴认识你',pinyin:'hěn gāoxìng rènshi nǐ',english:'Nice to meet you! (standard greeting)',type:'phrase',example:'很高兴认识你。我也很高兴认识你。Nice to meet you. — Nice to meet you too.'},
+    {chinese:'狗',pinyin:'gǒu',english:'dog',type:'word',example:'你想要一只狗还是一只猫？Do you want a dog or a cat?'},
+    {chinese:'猫',pinyin:'māo',english:'cat',type:'word',example:'这只猫叫Fluffy，今年3岁。This cat is called Fluffy, she is 3 years old.'},
+    {chinese:'胖',pinyin:'pàng',english:'fat / chubby',type:'word',example:'我的小猫非常胖！My little cat is extremely chubby!'},
+    {chinese:'瘦',pinyin:'shòu',english:'thin / slim / skinny',type:'word',example:'这只猫胖吗？Is this cat fat?'},
+    {chinese:'可爱',pinyin:'kě ài',english:'cute / adorable',type:'word',example:'这只狗真可爱！This dog is really cute!'},
+    {chinese:'别',pinyin:'bié',english:"don't / do not (giving commands or advice)",type:'word',example:'别担心！Don\'t worry! / 别说英文！Don\'t speak English!'},
+    {chinese:'别担心',pinyin:'bié dānxīn',english:"don't worry",type:'phrase',example:'别担心，你爸妈的身体很好。Don\'t worry, your parents are in good health.'},
+    {chinese:'担心',pinyin:'dānxīn',english:'worry / be worried about',type:'word',example:'妈妈很担心。Mom is very worried.'},
+    {chinese:'身体',pinyin:'shēntǐ',english:'body / health / physical condition',type:'word',example:'你身体怎么样？How is your health?'},
+    {chinese:'放心',pinyin:'fàngxīn',english:'be at ease / stop worrying / rest assured',type:'word',example:'你的身体很好，你放心吧。Your health is fine, you can relax.'},
+    {chinese:'对了',pinyin:'duì le',english:'by the way / oh right (changes topic suddenly)',type:'phrase',example:'对了，周末是大卫的生日。By the way, this weekend is David\'s birthday.'},
+    {chinese:'照片',pinyin:'zhàopiàn',english:'photo / photograph',type:'word',example:'我可以看你家人的照片吗？May I look at your family photos?'},
+    {chinese:'个子',pinyin:'gèzi',english:'height / stature / build',type:'word',example:'他的个子真高！He is really tall!'},
+    {chinese:'高',pinyin:'gāo',english:'tall / high',type:'word',example:'我的健身教练个子真高！My personal trainer is really tall!'},
+    {chinese:'矮',pinyin:'ǎi',english:'short (height)',type:'word',example:'他的个子高不高？Is he tall or short?'},
+    {chinese:'健身',pinyin:'jiànshēn',english:'work out / keep fit / bodybuilding',type:'word',example:'你每天健身吗？Do you work out every day?'},
+    {chinese:'健身房',pinyin:'jiànshēnfáng',english:'gym / fitness centre',type:'word',example:'他在健身房健身。He works out at the gym.'},
+    {chinese:'教练',pinyin:'jiàoliàn',english:'coach / trainer / instructor',type:'word',example:'他是健身教练。He is a personal trainer.'},
+    {chinese:'非常',pinyin:'fēicháng',english:'very / extremely / exceptionally',type:'word',example:'小猫非常可爱！The kitten is extremely cute!'},
+    {chinese:'周末',pinyin:'zhōumò',english:'weekend',type:'word',example:'你这个周末想做什么？What do you want to do this weekend?'},
+    {chinese:'休息',pinyin:'xiūxi',english:'rest / take a break',type:'word',example:'他太累了，要休息一下。He is too tired, needs to take a break.'},
+    {chinese:'正反疑问句',pinyin:'zhèngfǎn yíwènjù',english:'affirmative-negative question (V + 不/没 + V pattern)',type:'phrase',example:'你忙不忙？你有没有男朋友？你想不想吃饺子？Are you busy? Do you have a boyfriend? Do you want dumplings?'},
+    {chinese:'主谓谓语句',pinyin:'zhǔwèi wèiyǔ jù',english:'S-P predicate sentence (subject described by a S-P phrase)',type:'phrase',example:'他个子很高。她身体不好。它眼睛真大！He is tall. She is unwell. Its eyes are really big!'},
+    {chinese:'别说英文',pinyin:'bié shuō Yīngwén',english:"Don't speak English! (common classroom phrase)",type:'sentence',example:'别说英文！说中文！Don\'t speak English! Speak Chinese!'},
   ]},
   {id:'lesson:g3',fileName:'360句第2册_Lesson1_教学PPT_.pptx',lessonTitle:'360句 L1 — 请问您想喝点儿什么',category:'Daily Life',date:'2025-04-07T11:00:00Z',wordCount:35,vocabulary:[
     {chinese:'包子',pinyin:'bāozi',english:'steamed bun (filled)',type:'word',example:'你要吃包子吗？Do you want to eat steamed buns?'},
@@ -934,7 +989,7 @@ function loadLessons(){
   const keys=ls.keys('lesson:');
   const ver=ls.get('mn-ver');
   const isJames=currentUser.id==='james';
-  const targetVer=isJames?'8':'3';
+  const targetVer=isJames?'9':'4';
   if(isJames&&(!keys.length||ver!==targetVer)){
     SAMPLE.forEach(s=>ls.set(s.id,JSON.stringify(s)));
     ls.set('mn-ver',targetVer);
