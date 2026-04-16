@@ -278,6 +278,47 @@ td { padding:13px 16px; font-size:.92rem; vertical-align:middle; }
 /* ════════════════════════════════
    MOBILE — full phone experience
 ════════════════════════════════ */
+/* ── HSK TAB ── */
+.hsk-header { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; margin-bottom:1.25rem; }
+.hsk-level-tabs { display:flex; gap:6px; flex-wrap:wrap; }
+.hsk-lvl { background:var(--card); border:1.5px solid var(--border); border-radius:99px; padding:6px 18px; font-size:.82rem; color:var(--muted); cursor:pointer; transition:all .15s; font-family:var(--sans); }
+.hsk-lvl:hover  { border-color:var(--border2); color:var(--text); }
+.hsk-lvl.active { background:var(--red); border-color:var(--red); color:#fff; font-weight:500; }
+.hsk-prog { background:var(--card); border:1px solid var(--border); border-radius:var(--r-lg); padding:1rem 1.25rem; margin-bottom:1.25rem; display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+.hsk-prog-bar { flex:1; min-width:120px; height:8px; background:var(--border2); border-radius:4px; overflow:hidden; }
+.hsk-prog-fill { height:100%; background:var(--green); border-radius:4px; transition:width .4s ease; }
+.hsk-view-tabs { display:flex; gap:6px; margin-bottom:1.1rem; }
+.hsk-vtab { background:transparent; border:1px solid var(--border2); border-radius:var(--r-sm); padding:7px 16px; font-size:.82rem; color:var(--muted); cursor:pointer; font-family:var(--sans); transition:all .15s; }
+.hsk-vtab:hover  { color:var(--text); }
+.hsk-vtab.active { background:var(--card2); color:var(--text); border-color:var(--border2); }
+.hsk-words-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:10px; }
+.hsk-wcard { background:var(--card); border:1px solid var(--border); border-radius:var(--r-md); padding:1rem; display:flex; flex-direction:column; gap:4px; position:relative; transition:border-color .15s; }
+.hsk-wcard.mastered { opacity:.45; border-style:dashed; }
+.hsk-wcard-zh  { font-family:var(--zh); font-size:1.5rem; line-height:1.2; }
+.hsk-wcard-pin { font-family:var(--mono); font-style:italic; color:var(--gold); font-size:.8rem; }
+.hsk-wcard-eng { font-size:.82rem; color:#ccc5bb; line-height:1.45; flex:1; }
+.hsk-wcard-ex  { font-size:.75rem; color:var(--muted); font-style:italic; margin-top:4px; }
+.hsk-wcard-foot { display:flex; align-items:center; justify-content:space-between; margin-top:8px; }
+.hsk-mask-btn { background:transparent; border:1px solid var(--border); border-radius:99px; padding:3px 10px; font-size:.68rem; cursor:pointer; font-family:var(--sans); transition:all .15s; white-space:nowrap; }
+.hsk-mask-btn.mask-on  { color:#4dd892; border-color:#2d9e6b55; background:#1a4a3022; }
+.hsk-mask-btn.mask-off { color:var(--faint); }
+.hsk-mask-btn:hover { border-color:var(--border2); color:var(--text); }
+
+/* Exercise */
+.hsk-ex-card { background:var(--card); border:1px solid var(--border2); border-radius:var(--r-lg); padding:2rem 1.75rem; margin-bottom:1.25rem; }
+.hsk-ex-q    { font-size:1.05rem; color:var(--text); line-height:1.8; margin-bottom:1.25rem; }
+.hsk-ex-blank { display:inline-block; border-bottom:2px solid var(--red); min-width:80px; text-align:center; padding:0 8px; font-family:var(--zh); font-size:1.1rem; }
+.hsk-ex-opts  { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:1rem; }
+.hsk-ex-opt   { background:var(--card2); border:1.5px solid var(--border); border-radius:var(--r-md); padding:12px 16px; font-size:.9rem; color:var(--text); cursor:pointer; font-family:var(--sans); transition:all .15s; text-align:left; line-height:1.4; }
+.hsk-ex-opt:hover:not(:disabled) { border-color:var(--border2); background:var(--card); }
+.hsk-ex-opt.correct { background:#122a1e; border-color:#2d9e6b; color:#4dd892; }
+.hsk-ex-opt.wrong   { background:#2a1212; border-color:#c93a2b; color:#f08080; }
+.hsk-ex-opt.reveal  { background:#122a1e; border-color:#2d9e6b55; color:#4dd892; }
+.hsk-ex-opt:disabled { cursor:default; }
+.hsk-ex-feedback { text-align:center; font-size:.9rem; margin-bottom:.75rem; min-height:22px; }
+.hsk-ex-feedback.ok  { color:#4dd892; }
+.hsk-ex-feedback.bad { color:#f08080; }
+
 @media (max-width:680px) {
   /* topbar stripped down */
   .topbar {
@@ -423,6 +464,7 @@ td { padding:13px 16px; font-size:.92rem; vertical-align:middle; }
       <button class="nav-btn"        id="nav-practice"  onclick="gotoTab('practice')">🎴 Practice</button>
       <button class="nav-btn"        id="nav-sentences" onclick="gotoTab('sentences')">✂️ Sentences</button>
       <button class="nav-btn"        id="nav-lessons"   onclick="gotoTab('lessons')">📚 Lessons</button>
+      <button class="nav-btn"        id="nav-hsk"       onclick="gotoTab('hsk')">🏆 HSK</button>
       <button class="nav-btn"        id="nav-upload"    onclick="gotoTab('upload')">⬆ Upload PDF</button>
     </nav>
     <button onclick="switchUser()" style="background:transparent;border:1px solid var(--border2);border-radius:99px;padding:5px 14px;color:var(--muted);font-size:.78rem;font-family:var(--sans);cursor:pointer;display:flex;align-items:center;gap:7px;white-space:nowrap;transition:all .15s" id="user-btn" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--muted)'">
@@ -442,8 +484,8 @@ td { padding:13px 16px; font-size:.92rem; vertical-align:middle; }
     <button class="mob-tab" id="mob-practice"  onclick="gotoTab('practice')">
       <span class="mob-tab-icon">🎴</span><span class="mob-tab-label">Practice</span>
     </button>
-    <button class="mob-tab" id="mob-sentences" onclick="gotoTab('sentences')">
-      <span class="mob-tab-icon">✂️</span><span class="mob-tab-label">Sentences</span>
+    <button class="mob-tab" id="mob-hsk"       onclick="gotoTab('hsk')">
+      <span class="mob-tab-icon">🏆</span><span class="mob-tab-label">HSK</span>
     </button>
     <button class="mob-tab" id="mob-lessons"   onclick="gotoTab('lessons')">
       <span class="mob-tab-icon">📚</span><span class="mob-tab-label">Lessons</span>
@@ -550,6 +592,40 @@ const SAMPLE = [
     {chinese:'抢风头',pinyin:'qiǎng fēng tóu',english:'steal the spotlight / upstage others / hog the limelight',type:'idiom',example:'开会的时候，他总喜欢抢风头，别人说话他总打断。In meetings he always steals the spotlight and interrupts everyone.'},
     {chinese:'临时抱佛脚',pinyin:'lín shí bào fó jiǎo',english:'cram at the last minute / seek help only when desperate',type:'idiom',example:'平时不学习，考试前来临时抱佛脚，怎么可能考得好？Never study then cram before the exam — how can you do well?'},
     {chinese:'功夫',pinyin:'gōng fū',english:'kung fu / martial arts / skill',type:'word',example:''},
+  ]},
+  {id:'lesson:s16',fileName:'James笔记.docx',lessonTitle:'Cars, Housing & Daily Life',category:'Daily Life',date:'2025-04-16T09:00:00Z',wordCount:30,vocabulary:[
+    {chinese:'引擎盖',pinyin:'yǐnqíng gài',english:'bonnet / hood (of a car)',type:'word',example:''},
+    {chinese:'路怒症',pinyin:'lù nù zhèng',english:'road rage',type:'phrase',example:'他有路怒症。He has road rage.'},
+    {chinese:'后备箱',pinyin:'hòubèi xiāng',english:'car boot / trunk',type:'word',example:'把东西放在后备箱里。Put the things in the boot.'},
+    {chinese:'棍子',pinyin:'gùnzi',english:'stick / rod / club',type:'word',example:'他手里拿着棍子。He was holding a stick.'},
+    {chinese:'砸',pinyin:'zá',english:'smash / hit / break',type:'word',example:'他砸了车窗。He smashed the car window.'},
+    {chinese:'轻',pinyin:'qīng',english:'light (weight) / gentle / not serious',type:'word',example:'这个很轻。This is very light.'},
+    {chinese:'重',pinyin:'zhòng',english:'heavy / serious / important',type:'word',example:'这个很重。This is very heavy.'},
+    {chinese:'铁',pinyin:'tiě',english:'iron (metal)',type:'word',example:'铁棍。An iron rod.'},
+    {chinese:'恐怖',pinyin:'kǒngbù',english:'terrifying / horrifying / terror',type:'word',example:'这个故事很恐怖。This story is terrifying.'},
+    {chinese:'恐怖片',pinyin:'kǒngbù piān',english:'horror film / scary movie',type:'phrase',example:'你喜欢看恐怖片吗？Do you like watching horror films?'},
+    {chinese:'警察',pinyin:'jǐngchá',english:'police / police officer',type:'word',example:'警察来了。The police came.'},
+    {chinese:'保安',pinyin:'bǎo ān',english:'security guard',type:'word',example:'大楼门口有保安。There is a security guard at the building entrance.'},
+    {chinese:'编制',pinyin:'biānzhì',english:'official establishment / permanent staff post (govt)',type:'word',example:'他有编制。He has a permanent government post.'},
+    {chinese:'公务员',pinyin:'gōngwùyuán',english:'civil servant / government employee',type:'word',example:'她是公务员。She is a civil servant.'},
+    {chinese:'政府',pinyin:'zhèngfǔ',english:'government',type:'word',example:'政府出台了新政策。The government introduced a new policy.'},
+    {chinese:'抓起来',pinyin:'zhuā qǐlái',english:'arrest / grab and detain',type:'phrase',example:'警察把他抓起来了。The police arrested him.'},
+    {chinese:'逮捕',pinyin:'dàibǔ',english:'arrest / apprehend (formal/legal term)',type:'word',example:'他被逮捕了。He was arrested.'},
+    {chinese:'你打算生二胎吗',pinyin:'nǐ dǎsuàn shēng èrtāi ma',english:'Are you planning to have a second child?',type:'sentence',example:''},
+    {chinese:'兄弟姐妹',pinyin:'xiōngdì jiěmèi',english:'siblings / brothers and sisters',type:'phrase',example:'我们兄弟姐妹三个人。There are three of us siblings.'},
+    {chinese:'年龄差',pinyin:'niánlíng chā',english:'age gap / age difference',type:'phrase',example:'我跟姐姐年龄差很大。My sister and I have a big age gap.'},
+    {chinese:'姐夫',pinyin:'jiěfu',english:'brother-in-law (elder sister\'s husband)',type:'word',example:'姐夫很友好。My brother-in-law is very friendly.'},
+    {chinese:'买房子',pinyin:'mǎi fángzi',english:'buy a house',type:'phrase',example:'他们打算买房子。They are planning to buy a house.'},
+    {chinese:'别墅',pinyin:'biéshù',english:'villa / detached house',type:'word',example:'他住在别墅里。He lives in a villa.'},
+    {chinese:'房产局',pinyin:'fángchǎn jú',english:'housing bureau / real estate authority',type:'phrase',example:'去房产局办手续。Go to the housing bureau to handle the procedures.'},
+    {chinese:'出租',pinyin:'chūzū',english:'rent out / for rent',type:'word',example:'这套房子出租吗？Is this apartment for rent?'},
+    {chinese:'房价',pinyin:'fángjià',english:'house price / property price',type:'word',example:'房价跌了。House prices have dropped.'},
+    {chinese:'面积',pinyin:'miànjī',english:'area / floor space',type:'word',example:'面积多大？How big is the floor area?'},
+    {chinese:'平方米',pinyin:'píngfāng mǐ',english:'square metre',type:'phrase','example':'这套房子57平方米。This apartment is 57 square metres.'},
+    {chinese:'房价跌了',pinyin:'fángjià diē le',english:'house prices have dropped / fallen',type:'phrase',example:'最近房价跌了很多。Recently house prices have dropped a lot.'},
+    {chinese:'物业费',pinyin:'wùyè fèi',english:'property management fee / maintenance fee',type:'phrase',example:'每个月要交物业费。You have to pay the property management fee every month.'},
+    {chinese:'水电费',pinyin:'shuǐdiànfèi',english:'water and electricity bills / utilities',type:'phrase',example:'每个月水电费多少钱？How much are the monthly utilities?'},
+    {chinese:'煤气费',pinyin:'méiqì fèi',english:'gas bill / gas charges',type:'phrase',example:'煤气费和水电费一起交。Pay the gas bill together with the utilities.'},
   ]},
   {id:'lesson:s15',fileName:'james_笔记.docx',lessonTitle:'Grammar Notes — 连续 & Daily Vocab',category:'Daily Life',date:'2025-04-13T09:00:00Z',wordCount:20,vocabulary:[
     {chinese:'连续',pinyin:'liánxù',english:'continuously / in a row / consecutively',type:'word',example:'我连续睡了八个小时。I slept for eight hours straight.'},
@@ -745,6 +821,22 @@ let lessons=[], curTab='review', expanded=new Set(), flt={s:'',c:'all',t:'all',l
 let busy=false, upMsg='', upPct=0, upOk=false, upErr=false;
 /* ── sentence analyser state ── */
 let sn={text:'',busy:false,msg:'',ok:false,err:false,preview:null};
+/* ── HSK state ── */
+let hsk={
+  level: null,       // e.g. 'hsk4' or 'hsk1'
+  words: [],         // loaded word list
+  loading: false,
+  loadErr: false,
+  view: 'browse',    // 'browse' | 'exercise'
+  filter: 'all',     // 'all' | 'learning' | 'mastered'
+  search: '',
+  exBusy: false,
+  exItems: [],       // [{q, blank, opts, answer, feedback, chosen, answered}]
+  exIdx: 0,
+  exMode: 'fill',    // 'fill' | 'scenario'
+  exOk: 0,
+  exWrong: 0,
+};
 
 /* ── practice state ── */
 let pr={
@@ -770,7 +862,7 @@ let pr={
    USER SYSTEM
 ════════════════════════════════ */
 const PROFILES = [
-  {id:'james', defaultName:'Dudu',    color:'#C93A2B', sampleKey:'james_mn-ver', sampleVer:'9'},
+  {id:'james', defaultName:'Dudu',    color:'#C93A2B', sampleKey:'james_mn-ver', sampleVer:'10'},
   {id:'gf',    defaultName:'Bubu',    color:'#C4699A', sampleKey:'gf_mn-ver',   sampleVer:'4'},
 ];
 let currentUser = null;
@@ -989,7 +1081,7 @@ function loadLessons(){
   const keys=ls.keys('lesson:');
   const ver=ls.get('mn-ver');
   const isJames=currentUser.id==='james';
-  const targetVer=isJames?'9':'4';
+  const targetVer=isJames?'10':'4';
   if(isJames&&(!keys.length||ver!==targetVer)){
     SAMPLE.forEach(s=>ls.set(s.id,JSON.stringify(s)));
     ls.set('mn-ver',targetVer);
@@ -1031,15 +1123,16 @@ function gotoTab(tab){
   if(tab!=='upload'){busy=false;upMsg='';upPct=0;upOk=false;upErr=false;}
   if(tab==='practice'){pr.screen='setup';}
   if(tab==='sentences'){sn.preview=null;sn.msg='';sn.ok=false;sn.err=false;}
-  // update desktop nav
-  ['review','practice','sentences','lessons','upload'].forEach(t=>{
+  if(tab==='hsk'&&!hsk.level){ hsk.level=currentUser.id==='james'?'hsk4':'hsk1'; }
+  if(tab==='hsk'&&hsk.level&&!hsk.words.length&&!hsk.loading){ loadHSKWords(hsk.level); }
+  // update desktop + mobile nav
+  ['review','practice','sentences','lessons','hsk','upload'].forEach(t=>{
     const b=document.getElementById('nav-'+t);
     if(b) b.className='nav-btn'+(t===tab?' active':'');
     const m=document.getElementById('mob-'+t);
     if(m) m.className='mob-tab'+(t===tab?' active':'');
   });
   render();
-  // scroll to top on tab switch (mobile)
   if(isMobile()) window.scrollTo({top:0,behavior:'smooth'});
 }
 function toggleRow(i){expanded.has(i)?expanded.delete(i):expanded.add(i);render();}
@@ -1052,6 +1145,7 @@ function render(){
   else if(curTab==='practice')  el.innerHTML=renderPractice();
   else if(curTab==='sentences') el.innerHTML=renderSentences();
   else if(curTab==='lessons')   el.innerHTML=renderLessons();
+  else if(curTab==='hsk')       el.innerHTML=renderHSK();
   else                          el.innerHTML=renderUpload();
 }
 
@@ -1611,6 +1705,260 @@ function renderSentences(){
     h+=`</div>`;
     h+=`<button class="btn primary" onclick="snSave()" style="width:100%;padding:14px;font-size:.95rem;justify-content:center" ${selCount===0?'disabled':''}>`;
     h+=`Save ${selCount} word${selCount!==1?'s':''} to notebook \u2192</button>`;
+  }
+
+  h+='</div>';
+  return h;
+}
+
+/* ════════════════════════════════
+   HSK TAB
+════════════════════════════════ */
+function hskMastered(level){
+  try{ return new Set(JSON.parse(localStorage.getItem(currentUser.id+'_hsk_mastered_'+level)||'[]')); }catch(e){ return new Set(); }
+}
+function hskSaveMastered(level,set){
+  localStorage.setItem(currentUser.id+'_hsk_mastered_'+level, JSON.stringify([...set]));
+}
+function hskToggleMastered(level,chinese){
+  const m=hskMastered(level);
+  m.has(chinese)?m.delete(chinese):m.add(chinese);
+  hskSaveMastered(level,m);
+  render();
+}
+function hskResetLevel(level){
+  if(!confirm('Reset all mastered words for '+level.toUpperCase()+'? This cannot be undone.'))return;
+  localStorage.removeItem(currentUser.id+'_hsk_mastered_'+level);
+  render();
+}
+
+async function loadHSKWords(level){
+  hsk.loading=true; hsk.loadErr=false; hsk.words=[]; render();
+  const isJames=currentUser.id==='james';
+  const file=isJames?(level+'.json'):'hsk_bubu.json';
+  try{
+    const r=await fetch(file);
+    if(!r.ok) throw new Error('File not found: '+file);
+    const data=await r.json();
+    // if bubu file, filter to requested level
+    if(!isJames && data.levels){
+      hsk.words=data.levels[level]||[];
+    } else {
+      hsk.words=data.words||data||[];
+    }
+    hsk.loading=false; render();
+  }catch(e){
+    hsk.loading=false; hsk.loadErr=true;
+    hsk.words=[]; render();
+  }
+}
+
+function switchHSKLevel(level){
+  hsk.level=level; hsk.words=[]; hsk.loading=false; hsk.loadErr=false;
+  hsk.view='browse'; hsk.filter='all'; hsk.search='';
+  hsk.exItems=[]; hsk.exIdx=0; hsk.exOk=0; hsk.exWrong=0;
+  loadHSKWords(level);
+}
+
+async function generateHSKExercise(){
+  const apiKey=(ls.get('mn-apikey')||'').trim();
+  if(!apiKey){ alert('Add your Anthropic API key in the Upload PDF tab first.'); return; }
+  const mastered=hskMastered(hsk.level);
+  const pool=hsk.words.filter(w=>!mastered.has(w.c)).slice(0,80);
+  if(pool.length<4){ alert('Not enough unmastered words to generate exercises. Keep studying!'); return; }
+  const pick=shuffle(pool).slice(0,15);
+  hsk.exBusy=true; hsk.exItems=[]; hsk.exIdx=0; hsk.exOk=0; hsk.exWrong=0; render();
+  try{
+    const wordList=pick.map(w=>`${w.c}(${w.p}): ${w.e}`).join('\n');
+    const modePrompt=hsk.exMode==='fill'
+      ?'Create 8 fill-in-the-blank sentences in Chinese. Each sentence must use exactly one word from the list below in a natural context. Return ONLY valid JSON:\n{"exercises":[{"sentence":"Chinese sentence with ___ for the blank","answer":"the Chinese word that fills the blank","english_hint":"English translation of the sentence","options":["correct answer","wrong1","wrong2","wrong3"]}]}\nShuffle the options array. Use natural, realistic Chinese sentences.'
+      :'Create 6 scenario-based questions in Chinese that test understanding of the words below. Mix question types: some fill-in-blank, some choose-the-right-word. Return ONLY valid JSON:\n{"exercises":[{"sentence":"Chinese sentence or question with ___ for the blank","answer":"correct Chinese word","english_hint":"English context/hint","options":["correct","wrong1","wrong2","wrong3"]}]}\nMake scenarios feel real — conversations, situations, stories.';
+    const resp=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:2000,messages:[{role:'user',content:modePrompt+'\n\nWord list:\n'+wordList}]})});
+    const data=await resp.json();
+    if(data.error)throw new Error(data.error.message);
+    const txt=data.content.map(i=>i.text||'').join('');
+    const parsed=JSON.parse(txt.replace(/```json|```/g,'').trim());
+    hsk.exItems=(parsed.exercises||[]).map(e=>({...e,feedback:'',chosen:null,answered:false}));
+    hsk.exBusy=false; hsk.view='exercise'; render();
+  }catch(err){
+    hsk.exBusy=false;
+    alert('Error generating exercises: '+err.message);
+    render();
+  }
+}
+
+function hskExChoose(i){
+  const item=hsk.exItems[hsk.exIdx];
+  if(!item||item.answered)return;
+  item.chosen=i; item.answered=true;
+  const ok=item.options[i]===item.answer;
+  item.feedback=ok?'✓ Correct!':'✗ Not quite — the correct answer is: '+item.answer;
+  if(ok)hsk.exOk++;else hsk.exWrong++;
+  render();
+}
+function hskExNext(){
+  if(hsk.exIdx<hsk.exItems.length-1){hsk.exIdx++;render();}
+  else{hsk.view='exercise_done';render();}
+}
+
+function renderHSK(){
+  const isJames=currentUser.id==='james';
+  const levels=isJames?['hsk4','hsk5']:['hsk1','hsk2','hsk3','hsk4'];
+  const levelLabels={hsk1:'HSK 1',hsk2:'HSK 2',hsk3:'HSK 3',hsk4:'HSK 4',hsk5:'HSK 5'};
+  const esc=s=>(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  let h='<div class="fu">';
+
+  // header
+  h+=`<div class="hsk-header">`;
+  h+=`<div><div style="font-family:var(--serif);font-size:1.2rem;font-weight:500;margin-bottom:3px">🏆 HSK Study</div>`;
+  h+=`<div style="font-size:.82rem;color:var(--muted)">${isJames?'Focus on HSK 4 & 5 vocabulary':'HSK 1–4 vocabulary by level'}</div></div>`;
+  h+=`<div class="hsk-level-tabs">`;
+  levels.forEach(lv=>h+=`<button class="hsk-lvl${hsk.level===lv?' active':''}" onclick="switchHSKLevel('${lv}')">${levelLabels[lv]}</button>`);
+  h+=`</div></div>`;
+
+  // loading / error states
+  if(hsk.loading){
+    h+=`<div style="text-align:center;padding:4rem 2rem;color:var(--muted)"><span class="spinner" style="width:28px;height:28px;border-width:3px;margin-bottom:1rem;display:block;margin:0 auto 1rem"></span>Loading ${levelLabels[hsk.level]||''} words…</div>`;
+    return h+'</div>';
+  }
+  if(hsk.loadErr){
+    h+=`<div style="background:#2a1212;border:1px solid rgba(201,58,43,.35);border-radius:var(--r-lg);padding:2rem;text-align:center">`;
+    h+=`<div style="font-size:1rem;color:#f08080;margin-bottom:.75rem">Could not load HSK word list</div>`;
+    h+=`<div style="font-size:.85rem;color:var(--muted);margin-bottom:1.25rem">The JSON file wasn't found. Make sure you've uploaded <code style="background:var(--card);padding:2px 6px;border-radius:4px">${isJames?hsk.level+'.json':'hsk_bubu.json'}</code> to your GitHub repo.</div>`;
+    h+=`<button class="btn" onclick="loadHSKWords('${hsk.level}')">Try again</button></div>`;
+    return h+'</div>';
+  }
+  if(!hsk.words.length) return h+'</div>';
+
+  // progress bar
+  const mastered=hskMastered(hsk.level);
+  const total=hsk.words.length, masteredCount=mastered.size, pct=Math.round((masteredCount/total)*100);
+  h+=`<div class="hsk-prog">`;
+  h+=`<div style="font-size:.88rem;color:var(--muted);white-space:nowrap">${levelLabels[hsk.level]}</div>`;
+  h+=`<div class="hsk-prog-bar"><div class="hsk-prog-fill" style="width:${pct}%"></div></div>`;
+  h+=`<div style="font-size:.82rem;color:#4dd892;white-space:nowrap;font-weight:500">${masteredCount}/${total} mastered (${pct}%)</div>`;
+  h+=`<button class="btn" onclick="hskResetLevel('${hsk.level}')" style="font-size:.75rem;padding:5px 10px;color:var(--faint)">Reset</button>`;
+  h+=`</div>`;
+
+  // view tabs
+  h+=`<div class="hsk-view-tabs">`;
+  h+=`<button class="hsk-vtab${hsk.view==='browse'||hsk.view==='exercise_done'?'':hsk.view==='browse'?' active':''} ${hsk.view==='browse'?'active':''}" onclick="hsk.view='browse';render()">Browse Words</button>`;
+  h+=`<button class="hsk-vtab${hsk.view==='exercise'||hsk.view==='exercise_done'?' active':''}" onclick="hsk.view='exercise';if(!hsk.exItems.length)hsk.view='browse';render()">Exercises</button>`;
+  h+=`</div>`;
+
+  if(hsk.view==='browse'){
+    // filter + search
+    h+=`<div style="display:flex;gap:8px;margin-bottom:1rem;flex-wrap:wrap;align-items:center">`;
+    h+=`<div class="search-wrap" style="flex:1;min-width:160px"><span class="search-icon">⌕</span><input class="search-inp" type="text" placeholder="Search…" value="${esc(hsk.search)}" oninput="hsk.search=this.value;render()"></div>`;
+    h+=`<select class="sel" onchange="hsk.filter=this.value;render()">`;
+    h+=`<option value="all"${hsk.filter==='all'?' selected':''}>All (${total})</option>`;
+    h+=`<option value="learning"${hsk.filter==='learning'?' selected':''}>Still learning (${total-masteredCount})</option>`;
+    h+=`<option value="mastered"${hsk.filter==='mastered'?' selected':''}>Mastered (${masteredCount})</option>`;
+    h+=`</select>`;
+    // exercise generator button
+    h+=`<button class="btn primary" onclick="generateHSKExercise()" ${hsk.exBusy?'disabled':''} style="white-space:nowrap">`;
+    h+=hsk.exBusy?'<span class="spinner" style="width:14px;height:14px;margin-right:6px"></span>Generating…':'⚡ Generate exercises';
+    h+=`</button>`;
+    h+=`</div>`;
+
+    let filtered=hsk.words;
+    if(hsk.filter==='learning') filtered=filtered.filter(w=>!mastered.has(w.c));
+    if(hsk.filter==='mastered') filtered=filtered.filter(w=>mastered.has(w.c));
+    if(hsk.search){const q=hsk.search.toLowerCase();filtered=filtered.filter(w=>w.c.includes(q)||w.p.toLowerCase().includes(q)||w.e.toLowerCase().includes(q));}
+    h+=`<div style="font-size:.75rem;color:var(--faint);margin-bottom:.75rem">Showing ${filtered.length} of ${total} words</div>`;
+    h+=`<div class="hsk-words-grid">`;
+    filtered.forEach(w=>{
+      const isMast=mastered.has(w.c);
+      h+=`<div class="hsk-wcard${isMast?' mastered':''}">`;
+      h+=`<div class="hsk-wcard-zh">${esc(w.c)}</div>`;
+      h+=`<div class="hsk-wcard-pin">${esc(w.p)}</div>`;
+      h+=`<div class="hsk-wcard-eng">${esc(w.e)}</div>`;
+      if(w.x) h+=`<div class="hsk-wcard-ex">${esc(w.x)}</div>`;
+      h+=`<div class="hsk-wcard-foot"><span>${bdg(w.t||'word',tc(w.t),true)}</span>`;
+      h+=`<button class="hsk-mask-btn ${isMast?'mask-on':'mask-off'}" onclick="hskToggleMastered('${hsk.level}','${w.c.replace(/'/g,"\\'")}')">${isMast?'✓ Mastered':'Mark mastered'}</button>`;
+      h+=`</div></div>`;
+    });
+    h+=`</div>`;
+  }
+
+  else if(hsk.view==='exercise'&&hsk.exItems.length){
+    const item=hsk.exItems[hsk.exIdx];
+    const total_q=hsk.exItems.length;
+    const pctQ=Math.round((hsk.exIdx/total_q)*100);
+    // progress
+    h+=`<div class="prac-prog-wrap"><div class="prac-prog-bar"><div class="prac-prog-fill" style="width:${pctQ}%"></div></div>`;
+    h+=`<span style="font-size:.82rem;color:#4dd892">✓ ${hsk.exOk}</span>`;
+    h+=`<span style="font-size:.82rem;color:#f08080">✗ ${hsk.exWrong}</span>`;
+    h+=`<span style="font-size:.82rem;color:var(--faint)">${hsk.exIdx}/${total_q}</span></div>`;
+    // exercise mode switcher
+    h+=`<div style="display:flex;gap:8px;margin-bottom:1rem;align-items:center">`;
+    h+=`<span style="font-size:.82rem;color:var(--muted)">Mode:</span>`;
+    h+=`<select class="sel" onchange="hsk.exMode=this.value" style="font-size:.8rem">`;
+    h+=`<option value="fill"${hsk.exMode==='fill'?' selected':''}>Fill in the blank</option>`;
+    h+=`<option value="scenario"${hsk.exMode==='scenario'?' selected':''}>Scenarios</option>`;
+    h+=`</select>`;
+    h+=`<button class="btn" onclick="generateHSKExercise()" style="font-size:.78rem;padding:5px 12px">New set</button>`;
+    h+=`<button class="btn" onclick="hsk.view='browse';render()" style="font-size:.78rem;padding:5px 12px">← Browse</button>`;
+    h+=`</div>`;
+    // question card
+    const sentParts=item.sentence.split('___');
+    h+=`<div class="hsk-ex-card">`;
+    h+=`<div style="font-size:.72rem;color:var(--faint);text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem">Question ${hsk.exIdx+1} of ${total_q}</div>`;
+    h+=`<div class="hsk-ex-q">`;
+    if(sentParts.length>1){
+      h+=`<span style="font-family:var(--zh);font-size:1.15rem">${esc(sentParts[0])}</span>`;
+      h+=`<span class="hsk-ex-blank">${item.answered?esc(item.answer):'___'}</span>`;
+      h+=`<span style="font-family:var(--zh);font-size:1.15rem">${esc(sentParts[1]||'')}</span>`;
+    } else {
+      h+=`<span style="font-family:var(--zh);font-size:1.15rem">${esc(item.sentence)}</span>`;
+    }
+    h+=`</div>`;
+    if(item.english_hint) h+=`<div style="font-size:.82rem;color:var(--faint);font-style:italic;margin-bottom:1rem">${esc(item.english_hint)}</div>`;
+    h+=`</div>`;
+    // options
+    h+=`<div class="hsk-ex-opts">`;
+    (item.options||[]).forEach((opt,i)=>{
+      const isCorrect=opt===item.answer;
+      let cls='hsk-ex-opt';
+      if(item.answered){
+        if(i===item.chosen&&isCorrect) cls+=' correct';
+        else if(i===item.chosen&&!isCorrect) cls+=' wrong';
+        else if(isCorrect) cls+=' reveal';
+      }
+      h+=`<button class="${cls}" ${item.answered?'disabled':''} onclick="hskExChoose(${i})"><span style="font-family:var(--zh)">${esc(opt)}</span></button>`;
+    });
+    h+=`</div>`;
+    if(item.answered){
+      h+=`<div class="hsk-ex-feedback ${item.feedback.startsWith('✓')?'ok':'bad'}">${esc(item.feedback)}</div>`;
+      const isLast=hsk.exIdx>=total_q-1;
+      h+=`<button class="qz-next" onclick="hskExNext()">${isLast?'See results →':'Next →'}</button>`;
+    }
+  }
+
+  else if(hsk.view==='exercise_done'){
+    const total_q=hsk.exItems.length, pct2=Math.round((hsk.exOk/total_q)*100);
+    const col=pct2>=80?'#2d9e6b':pct2>=50?'#c4933a':'#c93a2b';
+    h+=`<div class="prac-results">`;
+    h+=`<div class="prac-score-circle" style="border-color:${col}"><div class="prac-score-num" style="color:${col}">${pct2}%</div><div class="prac-score-lbl" style="color:${col}">Score</div></div>`;
+    h+=`<div style="font-family:var(--serif);font-size:1.2rem;margin-bottom:.5rem">${pct2>=80?'Excellent! 🎉':pct2>=60?'Good work! 💪':'Keep practising! 加油!'}</div>`;
+    h+=`<div style="font-size:.88rem;color:var(--muted);margin-bottom:1.5rem">${hsk.exOk} correct out of ${total_q} questions</div>`;
+    h+=`<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">`;
+    h+=`<button class="btn primary" onclick="generateHSKExercise()">New exercise set</button>`;
+    h+=`<button class="btn" onclick="hsk.view='browse';render()">Back to browse</button>`;
+    h+=`</div></div>`;
+  }
+
+  else {
+    // exercise tab but no items yet
+    h+=`<div style="text-align:center;padding:3rem 2rem">`;
+    h+=`<div style="font-size:2.5rem;margin-bottom:1rem">⚡</div>`;
+    h+=`<div style="font-family:var(--serif);font-size:1.1rem;color:var(--muted);margin-bottom:.75rem">Ready to test yourself?</div>`;
+    h+=`<div style="font-size:.85rem;color:var(--faint);margin-bottom:1.5rem">Claude AI will generate fresh exercises from your unmastered words.</div>`;
+    h+=`<div style="display:flex;gap:8px;justify-content:center;margin-bottom:1.5rem">`;
+    h+=`<select class="sel" onchange="hsk.exMode=this.value"><option value="fill">Fill in the blank</option><option value="scenario">Scenarios</option></select>`;
+    h+=`</div>`;
+    h+=`<button class="btn primary" onclick="generateHSKExercise()" style="padding:12px 28px;font-size:.95rem">Generate exercises →</button>`;
+    h+=`</div>`;
   }
 
   h+='</div>';
