@@ -128,6 +128,23 @@ td { padding:13px 16px; font-size:.92rem; vertical-align:middle; }
 .empty-sub { font-size:.82rem; color:var(--faint); margin-bottom:1.5rem; }
 .res-info { font-size:.74rem; color:var(--faint); margin-bottom:8px; }
 
+/* MASTERY DOTS */
+.mst-bar { display:flex; gap:3px; align-items:center; }
+.mst-dot { width:7px; height:7px; border-radius:50%; flex-shrink:0; }
+.mst-label { font-size:.65rem; color:var(--faint); white-space:nowrap; }
+
+/* AI EXAMPLE */
+.ai-ex-btn { background:transparent; border:1px dashed var(--border2); border-radius:var(--r-sm); padding:4px 10px; color:var(--faint); font-size:.75rem; cursor:pointer; transition:all .15s; display:inline-flex; align-items:center; gap:5px; }
+.ai-ex-btn:hover { color:var(--gold); border-color:var(--gold); }
+.ai-ex-loading { font-size:.8rem; color:var(--faint); font-style:italic; animation:pulse .9s infinite; }
+.ai-ex-result { font-size:.85rem; color:var(--muted); font-style:italic; border-top:1px solid var(--border); padding-top:.65rem; margin-top:.65rem; line-height:1.6; }
+
+/* MASTERY FILTER TOGGLE */
+.focus-toggle { display:inline-flex; align-items:center; gap:8px; background:var(--card2); border:1.5px solid var(--border2); border-radius:99px; padding:7px 16px; cursor:pointer; font-size:.85rem; color:var(--muted); transition:all .15s; user-select:none; }
+.focus-toggle.on { border-color:var(--gold); color:var(--gold); background:rgba(196,147,58,.12); }
+.focus-toggle-dot { width:10px; height:10px; border-radius:50%; background:var(--faint); transition:background .15s; }
+.focus-toggle.on .focus-toggle-dot { background:var(--gold); }
+
 .spinner { width:20px; height:20px; border:2px solid rgba(255,255,255,.15); border-top-color:#fff; border-radius:50%; animation:spin .7s linear infinite; display:inline-block; }
 
 /* ── PRACTICE ── */
@@ -856,7 +873,7 @@ const SAMPLE = [
 ];
 
 /* ── state ── */
-let lessons=[], curTab='review', expanded=new Set(), flt={s:'',c:'all',t:'all',l:'all'};
+let lessons=[], curTab='review', expanded=new Set(), flt={s:'',c:'all',t:'all',l:'all',m:'all'};
 let busy=false, upMsg='', upPct=0, upOk=false, upErr=false;
 /* ── sentence analyser state ── */
 let sn={text:'',busy:false,msg:'',ok:false,err:false,preview:null};
@@ -877,13 +894,13 @@ let hsk={
   exWrong: 0,
 };
 
-/* ── practice state ── */
 let pr={
   mode:'flashcard',      // 'flashcard'|'quiz'|'pinyin'|'typein'
   filterLesson:'all',
   filterType:'all',
   direction:'zh2en',
   cardLimit:10,          // 5,10,15,20,30,0=All
+  focusWeak:true,        // prioritise unmastered words
   deck:[],
   idx:0,
   flipped:false,
@@ -895,7 +912,50 @@ let pr={
   typeVal:'',
   typeRevealed:false,
   screen:'setup',
+  // per-session mastery deltas: { key: +1 or -1 }
+  sessionResults:{},
+  // AI example state
+  aiExBusy:false,
+  aiExText:'',
 };
+
+/* ══ MASTERY SYSTEM ══
+   Stores a score 0-5 per word key (chinese+pinyin).
+   0-1 = new/struggling, 2-3 = learning, 4-5 = mastered
+   buildDeck() weights by inverse mastery so weak words appear more.
+*/
+function masteryKey(v){ return (v.chinese||'')+'|'+(v.pinyin||''); }
+function getMasteryMap(){
+  try{ return JSON.parse(ls.get('mastery')||'{}'); }catch(e){ return {}; }
+}
+function saveMasteryMap(m){ ls.set('mastery', JSON.stringify(m)); }
+function getMastery(v){ return (getMasteryMap()[masteryKey(v)]||0); }
+function updateMastery(v, knew){
+  const m = getMasteryMap();
+  const k = masteryKey(v);
+  const cur = m[k]||0;
+  m[k] = Math.max(0, Math.min(5, cur + (knew ? 1 : -1)));
+  saveMasteryMap(m);
+}
+function masteryLabel(score){
+  if(score<=0) return {label:'New',      color:'#4A5568', dots:0};
+  if(score<=1) return {label:'Seen',     color:'#c93a2b', dots:1};
+  if(score<=2) return {label:'Learning', color:'#c4933a', dots:2};
+  if(score<=3) return {label:'Getting there', color:'#c4933a', dots:3};
+  if(score<=4) return {label:'Almost',   color:'#2d9e6b', dots:4};
+  return              {label:'Mastered', color:'#2d9e6b', dots:5};
+}
+function renderMasteryBar(score, showLabel){
+  const info = masteryLabel(score);
+  let h = `<div class="mst-bar">`;
+  for(let i=0;i<5;i++){
+    const filled = i < info.dots;
+    h += `<div class="mst-dot" style="background:${filled?info.color:'var(--border2)'}"></div>`;
+  }
+  if(showLabel) h += `<span class="mst-label" style="color:${info.color}">${info.label}</span>`;
+  h += `</div>`;
+  return h;
+}
 
 /* ════════════════════════════════
    USER SYSTEM
@@ -1223,13 +1283,21 @@ function render(){
 function renderReview(){
   const all=lessons.flatMap(l=>(l.vocabulary||[]).map(v=>({...v,_lid:l.id,_lt:l.lessonTitle,_lc:l.category,_ld:l.date})));
   const cats=['all',...new Set(lessons.map(l=>l.category).filter(Boolean))];
+  const mastMap3 = getMasteryMap();
   const fil=all.filter(v=>{
     if(flt.c!=='all'&&v._lc!==flt.c)return false;
     if(flt.t!=='all'&&v.type!==flt.t)return false;
     if(flt.l!=='all'&&v._lid!==flt.l)return false;
+    if(flt.m!=='all'){
+      const sc=mastMap3[masteryKey(v)]||0;
+      if(flt.m==='new'&&sc>1)return false;
+      if(flt.m==='learning'&&(sc<2||sc>3))return false;
+      if(flt.m==='mastered'&&sc<4)return false;
+    }
     if(flt.s){const q=flt.s.toLowerCase();return(v.chinese&&v.chinese.includes(q))||(v.pinyin&&v.pinyin.toLowerCase().includes(q))||(v.english&&v.english.toLowerCase().includes(q));}
     return true;
   });
+  const mastMap2 = getMasteryMap();
   const stats=[
     {l:'Total items',v:all.length,c:'var(--text)'},
     {l:'Words',      v:all.filter(v=>v.type==='word').length,     c:tc('word')},
@@ -1237,6 +1305,9 @@ function renderReview(){
     {l:'Sentences',  v:all.filter(v=>v.type==='sentence').length, c:tc('sentence')},
     {l:'Idioms',     v:all.filter(v=>v.type==='idiom').length,    c:tc('idiom')},
     {l:'Lessons',    v:lessons.length, c:'var(--red)'},
+    {l:'Mastered',   v:all.filter(v=>(mastMap2[masteryKey(v)]||0)>=4).length, c:'#2d9e6b'},
+    {l:'Learning',   v:all.filter(v=>{const s=mastMap2[masteryKey(v)]||0;return s>=2&&s<4;}).length, c:'#c4933a'},
+    {l:'New',        v:all.filter(v=>(mastMap2[masteryKey(v)]||0)<=1).length, c:'#c93a2b'},
   ];
   let h=`<div class="stats-grid fu">`;
   stats.forEach(s=>h+=`<div class="stat-card"><div class="stat-num" style="color:${s.c}">${s.v}</div><div class="stat-lbl">${s.l}</div></div>`);
@@ -1249,15 +1320,17 @@ function renderReview(){
   ['all','word','phrase','sentence','idiom'].forEach(t=>h+=`<option value="${t}"${flt.t===t?' selected':''}>${t==='all'?'All types':t[0].toUpperCase()+t.slice(1)+'s'}</option>`);
   h+=`</select><select class="sel" onchange="flt.l=this.value;render()"><option value="all">All lessons</option>`;
   lessons.forEach(l=>h+=`<option value="${l.id}"${flt.l===l.id?' selected':''}>${l.lessonTitle}</option>`);
+  h+=`</select><select class="sel" onchange="flt.m=this.value;render()">`;
+  [['all','All mastery'],['new','🔴 New/Struggling'],['learning','🟡 Learning'],['mastered','🟢 Mastered']].forEach(([v,l])=>h+=`<option value="${v}"${flt.m===v?' selected':''}>${l}</option>`);
   h+=`</select>`;
-  if(flt.s||flt.c!=='all'||flt.t!=='all'||flt.l!=='all')
-    h+=`<button class="btn" onclick="flt={s:'',c:'all',t:'all',l:'all'};render()" style="color:var(--red);border-color:rgba(201,58,43,.35)">✕ Clear</button>`;
+  if(flt.s||flt.c!=='all'||flt.t!=='all'||flt.l!=='all'||flt.m!=='all')
+    h+=`<button class="btn" onclick="flt={s:'',c:'all',t:'all',l:'all',m:'all'};render()" style="color:var(--red);border-color:rgba(201,58,43,.35)">✕ Clear</button>`;
   h+=`</div>`;
   if(!all.length){h+=`<div class="empty fu2"><div class="empty-zh">学</div><div class="empty-ttl">No lessons yet</div><div class="empty-sub">Upload your first PDF to get started</div><button class="btn primary" onclick="gotoTab('upload')">Upload first lesson</button></div>`;return h;}
   if(!fil.length){h+=`<div class="empty fu2"><div class="empty-ttl">No results</div><div class="empty-sub">Try a different search or filter</div></div>`;return h;}
   h+=`<div class="res-info fu2">Showing ${fil.length} of ${all.length} items &nbsp;·&nbsp; rows with ▾ have example sentences — click to expand</div>`;
   h+=`<div class="tbl-wrap fu2"><table><thead><tr>`;
-  ['#','Chinese','Pinyin','English','Type','Category','Lesson','Date',''].forEach(th=>h+=`<th>${th}</th>`);
+  ['#','Chinese','Pinyin','English','Type','Category','Mastery','Lesson','Date',''].forEach(th=>h+=`<th>${th}</th>`);
   h+=`</tr></thead><tbody>`;
   const esc=s=>(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   fil.forEach((v,i)=>{
@@ -1271,6 +1344,7 @@ function renderReview(){
     h+=`<td class="c-eng">${esc(v.english)}</td>`;
     h+=`<td>${bdg(v.type||'word',tc(v.type))}</td>`;
     h+=`<td>${bdg(v._lc,cc(v._lc))}</td>`;
+    h+=`<td style="white-space:nowrap">${renderMasteryBar(getMastery(v),true)}</td>`;
     const expandIcon=hasEx?' <span style="font-size:.62rem;color:var(--blue)">'+(exp?'▴':'▾')+'</span>':'';
     h+=`<td style="font-size:.78rem;color:var(--muted);max-width:130px"><div style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(v._lt)}`+expandIcon+`</div></td>`;
     h+=`<td style="font-size:.73rem;color:var(--faint);white-space:nowrap">${dt}</td>`;
@@ -1278,7 +1352,7 @@ function renderReview(){
     const safeLid=v._lid.replace(/'/g,"\\'");
     h+=`<td onclick="event.stopPropagation()"><button onclick="deleteWord('${safeLid}','${safeZh}')" style="background:transparent;border:none;color:var(--faint);cursor:pointer;font-size:1rem;padding:4px 8px;border-radius:4px;line-height:1" title="Delete this word">&times;</button></td>`;
     h+=`</tr>`;
-    if(hasEx&&exp)h+=`<tr class="ex-row"><td colspan="9" style="padding:8px 14px 11px 42px"><span style="font-size:.67rem;color:var(--faint);text-transform:uppercase;letter-spacing:.07em;margin-right:8px">Example</span><span style="font-size:.82rem;color:var(--muted);font-style:italic">${esc(v.example)}</span></td></tr>`;
+    if(hasEx&&exp)h+=`<tr class="ex-row"><td colspan="10" style="padding:8px 14px 11px 42px"><span style="font-size:.67rem;color:var(--faint);text-transform:uppercase;letter-spacing:.07em;margin-right:8px">Example</span><span style="font-size:.82rem;color:var(--muted);font-style:italic">${esc(v.example)}</span></td></tr>`;
   });
   h+=`</tbody></table></div>`;
 
@@ -1297,6 +1371,7 @@ function renderReview(){
     h+=`<div class="mob-vcard-eng">${esc(v.english)}</div>`;
     h+=`<div class="mob-vcard-foot">`;
     h+=`<div style="display:flex;gap:5px;flex-wrap:wrap">${bdg(v.type||'word',tc(v.type))} ${bdg(v._lc,cc(v._lc))}</div>`;
+    h+=`<div style="display:flex;align-items:center;gap:6px">${renderMasteryBar(getMastery(v),true)}</div>`;
     h+=`<div style="font-size:.72rem;color:var(--faint)">${v._lt.length>18?v._lt.slice(0,18)+'…':v._lt}</div>`;
     h+=`</div>`;
     if(hasEx) h+=`<div class="mob-vcard-ex">${esc(v.example)}</div>`;
@@ -1316,6 +1391,28 @@ function buildDeck(){
   let pool=lessons.flatMap(l=>(l.vocabulary||[]).map(v=>({...v,_lt:l.lessonTitle,_lid:l.id})));
   if(pr.filterLesson!=='all') pool=pool.filter(v=>v._lid===pr.filterLesson);
   if(pr.filterType!=='all')   pool=pool.filter(v=>v.type===pr.filterType);
+
+  if(pr.focusWeak){
+    // Weight each word by (5 - mastery) so weak words appear more
+    // A word with score 0 gets weight 6, score 5 gets weight 1
+    const mastery = getMasteryMap();
+    const weighted = [];
+    pool.forEach(v => {
+      const score = mastery[masteryKey(v)]||0;
+      const weight = Math.max(1, 6 - score);
+      for(let i=0;i<weight;i++) weighted.push(v);
+    });
+    const shuffled = shuffle(weighted);
+    // Deduplicate while preserving weighted order
+    const seen = new Set();
+    const unique = [];
+    shuffled.forEach(v => {
+      const k = masteryKey(v);
+      if(!seen.has(k)){ seen.add(k); unique.push(v); }
+    });
+    return pr.cardLimit>0 ? unique.slice(0,pr.cardLimit) : unique;
+  }
+
   const shuffled=shuffle(pool);
   return pr.cardLimit>0?shuffled.slice(0,pr.cardLimit):shuffled;
 }
@@ -1327,6 +1424,7 @@ function startPractice(){
   pr.deck=deck; pr.idx=0; pr.flipped=false;
   pr.known=0; pr.unsure=0; pr.qCorrect=0; pr.qWrong=0;
   pr.chosen=null; pr.answered=false; pr.typeVal=''; pr.typeRevealed=false;
+  pr.sessionResults={}; pr.aiExBusy=false; pr.aiExText='';
   if(pr.mode==='quiz'||pr.mode==='pinyin') buildQuizOpts();
   pr.screen='playing';
   render();
@@ -1345,8 +1443,10 @@ function buildQuizOpts(){
 function fcFlip(){pr.flipped=!pr.flipped;render();}
 
 function fcMark(knew){
+  const v = pr.deck[pr.idx];
+  updateMastery(v, knew);
   if(knew) pr.known++; else pr.unsure++;
-  pr.idx++; pr.flipped=false;
+  pr.idx++; pr.flipped=false; pr.aiExBusy=false; pr.aiExText='';
   if(pr.idx>=pr.deck.length){pr.screen='results';render();return;}
   render();
 }
@@ -1356,11 +1456,14 @@ function qzChoose(i){
   pr.chosen=i; pr.answered=true;
   const correct=pr.opts[i].chinese===pr.deck[pr.idx].chinese;
   if(correct) pr.qCorrect++; else pr.qWrong++;
+  updateMastery(pr.deck[pr.idx], correct);
+  pr.aiExBusy=false; pr.aiExText='';
   render();
 }
 
 function qzNext(){
   pr.idx++;
+  pr.aiExBusy=false; pr.aiExText='';
   if(pr.idx>=pr.deck.length){pr.screen='results';render();return;}
   buildQuizOpts(); render();
 }
@@ -1377,6 +1480,7 @@ function typeSubmit(){
   const keywords=correct.replace(/[/\-()]/g,' ').split(/\s+/).filter(w=>w.length>2);
   const isOk=keywords.some(kw=>userAns.includes(kw))||userAns===correct||correct.includes(userAns);
   if(isOk) pr.qCorrect++; else pr.qWrong++;
+  updateMastery(v, isOk);
   render();
 }
 
@@ -1384,6 +1488,7 @@ function typeReveal(){pr.typeRevealed=true;render();}
 
 function typeNext(){
   pr.idx++;
+  pr.aiExBusy=false; pr.aiExText='';
   if(pr.idx>=pr.deck.length){pr.screen='results';render();return;}
   pr.answered=false; pr.typeVal=''; pr.typeRevealed=false;
   render();
@@ -1391,6 +1496,35 @@ function typeNext(){
 }
 
 function pracRestart(){pr.screen='setup';render();}
+
+async function generateAIExample(v){
+  const apiKey=(ls.get('mn-apikey')||'').trim();
+  if(!apiKey){ pr.aiExText='Add your API key in the Upload tab first.'; render(); return; }
+  pr.aiExBusy=true; pr.aiExText=''; render();
+  try{
+    const resp=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:120,messages:[{role:'user',content:`Give ONE short, natural example sentence in Chinese using "${v.chinese}" (${v.english}). Reply in this exact format with no extra text:\nChinese: <sentence>\nEnglish: <translation>`}]})
+    });
+    const data=await resp.json();
+    if(data.error) throw new Error(data.error.message);
+    pr.aiExText=(data.content[0]?.text||'').trim();
+    pr.aiExBusy=false;
+    render();
+  }catch(err){
+    pr.aiExBusy=false; pr.aiExText='Could not generate example.'; render();
+  }
+}
+
+function renderAIExample(v){
+  if(!v.example && !pr.aiExText && !pr.aiExBusy){
+    return `<button class="ai-ex-btn" onclick="generateAIExample(pr.deck[pr.idx])">✨ Show example sentence</button>`;
+  }
+  if(pr.aiExBusy) return `<div class="ai-ex-loading">Generating example…</div>`;
+  if(pr.aiExText) return `<div class="ai-ex-result">✨ ${pr.aiExText.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>`;
+  return '';
+}
 
 function renderPractice(){
   if(pr.screen==='setup')   return renderPracSetup();
@@ -1450,6 +1584,27 @@ function renderPracSetup(){
   h+=`<select class="sel" onchange="pr.filterType=this.value;render()">`;
   ['all','word','phrase','sentence','idiom'].forEach(t=>h+=`<option value="${t}"${pr.filterType===t?' selected':''}>${t==='all'?'All types':t[0].toUpperCase()+t.slice(1)+'s'}</option>`);
   h+='</select></div>';
+
+  // Focus weak words toggle
+  const mastMap = getMasteryMap();
+  const allPool2 = lessons.flatMap(l=>(l.vocabulary||[]).map(v=>({...v})));
+  const newWords   = allPool2.filter(v=>(mastMap[masteryKey(v)]||0)<=1).length;
+  const learningW  = allPool2.filter(v=>{const s=mastMap[masteryKey(v)]||0;return s>=2&&s<=3;}).length;
+  const masteredW  = allPool2.filter(v=>(mastMap[masteryKey(v)]||0)>=4).length;
+  h+=`<div class="prac-opts-row" style="flex-direction:column;align-items:flex-start;gap:10px">`;
+  h+=`<div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">`;
+  h+=`<div class="focus-toggle${pr.focusWeak?' on':''}" onclick="pr.focusWeak=!pr.focusWeak;render()">`;
+  h+=`<div class="focus-toggle-dot"></div>`;
+  h+=`<span>${pr.focusWeak?'🎯 Focusing on weak words':'⚖️ Random order'}</span>`;
+  h+=`</div>`;
+  h+=`<span style="font-size:.78rem;color:var(--faint)">${pr.focusWeak?'Unmastered words appear more often':''}</span>`;
+  h+=`</div>`;
+  h+=`<div style="display:flex;gap:10px;flex-wrap:wrap">`;
+  h+=`<div style="font-size:.73rem;color:#c93a2b;background:rgba(201,58,43,.1);padding:3px 10px;border-radius:4px">🔴 New/struggling: ${newWords}</div>`;
+  h+=`<div style="font-size:.73rem;color:#c4933a;background:rgba(196,147,58,.1);padding:3px 10px;border-radius:4px">🟡 Learning: ${learningW}</div>`;
+  h+=`<div style="font-size:.73rem;color:#2d9e6b;background:rgba(45,158,107,.1);padding:3px 10px;border-radius:4px">🟢 Mastered: ${masteredW}</div>`;
+  h+=`</div>`;
+  h+=`</div>`;
 
   // direction (flashcards only)
   if(pr.mode==='flashcard'){
@@ -1522,15 +1677,17 @@ function renderFlashcard(){
     h+=`<div class="fc-card revealed" onclick="fcFlip()">`;
     h+=`<div class="fc-face-label">Answer &nbsp;\u00B7&nbsp; tap to go back</div>`;
     if(front){
-      h+=`<div class="fc-badge-row">${bdg(v.type||'word',tc(v.type))}</div>`;
+      h+=`<div class="fc-badge-row">${bdg(v.type||'word',tc(v.type))}&nbsp;${renderMasteryBar(getMastery(v),true)}</div>`;
       h+=`<div class="fc-pin-row">${esc(v.pinyin)}</div>`;
       h+=`<div class="${isLong(v.english)?'fc-eng-row':'fc-eng-lg'}">${esc(v.english)}</div>`;
       if(v.example) h+=`<div class="fc-ex-row">${esc(v.example)}</div>`;
+      else h+=renderAIExample(v);
     } else {
-      h+=`<div class="fc-badge-row">${bdg(v.type||'word',tc(v.type))}</div>`;
+      h+=`<div class="fc-badge-row">${bdg(v.type||'word',tc(v.type))}&nbsp;${renderMasteryBar(getMastery(v),true)}</div>`;
       h+=`<div class="${isLong(v.chinese)?'fc-zh-sm':'fc-zh-lg'}">${esc(v.chinese)}</div>`;
       h+=`<div class="fc-pin-row">${esc(v.pinyin)}</div>`;
       if(v.example) h+=`<div class="fc-ex-row">${esc(v.example)}</div>`;
+      else h+=renderAIExample(v);
     }
     h+=`</div>`;
 
@@ -1593,7 +1750,9 @@ function renderQuiz(isPinyin){
   if(pr.answered){
     const ok=pr.opts[pr.chosen]?.chinese===v.chinese;
     h+=`<div class="qz-feedback ${ok?'ok':'bad'}">${ok?'\u2713 Correct!':'\u2717 Not quite \u2014 the right answer is highlighted in green'}</div>`;
+    h+=`<div style="display:flex;align-items:center;gap:8px;justify-content:center;margin-bottom:.85rem">${renderMasteryBar(getMastery(v),true)}</div>`;
     if(v.example) h+=`<div style="font-size:.85rem;color:var(--muted);font-style:italic;text-align:center;margin-bottom:.85rem;padding:0 .5rem">"${esc(v.example)}"</div>`;
+    else h+=`<div style="text-align:center;margin-bottom:.85rem">${renderAIExample(v)}</div>`;
     const isLast=pr.idx+1>=pr.deck.length;
     h+=`<button class="qz-next" onclick="qzNext()">${isLast?'See results \u2192':'Next question \u2192'}</button>`;
   }
@@ -1636,6 +1795,8 @@ function renderTypeIn(){
       if(!isOk) h+=`<div style="font-size:.88rem;color:var(--muted);margin-top:.35rem">Correct: <span style="color:#4dd892">${esc(v.english)}</span></div>`;
     }
     if(v.example) h+=`<div style="font-size:.83rem;color:var(--muted);font-style:italic;margin-top:.75rem;padding-top:.75rem;border-top:1px solid var(--border)">"${esc(v.example)}"</div>`;
+    else h+=`<div style="margin-top:.75rem;padding-top:.75rem;border-top:1px solid var(--border)">${renderAIExample(v)}</div>`;
+    h+=`<div style="display:flex;align-items:center;gap:8px;margin-top:.75rem">${renderMasteryBar(getMastery(v),true)}</div>`;
     const isLast=pr.idx+1>=pr.deck.length;
     h+=`<button class="type-submit" style="margin-top:1rem;background:var(--red);border-color:var(--red);color:#fff" onclick="typeNext()">${isLast?'See results \u2192':'Next \u2192'}</button>`;
   }
@@ -1673,7 +1834,20 @@ function renderPracResults(){
   h+='<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">';
   h+=`<button class="btn primary" onclick="startPractice()">Practice again</button>`;
   h+=`<button class="btn" onclick="pracRestart()">Change settings</button>`;
-  h+='</div></div>';
+  h+='</div>';
+
+  // Mastery progress summary
+  const mastered5 = pr.deck.filter(v=>getMastery(v)>=4).length;
+  const weak5     = pr.deck.filter(v=>getMastery(v)<=1).length;
+  h+=`<div style="margin-top:1.5rem;padding:1rem 1.25rem;background:var(--card);border:1px solid var(--border);border-radius:var(--r-md);font-size:.85rem;color:var(--muted)">`;
+  h+=`<div style="font-size:.72rem;color:var(--faint);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.65rem">Mastery after this session</div>`;
+  h+=`<div style="display:flex;gap:10px;flex-wrap:wrap">`;
+  h+=`<span style="color:#2d9e6b">🟢 Mastered: ${mastered5} words</span>`;
+  h+=`<span style="color:#c93a2b">🔴 Still weak: ${weak5} words</span>`;
+  h+=`</div>`;
+  if(weak5>0) h+=`<div style="margin-top:.65rem;font-size:.78rem;color:var(--faint)">Tip: Enable "Focus on weak words" and practice again to drill these.</div>`;
+  h+=`</div>`;
+  h+=`</div>`;
   return h;
 }
 
