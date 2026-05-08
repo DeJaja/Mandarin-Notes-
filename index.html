@@ -47,7 +47,6 @@ input, select, button { font-family: var(--sans); outline: none; }
 
 .badge { display:inline-block; padding:2px 9px; border-radius:4px; font-size:.7rem; font-weight:500; white-space:nowrap; }
 
-/* TOPBAR */
 .topbar { background:var(--surface); border-bottom:1px solid var(--border); padding:0 1.75rem; display:flex; align-items:center; justify-content:space-between; height:58px; gap:12px; flex-shrink:0; position:sticky; top:0; z-index:100; }
 .brand { display:flex; align-items:center; gap:12px; }
 .brand-zh { font-family:var(--zh); font-size:28px; color:var(--red); line-height:1; }
@@ -61,14 +60,12 @@ input, select, button { font-family: var(--sans); outline: none; }
 
 .main { padding:1.75rem; max-width:1400px; margin:0 auto; }
 
-/* STATS */
 .stats-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(90px,1fr)); gap:10px; margin-bottom:1.5rem; }
 .stat-card { background:var(--card); border:1px solid var(--border); border-radius:var(--r-md); padding:14px 16px; transition:border-color .2s; }
 .stat-card:hover { border-color:var(--border2); }
 .stat-num { font-family:var(--serif); font-size:1.6rem; font-weight:500; line-height:1; margin-bottom:5px; }
 .stat-lbl { font-size:.67rem; color:var(--faint); text-transform:uppercase; letter-spacing:.08em; }
 
-/* FILTERS */
 .filter-bar { display:flex; gap:8px; margin-bottom:1rem; flex-wrap:wrap; align-items:center; }
 .search-wrap { flex:1; min-width:200px; position:relative; }
 .search-icon { position:absolute; left:11px; top:50%; transform:translateY(-50%); color:var(--faint); font-size:13px; pointer-events:none; }
@@ -76,7 +73,6 @@ input, select, button { font-family: var(--sans); outline: none; }
 .search-inp:focus { border-color:var(--red); outline:none; }
 .search-inp::placeholder { color:var(--faint); }
 
-/* TABLE */
 .tbl-wrap { border:1px solid var(--border); border-radius:var(--r-lg); overflow:hidden; overflow-x:auto; }
 table { width:100%; border-collapse:collapse; min-width:680px; }
 thead tr { background:var(--surface); }
@@ -92,7 +88,6 @@ td { padding:13px 16px; font-size:.92rem; vertical-align:middle; }
 .c-num { color:var(--faint); font-size:.8rem; }
 .c-eng { color:#ccc5bb; max-width:240px; font-size:.92rem; }
 
-/* LESSONS */
 .lessons-hdr { display:flex; align-items:center; justify-content:space-between; margin-bottom:1.25rem; }
 .lessons-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(258px,1fr)); gap:12px; }
 .lcard { background:var(--card); border:1px solid var(--border); border-radius:var(--r-lg); padding:1.25rem; position:relative; overflow:hidden; transition:border-color .2s, transform .18s; display:flex; flex-direction:column; }
@@ -102,7 +97,6 @@ td { padding:13px 16px; font-size:.92rem; vertical-align:middle; }
 .lcard-meta  { font-size:.72rem; color:var(--faint); margin-bottom:11px; }
 .lcard-acts  { display:flex; gap:7px; margin-top:auto; padding-top:12px; }
 
-/* UPLOAD */
 .upload-wrap { max-width:580px; }
 .upload-zone { border:1.5px dashed var(--border2); border-radius:var(--r-lg); padding:3rem 2rem; text-align:center; cursor:pointer; background:var(--card); transition:border-color .2s, background .2s; }
 .upload-zone:hover { border-color:rgba(201,58,43,.45); background:var(--card2); }
@@ -121,25 +115,21 @@ td { padding:13px 16px; font-size:.92rem; vertical-align:middle; }
 .upload-types { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:1.25rem; }
 .utype-card { background:var(--card); border:1px solid var(--border); border-radius:var(--r-md); padding:12px 14px; }
 
-/* EMPTY */
 .empty { text-align:center; padding:4rem 2rem; background:var(--card); border-radius:var(--r-lg); border:1px solid var(--border); }
 .empty-zh  { font-family:var(--zh); font-size:52px; color:var(--red); opacity:.2; margin-bottom:1rem; }
 .empty-ttl { font-family:var(--serif); font-size:1.05rem; color:var(--muted); margin-bottom:7px; }
 .empty-sub { font-size:.82rem; color:var(--faint); margin-bottom:1.5rem; }
 .res-info { font-size:.74rem; color:var(--faint); margin-bottom:8px; }
 
-/* MASTERY DOTS */
 .mst-bar { display:flex; gap:3px; align-items:center; }
 .mst-dot { width:7px; height:7px; border-radius:50%; flex-shrink:0; }
 .mst-label { font-size:.65rem; color:var(--faint); white-space:nowrap; }
 
-/* AI EXAMPLE */
 .ai-ex-btn { background:transparent; border:1px dashed var(--border2); border-radius:var(--r-sm); padding:4px 10px; color:var(--faint); font-size:.75rem; cursor:pointer; transition:all .15s; display:inline-flex; align-items:center; gap:5px; }
 .ai-ex-btn:hover { color:var(--gold); border-color:var(--gold); }
 .ai-ex-loading { font-size:.8rem; color:var(--faint); font-style:italic; animation:pulse .9s infinite; }
 .ai-ex-result { font-size:.85rem; color:var(--muted); font-style:italic; border-top:1px solid var(--border); padding-top:.65rem; margin-top:.65rem; line-height:1.6; }
 
-/* MASTERY FILTER TOGGLE */
 .focus-toggle { display:inline-flex; align-items:center; gap:8px; background:var(--card2); border:1.5px solid var(--border2); border-radius:99px; padding:7px 16px; cursor:pointer; font-size:.85rem; color:var(--muted); transition:all .15s; user-select:none; }
 .focus-toggle.on { border-color:var(--gold); color:var(--gold); background:rgba(196,147,58,.12); }
 .focus-toggle-dot { width:10px; height:10px; border-radius:50%; background:var(--faint); transition:background .15s; }
@@ -147,31 +137,21 @@ td { padding:13px 16px; font-size:.92rem; vertical-align:middle; }
 
 .spinner { width:20px; height:20px; border:2px solid rgba(255,255,255,.15); border-top-color:#fff; border-radius:50%; animation:spin .7s linear infinite; display:inline-block; }
 
-/* ── PRACTICE ── */
 @keyframes popIn  { from{opacity:0;transform:scale(.93)} to{opacity:1;transform:scale(1)} }
 @keyframes shake  { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-10px)} 60%{transform:translateX(10px)} }
 @keyframes pulse  { 0%,100%{opacity:1} 50%{opacity:.45} }
 
 .prac-setup { max-width:720px; margin:0 auto; }
 .prac-modes { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:12px; margin-bottom:1.5rem; }
-.prac-mode-card {
-  background:var(--card); border:2px solid var(--border); border-radius:var(--r-lg);
-  padding:1.5rem 1.25rem; text-align:center; cursor:pointer;
-  transition:border-color .18s, transform .18s, background .18s;
-}
+.prac-mode-card { background:var(--card); border:2px solid var(--border); border-radius:var(--r-lg); padding:1.5rem 1.25rem; text-align:center; cursor:pointer; transition:border-color .18s, transform .18s, background .18s; }
 .prac-mode-card:hover { border-color:var(--border2); transform:translateY(-2px); background:var(--card2); }
 .prac-mode-card.selected { border-color:var(--red); background:var(--red-dim); }
 .prac-mode-icon  { font-size:2rem; margin-bottom:.6rem; line-height:1; }
 .prac-mode-title { font-family:var(--serif); font-size:1rem; font-weight:500; margin-bottom:5px; }
 .prac-mode-desc  { font-size:.78rem; color:var(--muted); line-height:1.5; }
 
-/* Card count chips */
 .count-chips { display:flex; gap:8px; flex-wrap:wrap; }
-.count-chip {
-  background:var(--card2); border:1.5px solid var(--border2);
-  border-radius:99px; padding:6px 18px; font-size:.85rem;
-  color:var(--muted); cursor:pointer; transition:all .15s;
-}
+.count-chip { background:var(--card2); border:1.5px solid var(--border2); border-radius:99px; padding:6px 18px; font-size:.85rem; color:var(--muted); cursor:pointer; transition:all .15s; }
 .count-chip:hover { color:var(--text); border-color:var(--border2); }
 .count-chip.selected { background:var(--red); border-color:var(--red); color:#fff; font-weight:500; }
 
@@ -181,42 +161,18 @@ td { padding:13px 16px; font-size:.92rem; vertical-align:middle; }
 .prac-opts-row:last-child { margin-bottom:0; }
 .prac-lbl { font-size:.85rem; color:var(--muted); min-width:80px; font-weight:500; }
 
-/* Progress */
 .prac-prog-wrap { background:var(--card); border:1px solid var(--border); border-radius:var(--r-lg); padding:1rem 1.5rem; margin-bottom:1.25rem; display:flex; align-items:center; gap:16px; }
 .prac-prog-bar  { flex:1; height:7px; background:var(--border2); border-radius:4px; overflow:hidden; }
 .prac-prog-fill { height:100%; background:var(--red); border-radius:4px; transition:width .35s ease; }
 .prac-prog-txt  { font-size:.82rem; color:var(--muted); white-space:nowrap; }
 
-/* FLASHCARD */
 @keyframes cardReveal { from{opacity:0;transform:translateY(10px) scale(.98)} to{opacity:1;transform:none} }
 @keyframes cardFlip   { 0%{opacity:0;transform:rotateY(-12deg) scale(.97)} 100%{opacity:1;transform:none} }
 
-.fc-card {
-  background:var(--card);
-  border:2px solid var(--border2);
-  border-radius:var(--r-lg);
-  min-height:280px;
-  width:100%;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  padding:2.5rem 2rem;
-  text-align:center;
-  cursor:pointer;
-  margin-bottom:1.25rem;
-  animation:cardReveal .2s ease both;
-  position:relative;
-  transition:border-color .2s;
-}
+.fc-card { background:var(--card); border:2px solid var(--border2); border-radius:var(--r-lg); min-height:280px; width:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:2.5rem 2rem; text-align:center; cursor:pointer; margin-bottom:1.25rem; animation:cardReveal .2s ease both; position:relative; transition:border-color .2s; }
 .fc-card:hover { border-color:rgba(255,255,255,.22); }
 .fc-card.revealed { animation:cardFlip .25s ease both; border-color:rgba(196,147,58,.35); }
-
-.fc-face-label {
-  position:absolute; top:1.1rem; left:50%; transform:translateX(-50%);
-  font-size:.7rem; color:var(--faint); text-transform:uppercase;
-  letter-spacing:.1em; white-space:nowrap;
-}
+.fc-face-label { position:absolute; top:1.1rem; left:50%; transform:translateX(-50%); font-size:.7rem; color:var(--faint); text-transform:uppercase; letter-spacing:.1em; white-space:nowrap; }
 .fc-badge-row { margin-bottom:1rem; }
 .fc-zh-lg { font-family:var(--zh); font-size:clamp(1.6rem,5vw,3.8rem); line-height:1.25; color:var(--text); margin-bottom:.5rem; word-break:break-all; }
 .fc-zh-sm { font-family:var(--zh); font-size:clamp(1.1rem,3vw,1.6rem); line-height:1.5; color:var(--text); margin-bottom:.5rem; }
@@ -237,7 +193,6 @@ td { padding:13px 16px; font-size:.92rem; vertical-align:middle; }
 .fc-btn-nav { background:transparent; border:1px solid var(--border); color:var(--faint); border-radius:var(--r-sm); padding:8px 20px; font-size:.83rem; font-family:var(--sans); cursor:pointer; transition:color .15s, border-color .15s; }
 .fc-btn-nav:hover { color:var(--muted); border-color:var(--border2); }
 
-/* QUIZ (multiple choice) */
 .qz-wrap  { max-width:620px; margin:0 auto; animation:popIn .3s ease; }
 .qz-q-card { background:var(--card); border:1px solid var(--border2); border-radius:var(--r-lg); padding:2.75rem 2rem; text-align:center; margin-bottom:1.25rem; }
 .qz-q-label { font-size:.75rem; color:var(--faint); text-transform:uppercase; letter-spacing:.08em; margin-bottom:1.25rem; }
@@ -245,13 +200,7 @@ td { padding:13px 16px; font-size:.92rem; vertical-align:middle; }
 .qz-q-pin { font-family:var(--mono); font-style:italic; color:var(--gold); font-size:1.05rem; }
 .qz-q-eng { font-size:1.2rem; color:var(--text); font-weight:500; }
 .qz-opts  { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:1.25rem; }
-.qz-opt {
-  background:var(--card); border:2px solid var(--border);
-  border-radius:var(--r-md); padding:16px 18px;
-  text-align:left; font-size:.92rem; color:var(--text);
-  font-family:var(--sans); cursor:pointer; line-height:1.5;
-  transition:border-color .15s, background .15s;
-}
+.qz-opt { background:var(--card); border:2px solid var(--border); border-radius:var(--r-md); padding:16px 18px; text-align:left; font-size:.92rem; color:var(--text); font-family:var(--sans); cursor:pointer; line-height:1.5; transition:border-color .15s, background .15s; }
 .qz-opt:hover:not(:disabled) { border-color:var(--border2); background:var(--card2); }
 .qz-opt:disabled { cursor:default; }
 .qz-opt.correct { background:#122a1e; border-color:#2d9e6b; color:#4dd892; animation:popIn .25s ease; }
@@ -263,17 +212,8 @@ td { padding:13px 16px; font-size:.92rem; vertical-align:middle; }
 .qz-next { display:block; width:100%; padding:14px; background:var(--red); border:none; border-radius:var(--r-md); color:#fff; font-size:.95rem; font-family:var(--sans); font-weight:500; cursor:pointer; transition:background .15s; }
 .qz-next:hover { background:#a82e21; }
 
-/* PINYIN QUIZ */
-.pq-q-zh { font-family:var(--zh); font-size:4rem; color:var(--text); line-height:1.2; margin-bottom:.5rem; text-align:center; }
-
-/* TYPE-IN MODE */
 .type-card { background:var(--card); border:1px solid var(--border2); border-radius:var(--r-lg); padding:2.5rem 2rem; text-align:center; margin-bottom:1.25rem; }
-.type-inp {
-  width:100%; background:var(--card2); border:2px solid var(--border2);
-  border-radius:var(--r-md); padding:14px 18px; color:var(--text);
-  font-size:1.05rem; font-family:var(--sans); text-align:center;
-  transition:border-color .2s; margin-top:1.5rem; outline:none;
-}
+.type-inp { width:100%; background:var(--card2); border:2px solid var(--border2); border-radius:var(--r-md); padding:14px 18px; color:var(--text); font-size:1.05rem; font-family:var(--sans); text-align:center; transition:border-color .2s; margin-top:1.5rem; outline:none; }
 .type-inp:focus { border-color:var(--red); }
 .type-inp.correct-border { border-color:#2d9e6b; }
 .type-inp.wrong-border   { border-color:#c93a2b; }
@@ -282,7 +222,6 @@ td { padding:13px 16px; font-size:.92rem; vertical-align:middle; }
 .type-reveal { font-size:.82rem; color:var(--faint); text-align:center; margin-top:.6rem; cursor:pointer; text-decoration:underline; }
 .type-reveal:hover { color:var(--muted); }
 
-/* RESULTS */
 .prac-results { max-width:520px; margin:0 auto; text-align:center; animation:popIn .35s ease; }
 .prac-score-circle { width:140px; height:140px; border-radius:50%; margin:0 auto 1.5rem; display:flex; flex-direction:column; align-items:center; justify-content:center; border:3px solid; }
 .prac-score-num { font-family:var(--serif); font-size:2.5rem; font-weight:500; line-height:1; }
@@ -292,10 +231,6 @@ td { padding:13px 16px; font-size:.92rem; vertical-align:middle; }
 .prac-res-num   { font-family:var(--serif); font-size:1.6rem; font-weight:500; }
 .prac-res-lbl   { font-size:.75rem; color:var(--faint); text-transform:uppercase; letter-spacing:.06em; margin-top:3px; }
 
-/* ════════════════════════════════
-   MOBILE — full phone experience
-════════════════════════════════ */
-/* ── HSK TAB ── */
 .hsk-header { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; margin-bottom:1.25rem; }
 .hsk-level-tabs { display:flex; gap:6px; flex-wrap:wrap; }
 .hsk-lvl { background:var(--card); border:1.5px solid var(--border); border-radius:99px; padding:6px 18px; font-size:.82rem; color:var(--muted); cursor:pointer; transition:all .15s; font-family:var(--sans); }
@@ -321,7 +256,6 @@ td { padding:13px 16px; font-size:.92rem; vertical-align:middle; }
 .hsk-mask-btn.mask-off { color:var(--faint); }
 .hsk-mask-btn:hover { border-color:var(--border2); color:var(--text); }
 
-/* Exercise */
 .hsk-ex-card { background:var(--card); border:1px solid var(--border2); border-radius:var(--r-lg); padding:2rem 1.75rem; margin-bottom:1.25rem; }
 .hsk-ex-q    { font-size:1.05rem; color:var(--text); line-height:1.8; margin-bottom:1.25rem; }
 .hsk-ex-blank { display:inline-block; border-bottom:2px solid var(--red); min-width:80px; text-align:center; padding:0 8px; font-family:var(--zh); font-size:1.1rem; }
@@ -337,69 +271,32 @@ td { padding:13px 16px; font-size:.92rem; vertical-align:middle; }
 .hsk-ex-feedback.bad { color:#f08080; }
 
 @media (max-width:680px) {
-  /* topbar stripped down */
-  .topbar {
-    padding:0 1rem;
-    height:52px;
-  }
+  .topbar { padding:0 1rem; height:52px; }
   .brand-name, .brand-count { display:none; }
-  .nav { display:none; } /* hidden — replaced by bottom bar */
-
-  /* main gets bottom padding for the tab bar */
+  .nav { display:none; }
   .main { padding:.9rem .9rem 80px; }
-
-  /* BOTTOM TAB BAR */
-  .mob-nav {
-    display:flex !important;
-    position:fixed; bottom:0; left:0; right:0; z-index:200;
-    background:var(--surface);
-    border-top:1px solid var(--border2);
-    height:62px;
-    padding-bottom:env(safe-area-inset-bottom);
-  }
-  .mob-tab {
-    flex:1; display:flex; flex-direction:column; align-items:center;
-    justify-content:center; gap:3px;
-    background:transparent; border:none;
-    cursor:pointer; padding:8px 4px;
-    font-family:var(--sans); transition:color .15s;
-    color:var(--faint);
-    -webkit-tap-highlight-color:transparent;
-  }
+  .mob-nav { display:flex !important; position:fixed; bottom:0; left:0; right:0; z-index:200; background:var(--surface); border-top:1px solid var(--border2); height:62px; padding-bottom:env(safe-area-inset-bottom); }
+  .mob-tab { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; background:transparent; border:none; cursor:pointer; padding:8px 4px; font-family:var(--sans); transition:color .15s; color:var(--faint); -webkit-tap-highlight-color:transparent; }
   .mob-tab.active { color:var(--red); }
   .mob-tab-icon  { font-size:20px; line-height:1; }
   .mob-tab-label { font-size:.6rem; letter-spacing:.03em; }
-
-  /* stats */
   .stats-grid { grid-template-columns:repeat(3,1fr); gap:7px; margin-bottom:1rem; }
   .stat-num { font-size:1.2rem; }
   .stat-lbl { font-size:.58rem; }
-
-  /* filters stack vertically */
   .filter-bar { flex-direction:column; gap:7px; }
   .search-wrap { min-width:unset; }
   .search-inp { font-size:.88rem; }
   .sel { font-size:.82rem; width:100%; }
-
-  /* vocab CARDS on mobile instead of table */
   .tbl-wrap { display:none; }
   .mob-cards { display:flex !important; flex-direction:column; gap:10px; }
-  .mob-vcard {
-    background:var(--card); border:1px solid var(--border);
-    border-radius:var(--r-lg); padding:1rem 1.1rem;
-    cursor:default;
-  }
+  .mob-vcard { background:var(--card); border:1px solid var(--border); border-radius:var(--r-lg); padding:1rem 1.1rem; cursor:default; }
   .mob-vcard-zh  { font-family:var(--zh); font-size:1.8rem; line-height:1.2; margin-bottom:3px; }
   .mob-vcard-pin { font-family:var(--mono); font-style:italic; color:var(--gold); font-size:.85rem; margin-bottom:6px; }
   .mob-vcard-eng { font-size:.9rem; color:#ccc5bb; line-height:1.5; margin-bottom:7px; }
   .mob-vcard-foot { display:flex; align-items:center; justify-content:space-between; gap:6px; }
   .mob-vcard-ex { font-size:.8rem; color:var(--muted); font-style:italic; margin-top:8px; padding-top:8px; border-top:1px solid var(--border); line-height:1.55; }
-
-  /* lessons grid */
   .lessons-grid { grid-template-columns:1fr; }
   .lessons-hdr { flex-direction:column; align-items:flex-start; gap:10px; }
-
-  /* practice setup */
   .prac-setup { max-width:100%; }
   .prac-modes { grid-template-columns:1fr 1fr; gap:8px; }
   .prac-mode-card { padding:.9rem .75rem; }
@@ -411,9 +308,6 @@ td { padding:13px 16px; font-size:.92rem; vertical-align:middle; }
   .prac-lbl { min-width:unset; font-size:.82rem; }
   .count-chips { gap:6px; }
   .count-chip { padding:7px 14px; font-size:.8rem; }
-  .sel { font-size:.82rem; }
-
-  /* flashcard */
   .fc-card { min-height:200px; padding:1.5rem 1rem; }
   .fc-zh-lg { font-size:clamp(1.5rem,9vw,2.8rem); }
   .fc-zh-sm { font-size:clamp(1rem,4vw,1.3rem); }
@@ -422,32 +316,21 @@ td { padding:13px 16px; font-size:.92rem; vertical-align:middle; }
   .fc-pin-row { font-size:.95rem; }
   .fc-actions { gap:8px; }
   .fc-btn { font-size:.88rem; padding:14px 8px; }
-
-  /* quiz */
   .qz-opts { grid-template-columns:1fr; gap:8px; }
   .qz-q-zh { font-size:2.8rem; }
   .qz-q-card { padding:2rem 1.25rem; }
   .qz-opt { padding:15px 14px; font-size:.9rem; }
-
-  /* type-in */
   .type-card { padding:2rem 1rem; }
-
-  /* upload */
   .upload-wrap { max-width:100%; }
   .upload-types { grid-template-columns:1fr 1fr; }
-
-  /* results */
   .prac-results { max-width:100%; }
   .prac-res-grid { gap:8px; }
-
-  /* sentence analyser */
   #sn-ta { min-height:90px; font-size:.9rem; }
 }
 </style>
 </head>
 <body>
 
-<!-- PROFILE PICKER -->
 <div id="pg-profiles" style="display:none;min-height:100vh;background:var(--bg);align-items:center;justify-content:center;padding:2rem">
   <div style="width:100%;max-width:560px">
     <div style="text-align:center;margin-bottom:2.5rem">
@@ -466,7 +349,6 @@ td { padding:13px 16px; font-size:.92rem; vertical-align:middle; }
   </div>
 </div>
 
-<!-- APP -->
 <div id="pg-app" style="display:none;min-height:100vh;flex-direction:column">
   <div class="topbar">
     <div class="brand">
@@ -493,26 +375,14 @@ td { padding:13px 16px; font-size:.92rem; vertical-align:middle; }
   </div>
   <div class="main" id="main"></div>
 
-  <!-- MOBILE BOTTOM TAB BAR -->
   <nav class="mob-nav" id="mob-nav" style="display:none">
-    <button class="mob-tab active" id="mob-review"    onclick="gotoTab('review')">
-      <span class="mob-tab-icon">📖</span><span class="mob-tab-label">Review</span>
-    </button>
-    <button class="mob-tab" id="mob-practice"  onclick="gotoTab('practice')">
-      <span class="mob-tab-icon">🎴</span><span class="mob-tab-label">Practice</span>
-    </button>
-    <button class="mob-tab" id="mob-hsk"       onclick="gotoTab('hsk')">
-      <span class="mob-tab-icon">🏆</span><span class="mob-tab-label">HSK</span>
-    </button>
-    <button class="mob-tab" id="mob-lessons"   onclick="gotoTab('lessons')">
-      <span class="mob-tab-icon">📚</span><span class="mob-tab-label">Lessons</span>
-    </button>
-    <button class="mob-tab" id="mob-upload"    onclick="gotoTab('upload')">
-      <span class="mob-tab-icon">⬆</span><span class="mob-tab-label">Upload</span>
-    </button>
+    <button class="mob-tab active" id="mob-review"    onclick="gotoTab('review')"><span class="mob-tab-icon">📖</span><span class="mob-tab-label">Review</span></button>
+    <button class="mob-tab" id="mob-practice"  onclick="gotoTab('practice')"><span class="mob-tab-icon">🎴</span><span class="mob-tab-label">Practice</span></button>
+    <button class="mob-tab" id="mob-hsk"       onclick="gotoTab('hsk')"><span class="mob-tab-icon">🏆</span><span class="mob-tab-label">HSK</span></button>
+    <button class="mob-tab" id="mob-lessons"   onclick="gotoTab('lessons')"><span class="mob-tab-icon">📚</span><span class="mob-tab-label">Lessons</span></button>
+    <button class="mob-tab" id="mob-upload"    onclick="gotoTab('upload')"><span class="mob-tab-icon">⬆</span><span class="mob-tab-label">Upload</span></button>
   </nav>
 
-  <!-- RENAME MODAL -->
   <div id="rename-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:999;align-items:center;justify-content:center;padding:1rem">
     <div style="background:var(--card);border:1px solid var(--border2);border-radius:var(--r-lg);padding:1.75rem;width:100%;max-width:380px">
       <div style="font-family:var(--serif);font-size:1.05rem;font-weight:500;margin-bottom:4px">Rename your profile</div>
@@ -524,20 +394,48 @@ td { padding:13px 16px; font-size:.92rem; vertical-align:middle; }
       </div>
     </div>
   </div>
-  </div>
-  <div class="main" id="main"></div>
 </div>
 
 <script>
-/* ── colors ── */
 const CAT_C = {'Daily Life':'#2D7DD2','Travel':'#2D9E6B','Work & Business':'#C4933A','Idioms & Expressions':'#7B5EA7','Food':'#C93A2B','People & Relationships':'#C4699A','Other':'#4A5568'};
 const TYP_C = {word:'#2D9E6B',phrase:'#2D7DD2',sentence:'#C4933A',idiom:'#7B5EA7'};
 const cc = c => CAT_C[c] || '#4A5568';
 const tc = t => TYP_C[t] || '#4A5568';
 const bdg = (l,col,sm) => `<span class="badge" style="background:${col}1a;color:${col};padding:${sm?'1px 6px':'2px 9px'};font-size:${sm?'.67rem':'.7rem'}">${l}</span>`;
 
-/* ── sample data ── */
+/* ── NEW DiDi lesson: 印象 ── */
+const DIDI_YINXIANG = {
+  id:'lesson:didi_yinxiang',
+  fileName:'DiDi Laoshi class - 印象',
+  lessonTitle:'印象 — Impressions & Attitudes',
+  category:'Daily Life',
+  date:'2025-05-08T09:00:00Z',
+  wordCount:19,
+  vocabulary:[
+    {chinese:'印象',pinyin:'yìnxiàng',english:'impression',type:'word',example:'我对他有很深的印象。I have a deep impression of him.'},
+    {chinese:'自信',pinyin:'zìxìn',english:'confident / self-confidence',type:'word',example:'她非常自信。She is very confident.'},
+    {chinese:'激情',pinyin:'jīqíng',english:'passion / intense enthusiasm',type:'word',example:'他对工作充满激情。He is full of passion for his work.'},
+    {chinese:'热情',pinyin:'rèqíng',english:'enthusiastic / warm / passionate',type:'word',example:'老师对学生非常热情。The teacher is very warm towards the students.'},
+    {chinese:'轻松',pinyin:'qīngsōng',english:'relaxed / easy / light-hearted',type:'word',example:'这个工作让我感觉很轻松。This job makes me feel very relaxed.'},
+    {chinese:'消极',pinyin:'xiāojí',english:'negative / pessimistic / passive',type:'word',example:'不要有消极的想法。Don\'t have negative thoughts.'},
+    {chinese:'消极想法',pinyin:'xiāojí xiǎngfǎ',english:'negative thoughts',type:'phrase',example:'消极想法会影响你的心情。Negative thoughts will affect your mood.'},
+    {chinese:'消极态度',pinyin:'xiāojí tàidù',english:'negative attitude',type:'phrase',example:'消极态度对工作没有好处。A negative attitude is not good for work.'},
+    {chinese:'消极情绪',pinyin:'xiāojí qíngxù',english:'negative emotions / negative mood',type:'phrase',example:'要学会管理消极情绪。You need to learn to manage negative emotions.'},
+    {chinese:'消极心态',pinyin:'xiāojí xīntài',english:'negative mentality',type:'phrase',example:'消极心态会让人失去动力。A negative mentality makes people lose motivation.'},
+    {chinese:'消极影响',pinyin:'xiāojí yǐngxiǎng',english:'negative influence / negative effect',type:'phrase',example:'这件事对他产生了消极影响。This matter had a negative influence on him.'},
+    {chinese:'学会',pinyin:'xuéhuì',english:'learn to / master / come to know how',type:'word',example:'我学会了做饭。I have learned how to cook.'},
+    {chinese:'吸引',pinyin:'xīyǐn',english:'to attract / to draw in',type:'word',example:'他的热情吸引了很多人。His enthusiasm attracted many people.'},
+    {chinese:'讨论',pinyin:'tǎolùn',english:'to discuss / discussion',type:'word',example:'我们来讨论这个问题。Let\'s discuss this issue.'},
+    {chinese:'印象深刻',pinyin:'yìnxiàng shēnkè',english:'make a deep impression / deeply impressive',type:'phrase',example:'这部电影让人印象深刻。This film is deeply impressive.'},
+    {chinese:'第一印象',pinyin:'dì yī yìnxiàng',english:'first impression',type:'phrase',example:'第一印象很重要。First impressions are very important.'},
+    {chinese:'留下印象',pinyin:'liúxià yìnxiàng',english:'leave an impression / make an impression',type:'phrase',example:'你给我留下了很好的印象。You left a very good impression on me.'},
+    {chinese:'给人以…的印象',pinyin:'gěi rén yǐ … de yìnxiàng',english:'give someone the impression of… / come across as…',type:'phrase',example:'他给人以很专业的印象。He gives people the impression of being very professional.'},
+    {chinese:'A 对 B 有 + 形容词 + 印象',pinyin:'A duì B yǒu + xíngróngcí + yìnxiàng',english:'A has a [adj] impression of B (grammar pattern)',type:'phrase',example:'我对这座城市有很好的印象。I have a very good impression of this city.'},
+  ]
+};
+
 const SAMPLE = [
+  DIDI_YINXIANG,
   {id:'lesson:s1',fileName:'James2_25.pdf',lessonTitle:'Introducing My Father',category:'People & Relationships',date:'2025-02-25T09:00:00Z',vocabulary:[
     {chinese:'电梯',pinyin:'diàntī',english:'elevator / lift',type:'word',example:''},
     {chinese:'印象',pinyin:'yìnxiàng',english:'impression',type:'word',example:''},
@@ -649,503 +547,59 @@ const SAMPLE = [
     {chinese:'即使……还是……',pinyin:'jíshǐ...háishì...',english:'even if… still… (grammar pattern)',type:'phrase',example:'即使我吃很多，我也不胖。Even if I eat a lot, I still don\'t get fat.'},
     {chinese:'互相为难',pinyin:'hùxiāng wéinán',english:'to make things difficult for each other',type:'phrase',example:'他们不应该互相为难。They shouldn\'t make things difficult for each other.'},
   ]},
-  {id:'lesson:s16',fileName:'James笔记.docx',lessonTitle:'Cars, Housing & Daily Life',category:'Daily Life',date:'2025-04-16T09:00:00Z',wordCount:30,vocabulary:[
-    {chinese:'引擎盖',pinyin:'yǐnqíng gài',english:'bonnet / hood (of a car)',type:'word',example:''},
-    {chinese:'路怒症',pinyin:'lù nù zhèng',english:'road rage',type:'phrase',example:'他有路怒症。He has road rage.'},
-    {chinese:'后备箱',pinyin:'hòubèi xiāng',english:'car boot / trunk',type:'word',example:'把东西放在后备箱里。Put the things in the boot.'},
-    {chinese:'棍子',pinyin:'gùnzi',english:'stick / rod / club',type:'word',example:'他手里拿着棍子。He was holding a stick.'},
-    {chinese:'砸',pinyin:'zá',english:'smash / hit / break',type:'word',example:'他砸了车窗。He smashed the car window.'},
-    {chinese:'轻',pinyin:'qīng',english:'light (weight) / gentle / not serious',type:'word',example:'这个很轻。This is very light.'},
-    {chinese:'重',pinyin:'zhòng',english:'heavy / serious / important',type:'word',example:'这个很重。This is very heavy.'},
-    {chinese:'铁',pinyin:'tiě',english:'iron (metal)',type:'word',example:'铁棍。An iron rod.'},
-    {chinese:'恐怖',pinyin:'kǒngbù',english:'terrifying / horrifying / terror',type:'word',example:'这个故事很恐怖。This story is terrifying.'},
-    {chinese:'恐怖片',pinyin:'kǒngbù piān',english:'horror film / scary movie',type:'phrase',example:'你喜欢看恐怖片吗？Do you like watching horror films?'},
-    {chinese:'警察',pinyin:'jǐngchá',english:'police / police officer',type:'word',example:'警察来了。The police came.'},
-    {chinese:'保安',pinyin:'bǎo ān',english:'security guard',type:'word',example:'大楼门口有保安。There is a security guard at the building entrance.'},
-    {chinese:'编制',pinyin:'biānzhì',english:'official establishment / permanent staff post (govt)',type:'word',example:'他有编制。He has a permanent government post.'},
-    {chinese:'公务员',pinyin:'gōngwùyuán',english:'civil servant / government employee',type:'word',example:'她是公务员。She is a civil servant.'},
-    {chinese:'政府',pinyin:'zhèngfǔ',english:'government',type:'word',example:'政府出台了新政策。The government introduced a new policy.'},
-    {chinese:'抓起来',pinyin:'zhuā qǐlái',english:'arrest / grab and detain',type:'phrase',example:'警察把他抓起来了。The police arrested him.'},
-    {chinese:'逮捕',pinyin:'dàibǔ',english:'arrest / apprehend (formal/legal term)',type:'word',example:'他被逮捕了。He was arrested.'},
-    {chinese:'你打算生二胎吗',pinyin:'nǐ dǎsuàn shēng èrtāi ma',english:'Are you planning to have a second child?',type:'sentence',example:''},
-    {chinese:'兄弟姐妹',pinyin:'xiōngdì jiěmèi',english:'siblings / brothers and sisters',type:'phrase',example:'我们兄弟姐妹三个人。There are three of us siblings.'},
-    {chinese:'年龄差',pinyin:'niánlíng chā',english:'age gap / age difference',type:'phrase',example:'我跟姐姐年龄差很大。My sister and I have a big age gap.'},
-    {chinese:'姐夫',pinyin:'jiěfu',english:'brother-in-law (elder sister\'s husband)',type:'word',example:'姐夫很友好。My brother-in-law is very friendly.'},
-    {chinese:'买房子',pinyin:'mǎi fángzi',english:'buy a house',type:'phrase',example:'他们打算买房子。They are planning to buy a house.'},
-    {chinese:'别墅',pinyin:'biéshù',english:'villa / detached house',type:'word',example:'他住在别墅里。He lives in a villa.'},
-    {chinese:'房产局',pinyin:'fángchǎn jú',english:'housing bureau / real estate authority',type:'phrase',example:'去房产局办手续。Go to the housing bureau to handle the procedures.'},
-    {chinese:'出租',pinyin:'chūzū',english:'rent out / for rent',type:'word',example:'这套房子出租吗？Is this apartment for rent?'},
-    {chinese:'房价',pinyin:'fángjià',english:'house price / property price',type:'word',example:'房价跌了。House prices have dropped.'},
-    {chinese:'面积',pinyin:'miànjī',english:'area / floor space',type:'word',example:'面积多大？How big is the floor area?'},
-    {chinese:'平方米',pinyin:'píngfāng mǐ',english:'square metre',type:'phrase','example':'这套房子57平方米。This apartment is 57 square metres.'},
-    {chinese:'房价跌了',pinyin:'fángjià diē le',english:'house prices have dropped / fallen',type:'phrase',example:'最近房价跌了很多。Recently house prices have dropped a lot.'},
-    {chinese:'物业费',pinyin:'wùyè fèi',english:'property management fee / maintenance fee',type:'phrase',example:'每个月要交物业费。You have to pay the property management fee every month.'},
-    {chinese:'水电费',pinyin:'shuǐdiànfèi',english:'water and electricity bills / utilities',type:'phrase',example:'每个月水电费多少钱？How much are the monthly utilities?'},
-    {chinese:'煤气费',pinyin:'méiqì fèi',english:'gas bill / gas charges',type:'phrase',example:'煤气费和水电费一起交。Pay the gas bill together with the utilities.'},
-  ]},
-  {id:'lesson:s15',fileName:'james_笔记.docx',lessonTitle:'Grammar Notes — 连续 & Daily Vocab',category:'Daily Life',date:'2025-04-13T09:00:00Z',wordCount:20,vocabulary:[
-    {chinese:'连续',pinyin:'liánxù',english:'continuously / in a row / consecutively',type:'word',example:'我连续睡了八个小时。I slept for eight hours straight.'},
-    {chinese:'连续 + 一段时间',pinyin:'liánxù + yī duàn shíjiān',english:'grammar: continuously for a period of time',type:'phrase',example:'连续半个月。Continuously for half a month.'},
-    {chinese:'连续半个月',pinyin:'liánxù bàn gè yuè',english:'for half a month in a row / continuously for half a month',type:'phrase',example:'连续半个月都要打车上班。I had to take a taxi to work every day for half a month in a row.'},
-    {chinese:'连续 + V了 + 时间',pinyin:'liánxù + V le + shíjiān',english:'grammar pattern: continuously did [verb] for [time]',type:'phrase',example:'我连续睡了八个小时。I slept continuously for eight hours.'},
-    {chinese:'我连续睡了八个小时',pinyin:'wǒ liánxù shuì le bā gè xiǎoshí',english:'I slept continuously / straight for eight hours.',type:'sentence',example:''},
-    {chinese:'我的车坏了',pinyin:'wǒ de chē huài le',english:'my car broke down',type:'sentence',example:'我的车坏了，要修一个周，所以连续一个周都要打车上班。My car broke down — it needs a week to fix, so I had to take taxis to work for a whole week.'},
-    {chinese:'打车',pinyin:'dǎ chē',english:'take a taxi / hail a cab',type:'phrase',example:'我连续一个周都要打车上班。I had to take taxis to work every day for a week.'},
-    {chinese:'挣钱',pinyin:'zhèng qián',english:'earn money / make money (through labour)',type:'word',example:''},
-    {chinese:'赚钱',pinyin:'zhuàn qián',english:'make money / earn a profit (more general)',type:'word',example:''},
-    {chinese:'如果需要买东西，我都在淘宝上买',pinyin:'rúguǒ xūyào mǎi dōngxi, wǒ dōu zài Táobǎo shàng mǎi',english:'If I need to buy something, I always buy it on Taobao.',type:'sentence',example:''},
-    {chinese:'商店',pinyin:'shāngdiàn',english:'shop / store',type:'word',example:''},
-    {chinese:'付',pinyin:'fù',english:'pay / pay for',type:'word',example:'你想刷卡还是付现金？Do you want to pay by card or cash?'},
-    {chinese:'小朋友',pinyin:'xiǎo péngyou',english:'young child / little one (friendly term)',type:'word',example:''},
-    {chinese:'同事',pinyin:'tóngshì',english:'colleague / co-worker',type:'word',example:''},
-    {chinese:'注意力容易分散',pinyin:'zhùyìlì róngyì fēnsàn',english:'attention is easily distracted / easily loses focus',type:'phrase',example:'注意力容易分散。My attention is easily distracted.'},
-    {chinese:'教',pinyin:'jiāo',english:'teach / to instruct',type:'word',example:''},
-    {chinese:'曾经',pinyin:'céng jīng',english:'once / previously / used to (past experience)',type:'word',example:'我曾经在中国住过。I used to live in China.'},
-    {chinese:'严重',pinyin:'yánzhòng',english:'serious / severe / grave',type:'word',example:'问题很严重。The problem is very serious.'},
-    {chinese:'缓解',pinyin:'huǎnjiě',english:'relieve / ease / alleviate',type:'word',example:'这个方法可以缓解焦虑。This method can relieve anxiety.'},
-    {chinese:'焦虑',pinyin:'jiāolǜ',english:'anxiety / anxious / worried',type:'word',example:'这个方法可以缓解焦虑。This method can relieve anxiety.'},
-    {chinese:'大概',pinyin:'dàgài',english:'approximately / roughly / probably',type:'word',example:'大概需要一个小时。It takes approximately one hour.'},
-  ]},
-  {id:'lesson:s14',fileName:'Sentence Analysis',lessonTitle:'Booking Classes & Scheduling',category:'Daily Life',date:'2025-04-06T09:00:00Z',vocabulary:[
-    {chinese:'修改',pinyin:'xiūgǎi',english:'modify / change / edit / revise',type:'word',example:'我修改了我的预约时间。I modified my appointment time.'},
-    {chinese:'预约',pinyin:'yùyuē',english:'book / make an appointment / reservation',type:'word',example:'如果你想预约今天晚上的课堂。If you want to book tonight\'s class.'},
-    {chinese:'提前',pinyin:'tíqián',english:'in advance / ahead of time / early',type:'word',example:'变成了提前12个小时预约。Changed to booking 12 hours in advance.'},
-    {chinese:'变成了',pinyin:'biàn chéng le',english:'changed into / became / turned into (completed)',type:'phrase',example:'变成了提前12个小时预约。It changed to booking 12 hours in advance.'},
-    {chinese:'最近',pinyin:'zuìjìn',english:'recently / lately / these days',type:'word',example:'因为最近多了几个学生。Because recently I have had a few more students.'},
-    {chinese:'担心',pinyin:'dānxīn',english:'worry / be worried / be concerned',type:'word',example:'我担心课准备的不好。I am worried the class will not be well prepared.'},
-    {chinese:'准备',pinyin:'zhǔnbèi',english:'prepare / preparation / get ready',type:'word',example:'我担心课准备的不好。I worry the lesson won\'t be prepared well.'},
-    {chinese:'比如',pinyin:'bǐrú',english:'for example / for instance / such as',type:'word',example:'比如，如果你想预约今天晚上的课堂。For example, if you want to book tonight\'s class.'},
-    {chinese:'课堂',pinyin:'kètáng',english:'class session / classroom / lesson',type:'word',example:'如果你想预约今天晚上的课堂。If you want to book tonight\'s class.'},
-    {chinese:'直接',pinyin:'zhíjiē',english:'directly / straightforwardly / just go ahead and',type:'word',example:'你可以直接预约可以约的时间。You can directly book an available time.'},
-    {chinese:'微信',pinyin:'Wēixìn',english:'WeChat (Chinese messaging app)',type:'word',example:'然后微信给我发信息。Then send me a message on WeChat.'},
-    {chinese:'发信息',pinyin:'fā xìnxi',english:'send a message / text someone',type:'phrase',example:'微信给我发信息告诉我。Send me a message on WeChat to let me know.'},
-    {chinese:'告诉',pinyin:'gàosu',english:'tell / inform / let someone know',type:'word',example:'微信给我发信息告诉我。Send me a WeChat message to tell me.'},
-    {chinese:'调',pinyin:'diào',english:'adjust / reschedule / move (a time)',type:'word',example:'我就把课调到8点上课了。I will reschedule the class to 8 o\'clock.'},
-    {chinese:'上课',pinyin:'shàngkè',english:'have class / attend a lesson / start a class',type:'phrase',example:'我想今天晚上印尼时间8点上课。I want to have class tonight at 8pm Indonesia time.'},
-    {chinese:'把……调到',pinyin:'bǎ …… diào dào',english:'reschedule something to / move something to (a time)',type:'phrase',example:'我就把课调到8点上课了。I will move the class to 8 o\'clock.'},
-    {chinese:'如果可以的话',pinyin:'rúguǒ kěyǐ de huà',english:'if it is possible / if that works',type:'phrase',example:'如果可以上课的话我就把课调到8点。If it\'s possible to have class, I will move it to 8.'},
-    {chinese:'时间短了',pinyin:'shíjiān duǎn le',english:'the time is shorter / less time (than before)',type:'phrase',example:'时间短了我担心课准备的不好。With less time I worry the class won\'t be well prepared.'},
-  ]},
-  {id:'lesson:s13',fileName:'Sentence Analysis',lessonTitle:'Job Recruitment Message',category:'Work & Business',date:'2025-04-03T09:00:00Z',vocabulary:[
-    {chinese:'特此',pinyin:'tècǐ',english:'hereby / for this specific purpose',type:'word',example:'我特此代表公司联系您。I hereby contact you on behalf of the company.'},
-    {chinese:'代表',pinyin:'dàibiǎo',english:'represent / on behalf of',type:'word',example:'我特此代表TrustDecision公司联系您。I hereby contact you on behalf of TrustDecision.'},
-    {chinese:'职业机会',pinyin:'zhíyè jīhuì',english:'career opportunity / professional opportunity',type:'phrase',example:'就一个新的职业机会联系您。Contacting you regarding a new career opportunity.'},
-    {chinese:'目前',pinyin:'mùqián',english:'currently / at present / right now',type:'word',example:'我们目前正在招聘。We are currently recruiting.'},
-    {chinese:'总部位于',pinyin:'zǒngbù wèiyú',english:'headquartered in / head office located in',type:'phrase',example:'总部位于Jakarta的公司。A company headquartered in Jakarta.'},
-    {chinese:'招聘',pinyin:'zhāopìn',english:'recruit / hiring / job recruitment',type:'word',example:'我们正在招聘一位全职工程师。We are recruiting a full-time engineer.'},
-    {chinese:'全职',pinyin:'quánzhí',english:'full-time',type:'word',example:'招聘一位全职JAVA Software Engineer。Recruiting a full-time JAVA Software Engineer.'},
-    {chinese:'通过',pinyin:'tōngguò',english:'through / via / by means of',type:'word',example:'通过您的背景和经验。Through your background and experience.'},
-    {chinese:'背景',pinyin:'bèijǐng',english:'background / experience / profile',type:'word',example:'通过您的背景和经验，我认为这个机会适合您。Through your background and experience, I think this opportunity suits you.'},
-    {chinese:'担任',pinyin:'dānrèn',english:'serve as / hold the position of',type:'word',example:'在FinIQ Consulting担任Associate Project Manager。Serving as Associate Project Manager at FinIQ Consulting.'},
-    {chinese:'经验',pinyin:'jīngyàn',english:'experience',type:'word',example:'在FinIQ Consulting担任Associate Project Manager的经验。Your experience as Associate Project Manager at FinIQ Consulting.'},
-    {chinese:'引起兴趣',pinyin:'yǐnqǐ xìngqù',english:'arouse interest / catch your attention',type:'phrase',example:'我认为这个机会可能会引起您的兴趣。I think this opportunity may arouse your interest.'},
-    {chinese:'职位',pinyin:'zhíwèi',english:'position / job title / post',type:'word',example:'该职位要求熟练使用Chinese、English和Java。The position requires proficiency in Chinese, English, and Java.'},
-    {chinese:'要求',pinyin:'yāoqiú',english:'require / requirement / demand',type:'word',example:'该职位要求熟练使用这些技能。The position requires proficient use of these skills.'},
-    {chinese:'熟练',pinyin:'shúliàn',english:'proficient / skilled / fluent',type:'word',example:'要求熟练使用Chinese、English和Java。Requires proficiency in Chinese, English, and Java.'},
-    {chinese:'技能',pinyin:'jìnéng',english:'skill / ability / competency',type:'word',example:'这些技能与您的背景非常契合。These skills align very well with your background.'},
-    {chinese:'契合',pinyin:'qìhé',english:'align with / match / fit perfectly',type:'word',example:'这些技能与您的背景似乎非常契合。These skills seem to align very well with your background.'},
-    {chinese:'敬祝万事如意',pinyin:'jìng zhù wànshì rúyì',english:'wishing you all the best (formal closing)',type:'phrase',example:'敬祝万事如意！Wishing you all the best!'},
-    {chinese:'发邮件',pinyin:'fā yóujiàn',english:'send an email',type:'phrase',example:'有问题可以发邮件或打电话。You can send an email or call if you have questions.'},
-    {chinese:'欢迎联系',pinyin:'huānyíng liánxì',english:'welcome to contact / feel free to reach out',type:'phrase',example:'如果有兴趣，欢迎联系我。If you are interested, feel free to contact me.'},
-  ]},
-  {id:'lesson:s12',fileName:'吃饭__1_.pdf',lessonTitle:'Mealtime — Father & Son Story',category:'Daily Life',date:'2025-04-01T09:00:00Z',vocabulary:[
-    {chinese:'指着',pinyin:'zhǐ zhe',english:'pointing at / pointing to (ongoing action)',type:'word',example:'爸爸一边指着儿子，一边大声说。Dad pointed at his son while speaking loudly.'},
-    {chinese:'盘子',pinyin:'pán zi',english:'plate / dish',type:'word',example:''},
-    {chinese:'饭盆',pinyin:'fàn pén',english:'food bowl (for pets)',type:'word',example:'儿子把饭倒在小狗的饭盆里面。The son poured the food into the dog\'s bowl.'},
-    {chinese:'把……倒在',pinyin:'bǎ …… dào zài',english:'pour …… into / pour …… onto',type:'phrase',example:'他把饭倒在小狗的饭盆里面。He poured the food into the dog\'s bowl.'},
-    {chinese:'跟着',pinyin:'gēn zhe',english:'follow / following (someone)',type:'word',example:''},
-    {chinese:'骂',pinyin:'mà',english:'scold / curse at / tell off',type:'word',example:'爸爸骂儿子：为什么你让狗吃我们的饭？Dad scolded the son: why did you let the dog eat our food?'},
-    {chinese:'闻',pinyin:'wén',english:'smell / sniff',type:'word',example:'小狗闻了闻饭，觉得味道很奇怪。The dog sniffed the food and found the smell strange.'},
-    {chinese:'踹翻了',pinyin:'chuài fān le',english:'kicked over / knocked over with a kick',type:'phrase',example:'狗子不喜欢这个饭，踹翻了他的饭盆。The dog didn\'t like the food and kicked its bowl over.'},
-    {chinese:'愣住了',pinyin:'lèng zhù le',english:'be stunned / be frozen in shock',type:'phrase',example:'爸爸和儿子都愣住了。Both dad and son were stunned.'},
-    {chinese:'洗手池',pinyin:'xǐ shǒu chí',english:'sink / washbasin',type:'word',example:'爸爸把饭倒洗手池里面。Dad poured the food into the sink.'},
-    {chinese:'骨头',pinyin:'gǔ tou',english:'bone',type:'word',example:'他们也给了狗子一根骨头。They also gave the dog a bone.'},
-    {chinese:'什么味道，这么难闻',pinyin:'shénme wèidào, zhème nán wén',english:'What is this smell — it smells so bad',type:'sentence',example:''},
-    {chinese:'一边……一边……',pinyin:'yībiān …… yībiān ……',english:'at the same time / doing two things simultaneously',type:'phrase',example:'爸爸一边指着儿子，一边大声说。Dad pointed at his son while speaking loudly at the same time.'},
-    {chinese:'儿子边吃饭边生气',pinyin:'érzi biān chīfàn biān shēngqì',english:'The son ate his food while being angry at the same time.',type:'sentence',example:''},
-    {chinese:'爸爸和儿子一起去饭店，他们点了两碗冰激凌，也给了狗子一根骨头。现在，他们都很开心。',pinyin:'Bàba hé érzi yīqǐ qù fàndiàn, tāmen diǎn le liǎng wǎn bīngjīlíng, yě gěi le gǒuzi yī gēn gǔtou. Xiànzài, tāmen dōu hěn kāixīn.',english:'Dad and son went to a restaurant together, ordered two bowls of ice cream, and also gave the dog a bone. Now they are all very happy.',type:'sentence',example:''},
-  ]},
-  {id:'lesson:s10',fileName:'James3_30.pdf',lessonTitle:'Weather, Vehicles & Repairs',category:'Daily Life',date:'2025-03-30T09:00:00Z',vocabulary:[
-    {chinese:'下很大的雨',pinyin:'xià hěn dà de yǔ',english:'it\'s raining heavily / raining hard',type:'phrase',example:'今天下很大的雨。It is raining heavily today.'},
-    {chinese:'地道',pinyin:'dì dào',english:'authentic / genuine; also: tunnel',type:'word',example:''},
-    {chinese:'打碎了',pinyin:'dǎ suì le',english:'shattered / broken into pieces (completed)',type:'phrase',example:''},
-    {chinese:'弯腰',pinyin:'wān yāo',english:'bend over / bend down at the waist',type:'word',example:''},
-    {chinese:'吸管',pinyin:'xī guǎn',english:'straw (drinking straw)',type:'word',example:''},
-    {chinese:'车轮',pinyin:'chēlún',english:'wheel (of a vehicle)',type:'word',example:''},
-    {chinese:'轮胎',pinyin:'lúntāi',english:'tyre / tire',type:'word',example:''},
-    {chinese:'旧',pinyin:'jiù',english:'old / worn out / used',type:'word',example:''},
-    {chinese:'修车店',pinyin:'xiūchē diàn',english:'repair shop / mechanic\'s shop',type:'phrase',example:''},
-    {chinese:'紧张',pinyin:'jǐnzhāng',english:'nervous / tense / stressed',type:'word',example:''},
-    {chinese:'没气了',pinyin:'méi qì le',english:'flat / out of air (tyre is flat)',type:'phrase',example:'轮胎没气了。The tyre is flat.'},
-    {chinese:'有个洞',pinyin:'yǒu gè dòng',english:'has a hole / there is a hole',type:'phrase',example:'轮胎有个洞。The tyre has a hole.'},
-  ]},
-  {id:'lesson:s11',fileName:'礼物.pptx',lessonTitle:'The Gift — Story Vocabulary',category:'People & Relationships',date:'2025-03-30T10:00:00Z',vocabulary:[
-    {chinese:'雕像',pinyin:'diāoxiàng',english:'statue / sculpture',type:'word',example:'儿子端着一个雕像跑过来。The son came running carrying a statue.'},
-    {chinese:'雕塑',pinyin:'diāosù',english:'sculpture / carving (general term)',type:'word',example:''},
-    {chinese:'烟斗',pinyin:'yāndǒu',english:'tobacco pipe',type:'word',example:'爸爸坐在沙发上，嘴里叼着烟斗。Dad sat on the sofa with a pipe in his mouth.'},
-    {chinese:'箭头',pinyin:'jiàntóu',english:'arrow / arrowhead',type:'word',example:'爸爸用儿子的箭头捅了捅他的烟斗。Dad used the son\'s arrow to prod the pipe.'},
-    {chinese:'打碎',pinyin:'dǎsuì',english:'break into pieces / smash',type:'word',example:'雕像掉下来打碎了。The statue fell and broke into pieces.'},
-    {chinese:'碎',pinyin:'suì',english:'broken / shattered / in pieces',type:'word',example:'儿子哭了，因为他的雕像碎了。The son cried because his statue broke.'},
-    {chinese:'堵了',pinyin:'dǔ le',english:'blocked / clogged (e.g. nose, road)',type:'phrase',example:'我鼻子堵了。My nose is blocked.'},
-    {chinese:'通了',pinyin:'tōng le',english:'unblocked / cleared / flowing again',type:'phrase',example:'我鼻子通了。My nose is clear now.'},
-    {chinese:'安慰',pinyin:'ānwèi',english:'comfort / console / reassure',type:'word',example:'爸爸安慰儿子别哭。Dad comforted the son and told him not to cry.'},
-    {chinese:'端着',pinyin:'duānzhe',english:'hold in both hands / carry carefully',type:'word',example:'儿子端着一个雕像跑过来。The son came running with the statue held in both hands.'},
-    {chinese:'捡起',pinyin:'jiǎnqǐ',english:'pick up (from the ground)',type:'phrase',example:'爸爸捡起他的烟斗。Dad picked up his pipe.'},
-    {chinese:'捅了捅',pinyin:'tǒng le tǒng',english:'poked / prodded (a little, repeated action)',type:'phrase',example:'爸爸用箭头捅了捅烟斗。Dad prodded the pipe with the arrow.'},
-    {chinese:'弯腰',pinyin:'wān yāo',english:'bend over / bend down at the waist',type:'word',example:''},
-    {chinese:'爸爸坐在沙发上，嘴里叼着烟斗。他的儿子端着一个雕像跑过来。',pinyin:'Bàba zuò zài shāfā shàng, zuǐ lǐ diāozhe yāndǒu. Tā de érzi duānzhe yī gè diāoxiàng pǎo guòlái.',english:'Dad sat on the sofa with a pipe in his mouth. His son came running over carrying a statue.',type:'sentence',example:''},
-    {chinese:'儿子不小心摔倒了，雕像掉下来打碎了，爸爸吓了一跳。',pinyin:'Érzi bù xiǎoxīn shuāidǎo le, diāoxiàng diào xià lái dǎsuì le, bàba xià le yī tiào.',english:'The son accidentally tripped and fell, the statue dropped and broke, and Dad got a fright.',type:'sentence',example:''},
-    {chinese:'最后，虽然儿子的雕像碎了，但是儿子的箭头帮爸爸修好了烟斗。',pinyin:'Zuìhòu, suīrán érzi de diāoxiàng suì le, dànshì érzi de jiàntóu bāng bàba xiū hǎo le yāndǒu.',english:'In the end, even though the son\'s statue broke, the son\'s arrow helped Dad fix the pipe.',type:'sentence',example:''},
-  ]},
-  {id:'lesson:s8',fileName:'James3_27.pdf',lessonTitle:'Actions & Daily Activities',category:'Daily Life',date:'2025-03-27T09:00:00Z',vocabulary:[
-    {chinese:'开会',pinyin:'kāihuì',english:'have a meeting',type:'word',example:''},
-    {chinese:'一个小时左右',pinyin:'yí gè xiǎoshí zuǒyòu',english:'about an hour / approximately one hour',type:'phrase',example:''},
-    {chinese:'聊了一下天',pinyin:'liáole yíxià tiān',english:'chatted for a bit (completed action)',type:'phrase',example:''},
-    {chinese:'聊过天',pinyin:'liáoguo tiān',english:'have chatted / chatted before (past experience)',type:'phrase',example:''},
-    {chinese:'做饭',pinyin:'zuòfàn',english:'cook / make a meal',type:'word',example:''},
-    {chinese:'做了一顿饭',pinyin:'zuòle yí dùn fàn',english:'cooked a meal (completed action)',type:'phrase',example:''},
-    {chinese:'挨揍',pinyin:'áizòu',english:'get beaten / get a beating',type:'word',example:''},
-    {chinese:'扇了一巴掌',pinyin:'shānle yì bā zhǎng',english:'slapped someone / gave a slap',type:'phrase',example:''},
-    {chinese:'头',pinyin:'tóu',english:'head',type:'word',example:''},
-    {chinese:'投篮',pinyin:'tóulán',english:'shoot a basketball / make a basket',type:'word',example:''},
-    {chinese:'投币',pinyin:'tóubì',english:'insert a coin / put in a coin',type:'phrase',example:''},
-    {chinese:'砸',pinyin:'zá',english:'smash / hit / break',type:'word',example:''},
-    {chinese:'碰',pinyin:'pèng',english:'touch / bump / knock against',type:'word',example:''},
-    {chinese:'举',pinyin:'jǔ',english:'lift / raise / hold up',type:'word',example:''},
-    {chinese:'吐',pinyin:'tǔ',english:'spit / vomit',type:'word',example:''},
-  ]},
-  {id:'lesson:s9',fileName:'父与子.pdf',lessonTitle:'Father & Son — Action Verbs',category:'Daily Life',date:'2025-03-27T10:00:00Z',vocabulary:[
-    {chinese:'拐杖',pinyin:'guǎizhàng',english:'crutch / walking stick',type:'word',example:'爸爸用拐杖够苹果。Dad used a walking stick to reach the apple.'},
-    {chinese:'摇',pinyin:'yáo',english:'shake / wave / rock',type:'word',example:'爸爸为了让苹果掉下来，在摇苹果树。Dad was shaking the apple tree to make the apple fall.'},
-    {chinese:'丢',pinyin:'diū',english:'lose / throw / toss',type:'word',example:''},
-    {chinese:'爬',pinyin:'pá',english:'climb / crawl',type:'word',example:''},
-    {chinese:'够',pinyin:'gòu',english:'reach (for something) / be enough',type:'word',example:''},
-    {chinese:'挂',pinyin:'guà',english:'hang / hang up',type:'word',example:''},
-    {chinese:'跳',pinyin:'tiào',english:'jump / leap',type:'word',example:''},
-    {chinese:'打',pinyin:'dǎ',english:'hit / beat / strike',type:'word',example:''},
-    {chinese:'掉下来',pinyin:'diào xià lái',english:'fall down / drop down',type:'phrase',example:'爸爸为了让苹果掉下来，在摇苹果树。Dad shook the tree to make the apple fall down.'},
-    {chinese:'树',pinyin:'shù',english:'tree',type:'word',example:''},
-    {chinese:'儿子想吃苹果',pinyin:'érzi xiǎng chī píngguǒ',english:'The son wants to eat an apple.',type:'sentence',example:''},
-    {chinese:'爸爸为了让苹果掉下来，在摇苹果树。',pinyin:'Bàba wèile ràng píngguǒ diào xià lái, zài yáo píngguǒ shù.',english:'Dad was shaking the apple tree in order to make the apple fall down.',type:'sentence',example:''},
-  ]},
-  {id:'lesson:s7',fileName:'James3_25.pdf',lessonTitle:'Daily Life & Numbers',category:'Daily Life',date:'2025-03-25T09:00:00Z',vocabulary:[
-    {chinese:'中国移动',pinyin:'Zhōngguó Yídòng',english:'China Mobile (telecom carrier)',type:'word',example:''},
-    {chinese:'中国电信',pinyin:'Zhōngguó Diànxìn',english:'China Telecom (telecom carrier)',type:'word',example:''},
-    {chinese:'中国联通',pinyin:'Zhōngguó Liántōng',english:'China Unicom (telecom carrier)',type:'word',example:''},
-    {chinese:'中信银行',pinyin:'Zhōngxìn Yínháng',english:'China CITIC Bank',type:'word',example:''},
-    {chinese:'小偷',pinyin:'xiǎotōu',english:'thief',type:'word',example:''},
-    {chinese:'警察',pinyin:'jǐngchá',english:'police',type:'word',example:''},
-    {chinese:'放假',pinyin:'fàngjià',english:'have a holiday / be on holiday',type:'word',example:''},
-    {chinese:'招聘',pinyin:'zhāopìn',english:'recruit / job recruitment',type:'word',example:''},
-    {chinese:'日常生活够用',pinyin:'rìcháng shēnghuó gòu yòng',english:'enough for daily life / sufficient for everyday use',type:'phrase',example:''},
-    {chinese:'物流公司',pinyin:'wùliú gōngsī',english:'logistics company',type:'phrase',example:''},
-    {chinese:'如果我要上课的话，需要提前多长时间预约？',pinyin:'Rúguǒ wǒ yào shàngkè de huà, xūyào tíqián duō cháng shíjiān yùyuē?',english:'If I want to have a class, how long in advance do I need to make an appointment?',type:'sentence',example:''},
-    {chinese:'通过考试',pinyin:'tōngguò kǎoshì',english:'pass the exam',type:'phrase',example:''},
-    {chinese:'政府',pinyin:'zhèngfǔ',english:'government',type:'word',example:''},
-    {chinese:'我们上课的时候，Mochi一直坐在我的腿上。',pinyin:'Wǒmen shàngkè de shíhou, Mochi yīzhí zuò zài wǒ de tuǐ shàng.',english:'When we were having class, Mochi sat on my lap the whole time.',type:'sentence',example:''},
-    {chinese:'泰迪',pinyin:'tài dí',english:'Teddy (dog breed)',type:'word',example:''},
-    {chinese:'照顾家庭',pinyin:'zhàogu jiātíng',english:'take care of the family',type:'phrase',example:''},
-    {chinese:'我对坐女性车厢的男性有偏见。',pinyin:'Wǒ duì zuò nǚxìng chēxiāng de nánxìng yǒu piānjiàn.',english:'I have a bias against men who ride in the women\'s carriage.',type:'sentence',example:''},
-    {chinese:'外卖员',pinyin:'wàimài yuán',english:'food delivery rider',type:'word',example:''},
-    {chinese:'蹲便',pinyin:'dūn biàn',english:'squat toilet',type:'word',example:''},
-    {chinese:'方便',pinyin:'fāngbiàn',english:'convenient / (euphemism) go to the toilet',type:'word',example:'我可以去方便一下吗？May I go to the toilet?'},
-    {chinese:'我可以去方便一下吗？',pinyin:'Wǒ kěyǐ qù fāngbiàn yīxià ma?',english:'May I go to the toilet? (polite)',type:'sentence',example:''},
-    {chinese:'千',pinyin:'qiān',english:'one thousand (1,000)',type:'word',example:''},
-    {chinese:'万',pinyin:'wàn',english:'ten thousand (10,000)',type:'word',example:''},
-    {chinese:'平时',pinyin:'píngshí',english:'usually / normally / in ordinary times',type:'word',example:''},
-    {chinese:'体育馆',pinyin:'tǐyùguǎn',english:'gymnasium / stadium / sports hall',type:'word',example:''},
-    {chinese:'邋遢',pinyin:'lātà',english:'messy / slovenly / untidy',type:'word',example:'派大星很邋遢。Patrick Star is very messy.'},
-    {chinese:'派大星很邋遢。',pinyin:'Pài Dàxīng hěn lātà.',english:'Patrick Star is very messy.',type:'sentence',example:''},
-    {chinese:'海绵宝宝很干净。',pinyin:'Hǎimián Bǎobao hěn gānjìng.',english:'SpongeBob is very clean.',type:'sentence',example:''},
-  ]},
   {id:'lesson:s6',fileName:'汉语惯用语__3_.pdf',lessonTitle:'Modern Chinese Slang',category:'Idioms & Expressions',date:'2025-01-22T09:00:00Z',vocabulary:[
     {chinese:'内卷',pinyin:'nèi juǎn',english:'intense internal competition / involution / rat race',type:'idiom',example:'在中国，不管做什么都内卷。In China, every field is a cutthroat rat race.'},
     {chinese:'躺平',pinyin:'tǎng píng',english:"lie flat / give up striving / opt out of hustle culture",type:'idiom',example:"上班太累了，想要躺平，但是不上班又没钱。Work is exhausting — I want to quit the grind, but then I'd have no money."},
     {chinese:'搭子',pinyin:'dā zi',english:'activity buddy / partner for a specific shared activity',type:'word',example:'很多年轻人喜欢在小红书上找搭子。Many young people find activity buddies on Xiaohongshu.'},
-    {chinese:'饭搭子',pinyin:'fàn dā zi',english:'meal buddy / regular eating companion',type:'phrase',example:''},
-    {chinese:'健身搭子',pinyin:'jiàn shēn dā zi',english:'gym buddy / workout partner',type:'phrase',example:''},
-    {chinese:'学习搭子',pinyin:'xué xí dā zi',english:'study buddy',type:'phrase',example:''},
-    {chinese:'旅游搭子',pinyin:'lǚ yóu dā zi',english:'travel companion / trip buddy',type:'phrase',example:''},
     {chinese:'撸串',pinyin:'lū chuàn',english:'eat BBQ skewers / have a grilled meat session',type:'phrase',example:"走，我们一起去撸串喝酒。Come on, let's go have BBQ and drinks."},
     {chinese:'牛马',pinyin:'niú mǎ',english:'worked like a beast / corporate slave / overworked employee',type:'idiom',example:'很多人喜欢戏称自己是"打工人""牛马""社畜"。Many jokingly call themselves wage slaves and work beasts.'},
     {chinese:'打工人',pinyin:'dǎ gōng rén',english:'working-class wage earner / grind-culture worker',type:'phrase',example:'很多人喜欢戏称自己是"打工人""牛马""社畜"。Many jokingly call themselves wage slaves, work beasts, and corporate livestock.'},
   ]},
 ];
 
-/* ── state ── */
 let lessons=[], curTab='review', expanded=new Set(), flt={s:'',c:'all',t:'all',l:'all',m:'all'};
 let busy=false, upMsg='', upPct=0, upOk=false, upErr=false;
-/* ── sentence analyser state ── */
 let sn={text:'',busy:false,msg:'',ok:false,err:false,preview:null};
-/* ── HSK state ── */
-let hsk={
-  level: null,       // e.g. 'hsk4' or 'hsk1'
-  words: [],         // loaded word list
-  loading: false,
-  loadErr: false,
-  view: 'browse',    // 'browse' | 'exercise'
-  filter: 'all',     // 'all' | 'learning' | 'mastered'
-  search: '',
-  exBusy: false,
-  exItems: [],       // [{q, blank, opts, answer, feedback, chosen, answered}]
-  exIdx: 0,
-  exMode: 'fill',    // 'fill' | 'scenario'
-  exOk: 0,
-  exWrong: 0,
-};
+let hsk={level:null,words:[],loading:false,loadErr:false,view:'browse',filter:'all',search:'',exBusy:false,exItems:[],exIdx:0,exMode:'fill',exOk:0,exWrong:0};
+let pr={mode:'flashcard',filterLesson:'all',filterType:'all',direction:'zh2en',cardLimit:10,focusWeak:true,deck:[],idx:0,flipped:false,known:0,unsure:0,qCorrect:0,qWrong:0,opts:[],chosen:null,answered:false,typeVal:'',typeRevealed:false,screen:'setup',sessionResults:{},aiExBusy:false,aiExText:''};
 
-let pr={
-  mode:'flashcard',      // 'flashcard'|'quiz'|'pinyin'|'typein'
-  filterLesson:'all',
-  filterType:'all',
-  direction:'zh2en',
-  cardLimit:10,          // 5,10,15,20,30,0=All
-  focusWeak:true,        // prioritise unmastered words
-  deck:[],
-  idx:0,
-  flipped:false,
-  known:0, unsure:0,
-  qCorrect:0, qWrong:0,
-  opts:[],
-  chosen:null,
-  answered:false,
-  typeVal:'',
-  typeRevealed:false,
-  screen:'setup',
-  // per-session mastery deltas: { key: +1 or -1 }
-  sessionResults:{},
-  // AI example state
-  aiExBusy:false,
-  aiExText:'',
-};
-
-/* ══ MASTERY SYSTEM ══
-   Stores a score 0-5 per word key (chinese+pinyin).
-   0-1 = new/struggling, 2-3 = learning, 4-5 = mastered
-   buildDeck() weights by inverse mastery so weak words appear more.
-*/
 function masteryKey(v){ return (v.chinese||'')+'|'+(v.pinyin||''); }
-function getMasteryMap(){
-  try{ return JSON.parse(ls.get('mastery')||'{}'); }catch(e){ return {}; }
-}
+function getMasteryMap(){ try{ return JSON.parse(ls.get('mastery')||'{}'); }catch(e){ return {}; } }
 function saveMasteryMap(m){ ls.set('mastery', JSON.stringify(m)); }
 function getMastery(v){ return (getMasteryMap()[masteryKey(v)]||0); }
-function updateMastery(v, knew){
-  const m = getMasteryMap();
-  const k = masteryKey(v);
-  const cur = m[k]||0;
-  m[k] = Math.max(0, Math.min(5, cur + (knew ? 1 : -1)));
-  saveMasteryMap(m);
-}
-function masteryLabel(score){
-  if(score<=0) return {label:'New',      color:'#4A5568', dots:0};
-  if(score<=1) return {label:'Seen',     color:'#c93a2b', dots:1};
-  if(score<=2) return {label:'Learning', color:'#c4933a', dots:2};
-  if(score<=3) return {label:'Getting there', color:'#c4933a', dots:3};
-  if(score<=4) return {label:'Almost',   color:'#2d9e6b', dots:4};
-  return              {label:'Mastered', color:'#2d9e6b', dots:5};
-}
-function renderMasteryBar(score, showLabel){
-  const info = masteryLabel(score);
-  let h = `<div class="mst-bar">`;
-  for(let i=0;i<5;i++){
-    const filled = i < info.dots;
-    h += `<div class="mst-dot" style="background:${filled?info.color:'var(--border2)'}"></div>`;
-  }
-  if(showLabel) h += `<span class="mst-label" style="color:${info.color}">${info.label}</span>`;
-  h += `</div>`;
-  return h;
-}
+function updateMastery(v, knew){ const m=getMasteryMap(); const k=masteryKey(v); const cur=m[k]||0; m[k]=Math.max(0,Math.min(5,cur+(knew?1:-1))); saveMasteryMap(m); }
+function masteryLabel(score){ if(score<=0)return{label:'New',color:'#4A5568',dots:0}; if(score<=1)return{label:'Seen',color:'#c93a2b',dots:1}; if(score<=2)return{label:'Learning',color:'#c4933a',dots:2}; if(score<=3)return{label:'Getting there',color:'#c4933a',dots:3}; if(score<=4)return{label:'Almost',color:'#2d9e6b',dots:4}; return{label:'Mastered',color:'#2d9e6b',dots:5}; }
+function renderMasteryBar(score, showLabel){ const info=masteryLabel(score); let h=`<div class="mst-bar">`; for(let i=0;i<5;i++){ const filled=i<info.dots; h+=`<div class="mst-dot" style="background:${filled?info.color:'var(--border2)'}"></div>`; } if(showLabel)h+=`<span class="mst-label" style="color:${info.color}">${info.label}</span>`; h+=`</div>`; return h; }
 
-/* ════════════════════════════════
-   USER SYSTEM
-════════════════════════════════ */
 const PROFILES = [
-  {id:'james', defaultName:'Dudu',    color:'#C93A2B', sampleKey:'james_mn-ver', sampleVer:'10'},
-  {id:'gf',    defaultName:'Bubu',    color:'#C4699A', sampleKey:'gf_mn-ver',   sampleVer:'4'},
+  {id:'james', defaultName:'Dudu', color:'#C93A2B', sampleKey:'james_mn-ver', sampleVer:'11'},
+  {id:'gf',    defaultName:'Bubu', color:'#C4699A', sampleKey:'gf_mn-ver',    sampleVer:'4'},
 ];
 let currentUser = null;
 
-/* Bubu's starter vocabulary — HSK2 Lesson 1 */
 const GF_SAMPLE = [
   {id:'lesson:g1',fileName:'HSK标准教程2_第1课课件.pptx',lessonTitle:'HSK2 L1 — 九月去北京旅游最好',category:'Travel',date:'2025-04-07T09:00:00Z',wordCount:22,vocabulary:[
     {chinese:'旅游',pinyin:'lǚyóu',english:'travel / go on a trip / tour',type:'word',example:'你喜欢旅游吗？Do you like to travel?'},
     {chinese:'觉得',pinyin:'juéde',english:'think / feel / reckon',type:'word',example:'你觉得北京大吗？Do you think Beijing is big?'},
     {chinese:'最',pinyin:'zuì',english:'most / -est (superlative adverb)',type:'word',example:'我最喜欢吃冰淇淋！I love ice cream the most!'},
     {chinese:'为什么',pinyin:'wèishénme',english:'why / for what reason',type:'word',example:'你为什么学习汉语？Why do you study Chinese?'},
-    {chinese:'也',pinyin:'yě',english:'also / too / as well',type:'word',example:'太好了，我也很喜欢北京！Great, I also really like Beijing!'},
     {chinese:'运动',pinyin:'yùndòng',english:'sport / exercise / work out',type:'word',example:'你喜欢运动吗？Do you like sports?'},
     {chinese:'踢足球',pinyin:'tī zúqiú',english:'play football / play soccer',type:'phrase',example:'大卫很喜欢踢足球。David loves playing football.'},
     {chinese:'一起',pinyin:'yìqǐ',english:'together / all together',type:'word',example:'我们一起去看电影吧。Let\'s go watch a movie together.'},
-    {chinese:'要',pinyin:'yào',english:'want to / would like to (auxiliary verb)',type:'word',example:'我要去上班了。I need to go to work now.'},
-    {chinese:'新',pinyin:'xīn',english:'new',type:'word',example:'我需要买一个新手机。I need to buy a new phone.'},
-    {chinese:'它',pinyin:'tā',english:'it (for animals and things)',type:'word',example:'它是我领养的小猫。It is the kitten I adopted.'},
+    {chinese:'冰淇淋',pinyin:'bīngqílín',english:'ice cream',type:'word',example:'我最喜欢吃冰淇淋！I love ice cream the most!'},
     {chinese:'眼睛',pinyin:'yǎnjīng',english:'eye / eyes',type:'word',example:'我觉得它的眼睛最漂亮。I think its eyes are the most beautiful.'},
     {chinese:'天气不冷也不热',pinyin:'tiānqì bù lěng yě bú rè',english:'the weather is neither cold nor hot',type:'sentence',example:'九月的北京天气不冷也不热。In September, Beijing\'s weather is neither cold nor hot.'},
-    {chinese:'什么时候去最好',pinyin:'shénme shíhou qù zuì hǎo',english:'what time is the best to go',type:'phrase',example:'你觉得什么时候去最好？When do you think is the best time to go?'},
-    {chinese:'下午我们一起去踢足球吧',pinyin:'xiàwǔ wǒmen yìqǐ qù tī zúqiú ba',english:'Let\'s go play football together this afternoon',type:'sentence',example:''},
-    {chinese:'三点多',pinyin:'sān diǎn duō',english:'a little after three o\'clock / just past three',type:'phrase',example:'我三点多回来。I\'ll be back a little after three.'},
-    {chinese:'几个多月',pinyin:'jǐ gè duō yuè',english:'several months / a few months and a bit',type:'phrase',example:'它六个多月。It is a little over six months old.'},
-    {chinese:'要不要',pinyin:'yào bu yào',english:'do you want to / shall we (question form of 要)',type:'phrase',example:'我们要不要买几个新的椅子？Shall we buy a few new chairs?'},
-    {chinese:'几个',pinyin:'jǐ gè',english:'a few / several (indefinite small number)',type:'phrase',example:'车上有几个人。There are a few people on the bus.'},
-    {chinese:'冰淇淋',pinyin:'bīngqílín',english:'ice cream',type:'word',example:'我最喜欢吃冰淇淋！I love ice cream the most!'},
-    {chinese:'椅子',pinyin:'yǐzi',english:'chair',type:'word',example:'我们要不要买几个新的椅子？Shall we buy some new chairs?'},
-    {chinese:'桌子下面',pinyin:'zhuōzi xiàmiàn',english:'under the table / beneath the table',type:'phrase',example:'桌子下面有个猫。There is a cat under the table.'},
-  ]},
-  {id:'lesson:g4',fileName:'360句第2册_Lesson2_教学PPT_.pptx',lessonTitle:'360句 L2 — 爸妈身体怎么样',category:'People & Relationships',date:'2025-04-14T09:00:00Z',wordCount:30,vocabulary:[
-    {chinese:'住',pinyin:'zhù',english:'to live / to reside',type:'word',example:'我住在广州。你住在哪儿？I live in Guangzhou. Where do you live?'},
-    {chinese:'住在',pinyin:'zhù zài',english:'live in / live at (a place)',type:'phrase',example:'你喜欢住在这儿吗？Do you like living here?'},
-    {chinese:'层',pinyin:'céng',english:'floor / level / storey (measure word)',type:'word',example:'我住12层，1206房间。I live on the 12th floor, room 1206.'},
-    {chinese:'高兴',pinyin:'gāoxìng',english:'happy / pleased / glad',type:'word',example:'很高兴认识你。Nice to meet you. (lit. Very happy to know you)'},
-    {chinese:'认识',pinyin:'rènshi',english:'know / be acquainted with / meet',type:'word',example:'很高兴认识你。Nice to meet you.'},
-    {chinese:'很高兴认识你',pinyin:'hěn gāoxìng rènshi nǐ',english:'Nice to meet you! (standard greeting)',type:'phrase',example:'很高兴认识你。我也很高兴认识你。Nice to meet you. — Nice to meet you too.'},
-    {chinese:'狗',pinyin:'gǒu',english:'dog',type:'word',example:'你想要一只狗还是一只猫？Do you want a dog or a cat?'},
-    {chinese:'猫',pinyin:'māo',english:'cat',type:'word',example:'这只猫叫Fluffy，今年3岁。This cat is called Fluffy, she is 3 years old.'},
-    {chinese:'胖',pinyin:'pàng',english:'fat / chubby',type:'word',example:'我的小猫非常胖！My little cat is extremely chubby!'},
-    {chinese:'瘦',pinyin:'shòu',english:'thin / slim / skinny',type:'word',example:'这只猫胖吗？Is this cat fat?'},
-    {chinese:'可爱',pinyin:'kě ài',english:'cute / adorable',type:'word',example:'这只狗真可爱！This dog is really cute!'},
-    {chinese:'别',pinyin:'bié',english:"don't / do not (giving commands or advice)",type:'word',example:'别担心！Don\'t worry! / 别说英文！Don\'t speak English!'},
-    {chinese:'别担心',pinyin:'bié dānxīn',english:"don't worry",type:'phrase',example:'别担心，你爸妈的身体很好。Don\'t worry, your parents are in good health.'},
-    {chinese:'担心',pinyin:'dānxīn',english:'worry / be worried about',type:'word',example:'妈妈很担心。Mom is very worried.'},
-    {chinese:'身体',pinyin:'shēntǐ',english:'body / health / physical condition',type:'word',example:'你身体怎么样？How is your health?'},
-    {chinese:'放心',pinyin:'fàngxīn',english:'be at ease / stop worrying / rest assured',type:'word',example:'你的身体很好，你放心吧。Your health is fine, you can relax.'},
-    {chinese:'对了',pinyin:'duì le',english:'by the way / oh right (changes topic suddenly)',type:'phrase',example:'对了，周末是大卫的生日。By the way, this weekend is David\'s birthday.'},
-    {chinese:'照片',pinyin:'zhàopiàn',english:'photo / photograph',type:'word',example:'我可以看你家人的照片吗？May I look at your family photos?'},
-    {chinese:'个子',pinyin:'gèzi',english:'height / stature / build',type:'word',example:'他的个子真高！He is really tall!'},
-    {chinese:'高',pinyin:'gāo',english:'tall / high',type:'word',example:'我的健身教练个子真高！My personal trainer is really tall!'},
-    {chinese:'矮',pinyin:'ǎi',english:'short (height)',type:'word',example:'他的个子高不高？Is he tall or short?'},
-    {chinese:'健身',pinyin:'jiànshēn',english:'work out / keep fit / bodybuilding',type:'word',example:'你每天健身吗？Do you work out every day?'},
-    {chinese:'健身房',pinyin:'jiànshēnfáng',english:'gym / fitness centre',type:'word',example:'他在健身房健身。He works out at the gym.'},
-    {chinese:'教练',pinyin:'jiàoliàn',english:'coach / trainer / instructor',type:'word',example:'他是健身教练。He is a personal trainer.'},
-    {chinese:'非常',pinyin:'fēicháng',english:'very / extremely / exceptionally',type:'word',example:'小猫非常可爱！The kitten is extremely cute!'},
-    {chinese:'周末',pinyin:'zhōumò',english:'weekend',type:'word',example:'你这个周末想做什么？What do you want to do this weekend?'},
-    {chinese:'休息',pinyin:'xiūxi',english:'rest / take a break',type:'word',example:'他太累了，要休息一下。He is too tired, needs to take a break.'},
-    {chinese:'正反疑问句',pinyin:'zhèngfǎn yíwènjù',english:'affirmative-negative question (V + 不/没 + V pattern)',type:'phrase',example:'你忙不忙？你有没有男朋友？你想不想吃饺子？Are you busy? Do you have a boyfriend? Do you want dumplings?'},
-    {chinese:'主谓谓语句',pinyin:'zhǔwèi wèiyǔ jù',english:'S-P predicate sentence (subject described by a S-P phrase)',type:'phrase',example:'他个子很高。她身体不好。它眼睛真大！He is tall. She is unwell. Its eyes are really big!'},
-    {chinese:'别说英文',pinyin:'bié shuō Yīngwén',english:"Don't speak English! (common classroom phrase)",type:'sentence',example:'别说英文！说中文！Don\'t speak English! Speak Chinese!'},
-  ]},
-  {id:'lesson:g3',fileName:'360句第2册_Lesson1_教学PPT_.pptx',lessonTitle:'360句 L1 — 请问您想喝点儿什么',category:'Daily Life',date:'2025-04-07T11:00:00Z',wordCount:35,vocabulary:[
-    {chinese:'包子',pinyin:'bāozi',english:'steamed bun (filled)',type:'word',example:'你要吃包子吗？Do you want to eat steamed buns?'},
-    {chinese:'饺子',pinyin:'jiǎozi',english:'dumpling',type:'word',example:'饺子好吃吗？Are the dumplings tasty?'},
-    {chinese:'面条儿',pinyin:'miàntiáor',english:'noodles',type:'word',example:'面条儿多少钱？How much are the noodles?'},
-    {chinese:'比萨',pinyin:'bǐsà',english:'pizza',type:'word',example:'你想吃面条儿还是比萨？Do you want noodles or pizza?'},
-    {chinese:'想',pinyin:'xiǎng',english:'would like to / want to (+ verb)',type:'word',example:'今天晚饭你想吃什么？What do you want to eat for dinner tonight?'},
-    {chinese:'还是',pinyin:'háishì',english:'or (used in questions with two choices)',type:'word',example:'你想吃包子还是饺子？Do you want steamed buns or dumplings?'},
-    {chinese:'都',pinyin:'dōu',english:'both / all (comes before verb)',type:'word',example:'苹果和西瓜，我都喜欢。I like both apples and watermelon.'},
-    {chinese:'咱们',pinyin:'zánmen',english:'we / us (includes the listener, informal)',type:'word',example:'咱们今天吃饺子吧。Let\'s eat dumplings today.'},
-    {chinese:'最近',pinyin:'zuìjìn',english:'recently / lately',type:'word',example:'最近你忙吗？Have you been busy lately?'},
-    {chinese:'每',pinyin:'měi',english:'every / each (+ measure word)',type:'word',example:'他每天吃面条儿。He eats noodles every day.'},
-    {chinese:'那',pinyin:'nà',english:'that; then / in that case (conjunction)',type:'word',example:'那咱们今天不吃包子，吃饺子。In that case, let\'s not have buns today — let\'s have dumplings.'},
-    {chinese:'怎么样',pinyin:'zěnmeyàng',english:'how about / what do you think / how is it',type:'word',example:'咱们今天吃面条儿，怎么样？How about we have noodles today?'},
-    {chinese:'主意',pinyin:'zhǔyi',english:'idea / plan',type:'word',example:'好主意！Great idea!'},
-    {chinese:'好主意',pinyin:'hǎo zhǔyi',english:'good idea!',type:'phrase',example:'咱们今天吃饺子吧！好主意！Let\'s have dumplings today! — Good idea!'},
-    {chinese:'特价',pinyin:'tèjià',english:'special offer / on sale',type:'word',example:'今天这种蛋糕特价。This type of cake is on special offer today.'},
-    {chinese:'打折',pinyin:'dǎzhé',english:'discount / on sale (50% off etc.)',type:'word',example:'这个蛋糕打折，真便宜！This cake is discounted — really cheap!'},
-    {chinese:'欢迎光临',pinyin:'huānyíng guānglín',english:'welcome! (used by staff greeting customers)',type:'phrase',example:'欢迎光临！Welcome to our store!'},
-    {chinese:'光临',pinyin:'guānglín',english:'to visit / to come (respectful/formal)',type:'word',example:'欢迎光临！Welcome!'},
-    {chinese:'请问',pinyin:'qǐngwèn',english:'excuse me / may I ask',type:'phrase',example:'请问，您想喝点儿什么？Excuse me, what would you like to drink?'},
-    {chinese:'您',pinyin:'nín',english:'you (formal / respectful form of 你)',type:'word',example:'请问，您想喝点儿什么？What would you like to drink, sir/madam?'},
-    {chinese:'喝',pinyin:'hē',english:'to drink',type:'word',example:'你想喝咖啡还是茶？Do you want to drink coffee or tea?'},
-    {chinese:'点儿',pinyin:'diǎnr',english:'a little / some (softens the quantity)',type:'word',example:'您想喝点儿什么？What would you like to drink?'},
-    {chinese:'红茶',pinyin:'hóngchá',english:'black tea (literally "red tea")',type:'word',example:'我要一杯红茶。I\'d like a cup of black tea.'},
-    {chinese:'大',pinyin:'dà',english:'big / large',type:'word',example:'你想要大杯还是小杯？Do you want a large or small cup?'},
-    {chinese:'小',pinyin:'xiǎo',english:'small',type:'word',example:'你想要大杯还是小杯？Do you want a large or small cup?'},
-    {chinese:'种',pinyin:'zhǒng',english:'kind / type / sort (measure word)',type:'word',example:'这里有多少种水果？How many kinds of fruit are there here?'},
-    {chinese:'蛋糕',pinyin:'dàngāo',english:'cake',type:'word',example:'今天这种蛋糕特价。This type of cake is on special offer today.'},
-    {chinese:'真',pinyin:'zhēn',english:'really / truly (exclamation intensifier)',type:'word',example:'这个蛋糕真好吃！This cake is really delicious!'},
-    {chinese:'贵',pinyin:'guì',english:'expensive',type:'word',example:'太贵了！便宜点儿吧。Way too expensive! A bit cheaper please.'},
-    {chinese:'便宜',pinyin:'piányí',english:'cheap / inexpensive',type:'word',example:'真便宜！我们买点儿吧。Really cheap! Let\'s buy some.'},
-    {chinese:'刷卡',pinyin:'shuā kǎ',english:'pay by card / swipe a card',type:'phrase',example:'您想刷卡还是付现金？Would you like to pay by card or cash?'},
-    {chinese:'付现金',pinyin:'fù xiànjīn',english:'pay cash',type:'phrase',example:'你现在有现金吗？Do you have cash on you?'},
-    {chinese:'矿泉水',pinyin:'kuàngquánshuǐ',english:'mineral water',type:'word',example:'你想要咖啡、茶还是矿泉水？Do you want coffee, tea, or mineral water?'},
-    {chinese:'西瓜',pinyin:'xīguā',english:'watermelon',type:'word',example:'她想买西瓜还是苹果？Does she want to buy watermelon or apple?'},
-    {chinese:'咖啡',pinyin:'kāfēi',english:'coffee',type:'word',example:'你喜欢喝哪种咖啡？Which kind of coffee do you like?'},
-  ]},
-  {id:'lesson:g2',fileName:'1__九月去北京旅游最好.pdf',lessonTitle:'HSK2 L1 — Writing Practice Characters',category:'Daily Life',date:'2025-04-07T10:00:00Z',wordCount:12,vocabulary:[
-    {chinese:'旅',pinyin:'lǚ',english:'travel / journey (character component)',type:'word',example:'旅游 lǚyóu — to travel'},
-    {chinese:'游',pinyin:'yóu',english:'swim / travel / roam (character component)',type:'word',example:'旅游 lǚyóu — to travel'},
-    {chinese:'觉',pinyin:'jué',english:'feel / sense / wake up (character component)',type:'word',example:'觉得 juéde — to think / feel'},
-    {chinese:'最',pinyin:'zuì',english:'most / -est (superlative)',type:'word',example:'最好 zuì hǎo — the best'},
-    {chinese:'运',pinyin:'yùn',english:'transport / carry / luck (character component)',type:'word',example:'运动 yùndòng — sport / exercise'},
-    {chinese:'动',pinyin:'dòng',english:'move / movement (character component)',type:'word',example:'运动 yùndòng — sport / exercise'},
-    {chinese:'踢',pinyin:'tī',english:'kick (foot radical 足)',type:'word',example:'踢足球 tī zúqiú — play football'},
-    {chinese:'足',pinyin:'zú',english:'foot / sufficient (radical)',type:'word',example:'足球 zúqiú — football / soccer'},
-    {chinese:'球',pinyin:'qiú',english:'ball / sphere (jade radical 王)',type:'word',example:'足球 zúqiú — football'},
-    {chinese:'眼',pinyin:'yǎn',english:'eye (character component)',type:'word',example:'眼睛 yǎnjīng — eye'},
-    {chinese:'睛',pinyin:'jīng',english:'pupil of the eye (character component)',type:'word',example:'眼睛 yǎnjīng — eye'},
-    {chinese:'花',pinyin:'huā',english:'flower / spend / colourful',type:'word',example:'花花 Huāhuā — name of the cat in the story'},
-  ]},
-  {id:'lesson:g5',fileName:'360句第2册__Lesson3__教学PPT_.pptx',lessonTitle:'360句 L3 — 你有什么爱好？',category:'Daily Life',date:'2025-04-24T09:00:00Z',wordCount:30,vocabulary:[
-    {chinese:'唱歌',pinyin:'chànggē',english:'to sing / singing',type:'phrase',example:'她非常喜欢唱歌。She loves singing very much.'},
-    {chinese:'唱',pinyin:'chàng',english:'to sing',type:'word',example:'你喜欢唱歌吗？Do you like to sing?'},
-    {chinese:'歌',pinyin:'gē',english:'song',type:'word',example:'你喜欢唱汉语歌吗？Do you like to sing Chinese songs?'},
-    {chinese:'听歌',pinyin:'tīng gē',english:'to listen to music / to listen to songs',type:'phrase',example:'她非常喜欢听歌。She loves listening to music.'},
-    {chinese:'听',pinyin:'tīng',english:'to listen / to hear',type:'word',example:'你喜欢听歌吗？Do you like listening to music?'},
-    {chinese:'电影',pinyin:'diànyǐng',english:'movie / film',type:'word',example:'你喜欢看什么电影？What kind of movies do you like?'},
-    {chinese:'看电影',pinyin:'kàn diànyǐng',english:'to watch a movie',type:'phrase',example:'咱们今天去看电影吧！Let\'s go watch a movie today!'},
-    {chinese:'旅游',pinyin:'lǚyóu',english:'to travel / go on a trip',type:'word',example:'你喜欢旅游吗？Do you like to travel?'},
-    {chinese:'打网球',pinyin:'dǎ wǎngqiú',english:'to play tennis',type:'phrase',example:'你可以打网球吗？Can you play tennis?'},
-    {chinese:'网球',pinyin:'wǎngqiú',english:'tennis',type:'word',example:'你想学打网球吗？Do you want to learn tennis?'},
-    {chinese:'打',pinyin:'dǎ',english:'to play (ball sports) / to hit',type:'word',example:'你会打篮球吗？Can you play basketball?'},
-    {chinese:'爱好',pinyin:'àihào',english:'hobby / interest',type:'word',example:'你有什么爱好？What hobbies do you have?'},
-    {chinese:'做饭',pinyin:'zuò fàn',english:'to cook / cooking',type:'phrase',example:'我的爱好是做饭。My hobby is cooking.'},
-    {chinese:'会',pinyin:'huì',english:'can / know how to (learned ability)',type:'word',example:'你会唱歌吗？Can you sing?'},
-    {chinese:'教',pinyin:'jiāo',english:'to teach',type:'word',example:'老师教你汉语多少个月了？How many months has the teacher been teaching you Chinese?'},
-    {chinese:'语言',pinyin:'yǔyán',english:'language',type:'word',example:'你会说几种语言？How many languages can you speak?'},
-    {chinese:'说',pinyin:'shuō',english:'to speak / to say',type:'word',example:'你会说意大利语吗？Can you speak Italian?'},
-    {chinese:'汉语',pinyin:'Hànyǔ',english:'Chinese language (spoken)',type:'word',example:'你说汉语说得好不好？How well do you speak Chinese?'},
-    {chinese:'特长',pinyin:'tèchang',english:'special skill / talent / forte',type:'word',example:'你的特长是什么？What is your special skill?'},
-    {chinese:'太',pinyin:'tài',english:'too / extremely (intensifier)',type:'word',example:'太好了！That\'s great! / 太贵了。Too expensive.'},
-    {chinese:'不过',pinyin:'búguò',english:'but / however (conjunction)',type:'word',example:'我会打网球，不过我不会教。I can play tennis, but I can\'t teach it.'},
-    {chinese:'啊',pinyin:'a',english:'ah / (particle expressing enthusiasm or agreement)',type:'word',example:'好啊！Sure! / 是啊。That\'s right.'},
-    {chinese:'得',pinyin:'de',english:'(structural particle linking verb to degree complement)',type:'word',example:'她唱得很好。She sings very well.'},
-    {chinese:'不错',pinyin:'búcuò',english:'good / not bad',type:'word',example:'大卫说汉语说得还不错。David speaks Chinese pretty well.'},
-    {chinese:'还可以',pinyin:'hái kěyǐ',english:'so-so / well enough / not bad',type:'phrase',example:'我打网球打得还可以。I play tennis well enough.'},
-    {chinese:'这些',pinyin:'zhèxiē',english:'these (plural demonstrative)',type:'word',example:'你会说哪些语言？Which languages can you speak?'},
-    {chinese:'功夫',pinyin:'gōngfu',english:'kung fu / martial arts',type:'word',example:'你会中国功夫吗？Do you know Chinese kung fu?'},
-    {chinese:'除了……还……',pinyin:'chúle...hái...',english:'in addition to... also... / besides... also...',type:'phrase',example:'他除了喜欢唱歌，还喜欢看电影。Besides singing, he also likes watching movies.'},
-    {chinese:'请进',pinyin:'qǐng jìn',english:'please come in',type:'phrase',example:'请进！Please come in!'},
-    {chinese:'请坐',pinyin:'qǐng zuò',english:'please sit down / have a seat',type:'phrase',example:'请坐！Please have a seat.'},
   ]},
 ];
 
-function getProfileName(p){
-  return localStorage.getItem(p.id+'_displayname') || p.defaultName;
-}
-function saveGfName(){
-  const inp=document.getElementById('gf-name-inp');
-  if(!inp||!inp.value.trim())return;
-  localStorage.setItem('gf_displayname',inp.value.trim());
-  renderProfileCards();
-  document.getElementById('gf-name-section').style.display='none';
-}
-
-/* In-app rename — works for any profile */
-function openRename(){
-  const cur=getProfileName(currentUser);
-  const modal=document.getElementById('rename-modal');
-  const inp=document.getElementById('rename-inp');
-  if(!modal||!inp)return;
-  inp.value=cur;
-  modal.style.display='flex';
-  setTimeout(()=>inp.focus(),50);
-}
-function closeRename(){
-  const m=document.getElementById('rename-modal');if(m)m.style.display='none';
-}
-function saveRename(){
-  const inp=document.getElementById('rename-inp');
-  if(!inp||!inp.value.trim())return;
-  localStorage.setItem(currentUser.id+'_displayname',inp.value.trim());
-  closeRename();
-  // update topbar label
-  const lbl=document.getElementById('user-label');
-  if(lbl)lbl.textContent=inp.value.trim();
-}
+function getProfileName(p){ return localStorage.getItem(p.id+'_displayname') || p.defaultName; }
+function saveGfName(){ const inp=document.getElementById('gf-name-inp'); if(!inp||!inp.value.trim())return; localStorage.setItem('gf_displayname',inp.value.trim()); renderProfileCards(); document.getElementById('gf-name-section').style.display='none'; }
+function openRename(){ const cur=getProfileName(currentUser); const modal=document.getElementById('rename-modal'); const inp=document.getElementById('rename-inp'); if(!modal||!inp)return; inp.value=cur; modal.style.display='flex'; setTimeout(()=>inp.focus(),50); }
+function closeRename(){ const m=document.getElementById('rename-modal');if(m)m.style.display='none'; }
+function saveRename(){ const inp=document.getElementById('rename-inp'); if(!inp||!inp.value.trim())return; localStorage.setItem(currentUser.id+'_displayname',inp.value.trim()); closeRename(); const lbl=document.getElementById('user-label'); if(lbl)lbl.textContent=inp.value.trim(); }
 
 function renderProfileCards(){
-  const el=document.getElementById('profile-cards');
-  if(!el)return;
+  const el=document.getElementById('profile-cards'); if(!el)return;
   el.innerHTML=PROFILES.map(p=>{
     const name=getProfileName(p);
     const lessonCount=(()=>{const ks=[];try{for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.startsWith(p.id+'_lesson:'))ks.push(k);}}catch(e){}return ks.length;})();
@@ -1153,66 +607,39 @@ function renderProfileCards(){
       <div style="width:64px;height:64px;border-radius:50%;background:${p.color}22;border:2px solid ${p.color}55;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-family:var(--zh);font-size:1.8rem;color:${p.color}">${name[0]||'学'}</div>
       <div style="font-family:var(--serif);font-size:1.1rem;font-weight:500;margin-bottom:4px">${name}</div>
       <div style="font-size:.78rem;color:var(--faint)">${lessonCount||'No'} lesson${lessonCount!==1?'s':''}</div>
-      ${p.id==='gf'?`<div onclick="event.stopPropagation();document.getElementById('gf-name-section').style.display='block';document.getElementById('gf-name-inp').value='${getProfileName(p)}'" style="margin-top:.75rem;font-size:.72rem;color:var(--faint);text-decoration:underline;cursor:pointer">edit name</div>`:''}
     </div>`;
   }).join('');
 }
 
 function selectUser(id){
-  const profile=PROFILES.find(p=>p.id===id);
-  if(!profile)return;
+  const profile=PROFILES.find(p=>p.id===id); if(!profile)return;
   currentUser=profile;
   localStorage.setItem('mn-last-user',id);
   document.getElementById('pg-profiles').style.display='none';
   document.getElementById('pg-app').style.display='flex';
-  // show bottom nav on mobile
   const mobNav=document.getElementById('mob-nav');
   if(mobNav && isMobile()) mobNav.style.display='flex';
-  // update topbar
   const nm=getProfileName(profile);
-  const dot=document.getElementById('user-dot');
-  const lbl=document.getElementById('user-label');
+  const dot=document.getElementById('user-dot'); const lbl=document.getElementById('user-label');
   if(dot) dot.style.background=profile.color;
   if(lbl) lbl.textContent=nm;
-  loadLessons();
-  gotoTab('review');
+  loadLessons(); gotoTab('review');
 }
+function switchUser(){ currentUser=null; document.getElementById('pg-app').style.display='none'; document.getElementById('pg-profiles').style.display='flex'; renderProfileCards(); }
+function showProfiles(){ const last=localStorage.getItem('mn-last-user'); if(last&&PROFILES.find(p=>p.id===last)){ selectUser(last); } else { document.getElementById('pg-profiles').style.display='flex'; renderProfileCards(); } }
 
-function switchUser(){
-  currentUser=null;
-  document.getElementById('pg-app').style.display='none';
-  document.getElementById('pg-profiles').style.display='flex';
-  renderProfileCards();
-}
-
-function showProfiles(){
-  const last=localStorage.getItem('mn-last-user');
-  if(last&&PROFILES.find(p=>p.id===last)){
-    selectUser(last);
-  } else {
-    document.getElementById('pg-profiles').style.display='flex';
-    renderProfileCards();
-  }
-}
-
-/* ── storage (user-namespaced) ── */
 const ls={
   get : k    => { try{ return localStorage.getItem(currentUser.id+'_'+k); }catch(e){ return null; } },
   set : (k,v)=> { try{ localStorage.setItem(currentUser.id+'_'+k, v); }catch(e){} },
   del : k    => { try{ localStorage.removeItem(currentUser.id+'_'+k); }catch(e){} },
-  keys: p    => {
-    const o=[], pre=currentUser.id+'_'+p;
-    try{ for(let i=0;i<localStorage.length;i++){ const k=localStorage.key(i); if(k&&k.startsWith(pre)) o.push(k.slice(currentUser.id.length+1)); } }catch(e){}
-    return o;
-  }
+  keys: p    => { const o=[],pre=currentUser.id+'_'+p; try{ for(let i=0;i<localStorage.length;i++){ const k=localStorage.key(i); if(k&&k.startsWith(pre)) o.push(k.slice(currentUser.id.length+1)); } }catch(e){} return o; }
 };
 
-/* ── load ── */
 function loadLessons(){
   const keys=ls.keys('lesson:');
   const ver=ls.get('mn-ver');
   const isJames=currentUser.id==='james';
-  const targetVer=isJames?'10':'4';
+  const targetVer=isJames?'11':'4';
   if(isJames&&(!keys.length||ver!==targetVer)){
     SAMPLE.forEach(s=>ls.set(s.id,JSON.stringify(s)));
     ls.set('mn-ver',targetVer);
@@ -1225,6 +652,14 @@ function loadLessons(){
     lessons=[];
     keys.forEach(k=>{try{lessons.push(JSON.parse(ls.get(k)));}catch(e){}});
   }
+  // Ensure the DiDi lesson is always present for James (upsert)
+  if(isJames){
+    const hasIt=lessons.some(l=>l.id===DIDI_YINXIANG.id);
+    if(!hasIt){
+      ls.set(DIDI_YINXIANG.id, JSON.stringify(DIDI_YINXIANG));
+      lessons.push({...DIDI_YINXIANG});
+    }
+  }
   lessons.sort((a,b)=>new Date(b.date)-new Date(a.date));
   const tot=lessons.flatMap(l=>l.vocabulary||[]).length;
   const el=document.getElementById('topbar-count');
@@ -1233,22 +668,9 @@ function loadLessons(){
 
 function deleteLesson(id){if(!confirm('Delete this lesson?'))return;ls.del(id);loadLessons();render();}
 function filterLesson(id){flt={s:'',c:'all',t:'all',l:id};gotoTab('review');}
+function deleteWord(lessonId,chinese){ if(!confirm('Delete "'+chinese+'" from the notebook?'))return; const raw=ls.get(lessonId);if(!raw)return; try{ const lesson=JSON.parse(raw); lesson.vocabulary=(lesson.vocabulary||[]).filter(v=>v.chinese!==chinese); lesson.wordCount=lesson.vocabulary.length; ls.set(lessonId,JSON.stringify(lesson)); loadLessons();render(); }catch(e){} }
 
-function deleteWord(lessonId,chinese){
-  if(!confirm('Delete "'+chinese+'" from the notebook?'))return;
-  const raw=ls.get(lessonId);if(!raw)return;
-  try{
-    const lesson=JSON.parse(raw);
-    lesson.vocabulary=(lesson.vocabulary||[]).filter(v=>v.chinese!==chinese);
-    lesson.wordCount=lesson.vocabulary.length;
-    ls.set(lessonId,JSON.stringify(lesson));
-    loadLessons();render();
-  }catch(e){}
-}
-
-/* ── nav ── */
 function isMobile(){ return window.innerWidth<=680; }
-
 function gotoTab(tab){
   curTab=tab; expanded=new Set();
   if(tab!=='upload'){busy=false;upMsg='';upPct=0;upOk=false;upErr=false;}
@@ -1256,22 +678,14 @@ function gotoTab(tab){
   if(tab==='sentences'){sn.preview=null;sn.msg='';sn.ok=false;sn.err=false;}
   if(tab==='hsk'&&!hsk.level){ hsk.level=currentUser.id==='james'?'hsk4':'hsk1'; }
   if(tab==='hsk'&&hsk.level&&!hsk.words.length&&!hsk.loading){ loadHSKWords(hsk.level); }
-  // update desktop + mobile nav
-  ['review','practice','sentences','lessons','hsk','upload'].forEach(t=>{
-    const b=document.getElementById('nav-'+t);
-    if(b) b.className='nav-btn'+(t===tab?' active':'');
-    const m=document.getElementById('mob-'+t);
-    if(m) m.className='mob-tab'+(t===tab?' active':'');
-  });
+  ['review','practice','sentences','lessons','hsk','upload'].forEach(t=>{ const b=document.getElementById('nav-'+t); if(b)b.className='nav-btn'+(t===tab?' active':''); const m=document.getElementById('mob-'+t); if(m)m.className='mob-tab'+(t===tab?' active':''); });
   render();
   if(isMobile()) window.scrollTo({top:0,behavior:'smooth'});
 }
 function toggleRow(i){expanded.has(i)?expanded.delete(i):expanded.add(i);render();}
 
-/* ── render ── */
 function render(){
-  const el=document.getElementById('main');
-  if(!el)return;
+  const el=document.getElementById('main'); if(!el)return;
   if(curTab==='review')         el.innerHTML=renderReview();
   else if(curTab==='practice')  el.innerHTML=renderPractice();
   else if(curTab==='sentences') el.innerHTML=renderSentences();
@@ -1283,38 +697,29 @@ function render(){
 function renderReview(){
   const all=lessons.flatMap(l=>(l.vocabulary||[]).map(v=>({...v,_lid:l.id,_lt:l.lessonTitle,_lc:l.category,_ld:l.date})));
   const cats=['all',...new Set(lessons.map(l=>l.category).filter(Boolean))];
-  const mastMap3 = getMasteryMap();
+  const mastMap=getMasteryMap();
   const fil=all.filter(v=>{
     if(flt.c!=='all'&&v._lc!==flt.c)return false;
     if(flt.t!=='all'&&v.type!==flt.t)return false;
     if(flt.l!=='all'&&v._lid!==flt.l)return false;
-    if(flt.m!=='all'){
-      const sc=mastMap3[masteryKey(v)]||0;
-      if(flt.m==='new'&&sc>1)return false;
-      if(flt.m==='learning'&&(sc<2||sc>3))return false;
-      if(flt.m==='mastered'&&sc<4)return false;
-    }
+    if(flt.m!=='all'){ const sc=mastMap[masteryKey(v)]||0; if(flt.m==='new'&&sc>1)return false; if(flt.m==='learning'&&(sc<2||sc>3))return false; if(flt.m==='mastered'&&sc<4)return false; }
     if(flt.s){const q=flt.s.toLowerCase();return(v.chinese&&v.chinese.includes(q))||(v.pinyin&&v.pinyin.toLowerCase().includes(q))||(v.english&&v.english.toLowerCase().includes(q));}
     return true;
   });
-  const mastMap2 = getMasteryMap();
   const stats=[
     {l:'Total items',v:all.length,c:'var(--text)'},
-    {l:'Words',      v:all.filter(v=>v.type==='word').length,     c:tc('word')},
-    {l:'Phrases',    v:all.filter(v=>v.type==='phrase').length,   c:tc('phrase')},
-    {l:'Sentences',  v:all.filter(v=>v.type==='sentence').length, c:tc('sentence')},
-    {l:'Idioms',     v:all.filter(v=>v.type==='idiom').length,    c:tc('idiom')},
-    {l:'Lessons',    v:lessons.length, c:'var(--red)'},
-    {l:'Mastered',   v:all.filter(v=>(mastMap2[masteryKey(v)]||0)>=4).length, c:'#2d9e6b'},
-    {l:'Learning',   v:all.filter(v=>{const s=mastMap2[masteryKey(v)]||0;return s>=2&&s<4;}).length, c:'#c4933a'},
-    {l:'New',        v:all.filter(v=>(mastMap2[masteryKey(v)]||0)<=1).length, c:'#c93a2b'},
+    {l:'Words',v:all.filter(v=>v.type==='word').length,c:tc('word')},
+    {l:'Phrases',v:all.filter(v=>v.type==='phrase').length,c:tc('phrase')},
+    {l:'Sentences',v:all.filter(v=>v.type==='sentence').length,c:tc('sentence')},
+    {l:'Idioms',v:all.filter(v=>v.type==='idiom').length,c:tc('idiom')},
+    {l:'Lessons',v:lessons.length,c:'var(--red)'},
+    {l:'Mastered',v:all.filter(v=>(mastMap[masteryKey(v)]||0)>=4).length,c:'#2d9e6b'},
+    {l:'Learning',v:all.filter(v=>{const s=mastMap[masteryKey(v)]||0;return s>=2&&s<4;}).length,c:'#c4933a'},
+    {l:'New',v:all.filter(v=>(mastMap[masteryKey(v)]||0)<=1).length,c:'#c93a2b'},
   ];
   let h=`<div class="stats-grid fu">`;
   stats.forEach(s=>h+=`<div class="stat-card"><div class="stat-num" style="color:${s.c}">${s.v}</div><div class="stat-lbl">${s.l}</div></div>`);
-  h+=`</div><div class="filter-bar fu1">
-    <div class="search-wrap"><span class="search-icon">⌕</span>
-    <input class="search-inp" type="text" placeholder="Search Chinese, pinyin or English…" value="${flt.s.replace(/"/g,'&quot;')}" oninput="flt.s=this.value;render()"></div>
-    <select class="sel" onchange="flt.c=this.value;render()">`;
+  h+=`</div><div class="filter-bar fu1"><div class="search-wrap"><span class="search-icon">⌕</span><input class="search-inp" type="text" placeholder="Search Chinese, pinyin or English…" value="${flt.s.replace(/"/g,'&quot;')}" oninput="flt.s=this.value;render()"></div><select class="sel" onchange="flt.c=this.value;render()">`;
   cats.forEach(c=>h+=`<option value="${c}"${flt.c===c?' selected':''}>${c==='all'?'All categories':c}</option>`);
   h+=`</select><select class="sel" onchange="flt.t=this.value;render()">`;
   ['all','word','phrase','sentence','idiom'].forEach(t=>h+=`<option value="${t}"${flt.t===t?' selected':''}>${t==='all'?'All types':t[0].toUpperCase()+t.slice(1)+'s'}</option>`);
@@ -1323,8 +728,7 @@ function renderReview(){
   h+=`</select><select class="sel" onchange="flt.m=this.value;render()">`;
   [['all','All mastery'],['new','🔴 New/Struggling'],['learning','🟡 Learning'],['mastered','🟢 Mastered']].forEach(([v,l])=>h+=`<option value="${v}"${flt.m===v?' selected':''}>${l}</option>`);
   h+=`</select>`;
-  if(flt.s||flt.c!=='all'||flt.t!=='all'||flt.l!=='all'||flt.m!=='all')
-    h+=`<button class="btn" onclick="flt={s:'',c:'all',t:'all',l:'all',m:'all'};render()" style="color:var(--red);border-color:rgba(201,58,43,.35)">✕ Clear</button>`;
+  if(flt.s||flt.c!=='all'||flt.t!=='all'||flt.l!=='all'||flt.m!=='all') h+=`<button class="btn" onclick="flt={s:'',c:'all',t:'all',l:'all',m:'all'};render()" style="color:var(--red);border-color:rgba(201,58,43,.35)">✕ Clear</button>`;
   h+=`</div>`;
   if(!all.length){h+=`<div class="empty fu2"><div class="empty-zh">学</div><div class="empty-ttl">No lessons yet</div><div class="empty-sub">Upload your first PDF to get started</div><button class="btn primary" onclick="gotoTab('upload')">Upload first lesson</button></div>`;return h;}
   if(!fil.length){h+=`<div class="empty fu2"><div class="empty-ttl">No results</div><div class="empty-sub">Try a different search or filter</div></div>`;return h;}
@@ -1337,6 +741,7 @@ function renderReview(){
     const hasEx=!!v.example,exp=expanded.has(i);
     const dt=new Date(v._ld).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'2-digit'});
     const rowClick=hasEx?'onclick="toggleRow('+i+')\"':'';
+    const isDiDi=v._lid==='lesson:didi_yinxiang';
     h+=`<tr class="${hasEx?'expandable':''}" ${rowClick}>`;
     h+=`<td class="c-num">${i+1}</td>`;
     h+=`<td class="c-zh">${esc(v.chinese)}</td>`;
@@ -1346,7 +751,8 @@ function renderReview(){
     h+=`<td>${bdg(v._lc,cc(v._lc))}</td>`;
     h+=`<td style="white-space:nowrap">${renderMasteryBar(getMastery(v),true)}</td>`;
     const expandIcon=hasEx?' <span style="font-size:.62rem;color:var(--blue)">'+(exp?'▴':'▾')+'</span>':'';
-    h+=`<td style="font-size:.78rem;color:var(--muted);max-width:130px"><div style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(v._lt)}`+expandIcon+`</div></td>`;
+    const diDiTag=isDiDi?` <span style="font-size:.6rem;background:#7B5EA71a;color:#7B5EA7;padding:1px 5px;border-radius:3px;margin-left:3px">DiDi</span>`:'';
+    h+=`<td style="font-size:.78rem;color:var(--muted);max-width:130px"><div style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(v._lt)}`+expandIcon+diDiTag+`</div></td>`;
     h+=`<td style="font-size:.73rem;color:var(--faint);white-space:nowrap">${dt}</td>`;
     const safeZh=v.chinese.replace(/'/g,"\\'").replace(/"/g,'&quot;');
     const safeLid=v._lid.replace(/'/g,"\\'");
@@ -1356,12 +762,12 @@ function renderReview(){
   });
   h+=`</tbody></table></div>`;
 
-  /* ── MOBILE VOCAB CARDS (hidden on desktop via CSS) ── */
   h+=`<div class="mob-cards" style="display:none">`;
   fil.forEach((v,i)=>{
     const hasEx=!!v.example;
     const safeZh=v.chinese.replace(/'/g,"\\'").replace(/"/g,'&quot;');
     const safeLid=v._lid.replace(/'/g,"\\'");
+    const isDiDi=v._lid==='lesson:didi_yinxiang';
     h+=`<div class="mob-vcard">`;
     h+=`<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px">`;
     h+=`<div class="mob-vcard-zh">${esc(v.chinese)}</div>`;
@@ -1370,7 +776,7 @@ function renderReview(){
     h+=`<div class="mob-vcard-pin">${esc(v.pinyin)}</div>`;
     h+=`<div class="mob-vcard-eng">${esc(v.english)}</div>`;
     h+=`<div class="mob-vcard-foot">`;
-    h+=`<div style="display:flex;gap:5px;flex-wrap:wrap">${bdg(v.type||'word',tc(v.type))} ${bdg(v._lc,cc(v._lc))}</div>`;
+    h+=`<div style="display:flex;gap:5px;flex-wrap:wrap">${bdg(v.type||'word',tc(v.type))} ${bdg(v._lc,cc(v._lc))}${isDiDi?` <span style="font-size:.6rem;background:#7B5EA71a;color:#7B5EA7;padding:1px 5px;border-radius:3px">DiDi</span>`:''}</div>`;
     h+=`<div style="display:flex;align-items:center;gap:6px">${renderMasteryBar(getMastery(v),true)}</div>`;
     h+=`<div style="font-size:.72rem;color:var(--faint)">${v._lt.length>18?v._lt.slice(0,18)+'…':v._lt}</div>`;
     h+=`</div>`;
@@ -1378,882 +784,224 @@ function renderReview(){
     h+=`</div>`;
   });
   h+=`</div>`;
-
   return h;
 }
 
-/* ════════════════════════════════
-   PRACTICE
-════════════════════════════════ */
 function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 
 function buildDeck(){
   let pool=lessons.flatMap(l=>(l.vocabulary||[]).map(v=>({...v,_lt:l.lessonTitle,_lid:l.id})));
   if(pr.filterLesson!=='all') pool=pool.filter(v=>v._lid===pr.filterLesson);
   if(pr.filterType!=='all')   pool=pool.filter(v=>v.type===pr.filterType);
-
-  if(pr.focusWeak){
-    // Weight each word by (5 - mastery) so weak words appear more
-    // A word with score 0 gets weight 6, score 5 gets weight 1
-    const mastery = getMasteryMap();
-    const weighted = [];
-    pool.forEach(v => {
-      const score = mastery[masteryKey(v)]||0;
-      const weight = Math.max(1, 6 - score);
-      for(let i=0;i<weight;i++) weighted.push(v);
-    });
-    const shuffled = shuffle(weighted);
-    // Deduplicate while preserving weighted order
-    const seen = new Set();
-    const unique = [];
-    shuffled.forEach(v => {
-      const k = masteryKey(v);
-      if(!seen.has(k)){ seen.add(k); unique.push(v); }
-    });
-    return pr.cardLimit>0 ? unique.slice(0,pr.cardLimit) : unique;
-  }
-
-  const shuffled=shuffle(pool);
-  return pr.cardLimit>0?shuffled.slice(0,pr.cardLimit):shuffled;
+  if(pr.focusWeak){ const mastery=getMasteryMap(); const weighted=[]; pool.forEach(v=>{const score=mastery[masteryKey(v)]||0;const weight=Math.max(1,6-score);for(let i=0;i<weight;i++)weighted.push(v);}); const shuffled=shuffle(weighted); const seen=new Set(); const unique=[]; shuffled.forEach(v=>{const k=masteryKey(v);if(!seen.has(k)){seen.add(k);unique.push(v);}}); return pr.cardLimit>0?unique.slice(0,pr.cardLimit):unique; }
+  const shuffled=shuffle(pool); return pr.cardLimit>0?shuffled.slice(0,pr.cardLimit):shuffled;
 }
 
-function startPractice(){
-  const deck=buildDeck();
-  if(!deck.length){alert('No vocabulary matches your filters.');return;}
-  if(deck.length<2&&(pr.mode==='quiz'||pr.mode==='pinyin')){alert('Need at least 2 cards for this mode.');return;}
-  pr.deck=deck; pr.idx=0; pr.flipped=false;
-  pr.known=0; pr.unsure=0; pr.qCorrect=0; pr.qWrong=0;
-  pr.chosen=null; pr.answered=false; pr.typeVal=''; pr.typeRevealed=false;
-  pr.sessionResults={}; pr.aiExBusy=false; pr.aiExText='';
-  if(pr.mode==='quiz'||pr.mode==='pinyin') buildQuizOpts();
-  pr.screen='playing';
-  render();
-}
-
-function buildQuizOpts(){
-  if(!pr.deck.length||pr.idx>=pr.deck.length) return;
-  const correct=pr.deck[pr.idx];
-  const allPool=lessons.flatMap(l=>(l.vocabulary||[]).map(v=>({...v,_lt:l.lessonTitle,_lid:l.id})));
-  const pool=allPool.filter(v=>v.chinese!==correct.chinese);
-  const wrong=shuffle(pool).slice(0,3);
-  pr.opts=shuffle([correct,...wrong]);
-  pr.chosen=null; pr.answered=false;
-}
-
+function startPractice(){ const deck=buildDeck(); if(!deck.length){alert('No vocabulary matches your filters.');return;} if(deck.length<2&&(pr.mode==='quiz'||pr.mode==='pinyin')){alert('Need at least 2 cards for this mode.');return;} pr.deck=deck;pr.idx=0;pr.flipped=false;pr.known=0;pr.unsure=0;pr.qCorrect=0;pr.qWrong=0;pr.chosen=null;pr.answered=false;pr.typeVal='';pr.typeRevealed=false;pr.sessionResults={};pr.aiExBusy=false;pr.aiExText=''; if(pr.mode==='quiz'||pr.mode==='pinyin')buildQuizOpts(); pr.screen='playing'; render(); }
+function buildQuizOpts(){ if(!pr.deck.length||pr.idx>=pr.deck.length)return; const correct=pr.deck[pr.idx]; const allPool=lessons.flatMap(l=>(l.vocabulary||[]).map(v=>({...v,_lt:l.lessonTitle,_lid:l.id}))); const pool=allPool.filter(v=>v.chinese!==correct.chinese); const wrong=shuffle(pool).slice(0,3); pr.opts=shuffle([correct,...wrong]);pr.chosen=null;pr.answered=false; }
 function fcFlip(){pr.flipped=!pr.flipped;render();}
-
-function fcMark(knew){
-  const v = pr.deck[pr.idx];
-  updateMastery(v, knew);
-  if(knew) pr.known++; else pr.unsure++;
-  pr.idx++; pr.flipped=false; pr.aiExBusy=false; pr.aiExText='';
-  if(pr.idx>=pr.deck.length){pr.screen='results';render();return;}
-  render();
-}
-
-function qzChoose(i){
-  if(pr.answered) return;
-  pr.chosen=i; pr.answered=true;
-  const correct=pr.opts[i].chinese===pr.deck[pr.idx].chinese;
-  if(correct) pr.qCorrect++; else pr.qWrong++;
-  updateMastery(pr.deck[pr.idx], correct);
-  pr.aiExBusy=false; pr.aiExText='';
-  render();
-}
-
-function qzNext(){
-  pr.idx++;
-  pr.aiExBusy=false; pr.aiExText='';
-  if(pr.idx>=pr.deck.length){pr.screen='results';render();return;}
-  buildQuizOpts(); render();
-}
-
-function typeSubmit(){
-  const inp=document.getElementById('type-inp');
-  if(!inp) return;
-  pr.typeVal=inp.value;
-  pr.answered=true;
-  const v=pr.deck[pr.idx];
-  const userAns=(pr.typeVal||'').trim().toLowerCase();
-  const correct=v.english.toLowerCase();
-  // fuzzy: check if any key word from answer is present
-  const keywords=correct.replace(/[/\-()]/g,' ').split(/\s+/).filter(w=>w.length>2);
-  const isOk=keywords.some(kw=>userAns.includes(kw))||userAns===correct||correct.includes(userAns);
-  if(isOk) pr.qCorrect++; else pr.qWrong++;
-  updateMastery(v, isOk);
-  render();
-}
-
+function fcMark(knew){ const v=pr.deck[pr.idx]; updateMastery(v,knew); if(knew)pr.known++;else pr.unsure++; pr.idx++;pr.flipped=false;pr.aiExBusy=false;pr.aiExText=''; if(pr.idx>=pr.deck.length){pr.screen='results';render();return;} render(); }
+function qzChoose(i){ if(pr.answered)return; pr.chosen=i;pr.answered=true; const correct=pr.opts[i].chinese===pr.deck[pr.idx].chinese; if(correct)pr.qCorrect++;else pr.qWrong++; updateMastery(pr.deck[pr.idx],correct);pr.aiExBusy=false;pr.aiExText=''; render(); }
+function qzNext(){ pr.idx++;pr.aiExBusy=false;pr.aiExText=''; if(pr.idx>=pr.deck.length){pr.screen='results';render();return;} buildQuizOpts();render(); }
+function typeSubmit(){ const inp=document.getElementById('type-inp');if(!inp)return; pr.typeVal=inp.value;pr.answered=true; const v=pr.deck[pr.idx]; const userAns=(pr.typeVal||'').trim().toLowerCase(); const correct=v.english.toLowerCase(); const keywords=correct.replace(/[/\-()]/g,' ').split(/\s+/).filter(w=>w.length>2); const isOk=keywords.some(kw=>userAns.includes(kw))||userAns===correct||correct.includes(userAns); if(isOk)pr.qCorrect++;else pr.qWrong++; updateMastery(v,isOk); render(); }
 function typeReveal(){pr.typeRevealed=true;render();}
-
-function typeNext(){
-  pr.idx++;
-  pr.aiExBusy=false; pr.aiExText='';
-  if(pr.idx>=pr.deck.length){pr.screen='results';render();return;}
-  pr.answered=false; pr.typeVal=''; pr.typeRevealed=false;
-  render();
-  setTimeout(()=>{const el=document.getElementById('type-inp');if(el)el.focus();},50);
-}
-
+function typeNext(){ pr.idx++;pr.aiExBusy=false;pr.aiExText=''; if(pr.idx>=pr.deck.length){pr.screen='results';render();return;} pr.answered=false;pr.typeVal='';pr.typeRevealed=false; render(); setTimeout(()=>{const el=document.getElementById('type-inp');if(el)el.focus();},50); }
 function pracRestart(){pr.screen='setup';render();}
 
-async function generateAIExample(v){
-  const apiKey=(ls.get('mn-apikey')||'').trim();
-  if(!apiKey){ pr.aiExText='Add your API key in the Upload tab first.'; render(); return; }
-  pr.aiExBusy=true; pr.aiExText=''; render();
-  try{
-    const resp=await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
-      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:120,messages:[{role:'user',content:`Give ONE short, natural example sentence in Chinese using "${v.chinese}" (${v.english}). Reply in this exact format with no extra text:\nChinese: <sentence>\nEnglish: <translation>`}]})
-    });
-    const data=await resp.json();
-    if(data.error) throw new Error(data.error.message);
-    pr.aiExText=(data.content[0]?.text||'').trim();
-    pr.aiExBusy=false;
-    render();
-  }catch(err){
-    pr.aiExBusy=false; pr.aiExText='Could not generate example.'; render();
-  }
-}
+async function generateAIExample(v){ const apiKey=(ls.get('mn-apikey')||'').trim(); if(!apiKey){pr.aiExText='Add your API key in the Upload tab first.';render();return;} pr.aiExBusy=true;pr.aiExText='';render(); try{ const resp=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:120,messages:[{role:'user',content:`Give ONE short, natural example sentence in Chinese using "${v.chinese}" (${v.english}). Reply in this exact format with no extra text:\nChinese: <sentence>\nEnglish: <translation>`}]})}); const data=await resp.json(); if(data.error)throw new Error(data.error.message); pr.aiExText=(data.content[0]?.text||'').trim();pr.aiExBusy=false;render(); }catch(err){pr.aiExBusy=false;pr.aiExText='Could not generate example.';render();} }
+function renderAIExample(v){ if(!v.example&&!pr.aiExText&&!pr.aiExBusy){ return `<button class="ai-ex-btn" onclick="generateAIExample(pr.deck[pr.idx])">✨ Show example sentence</button>`; } if(pr.aiExBusy)return`<div class="ai-ex-loading">Generating example…</div>`; if(pr.aiExText)return`<div class="ai-ex-result">✨ ${pr.aiExText.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>`; return ''; }
 
-function renderAIExample(v){
-  if(!v.example && !pr.aiExText && !pr.aiExBusy){
-    return `<button class="ai-ex-btn" onclick="generateAIExample(pr.deck[pr.idx])">✨ Show example sentence</button>`;
-  }
-  if(pr.aiExBusy) return `<div class="ai-ex-loading">Generating example…</div>`;
-  if(pr.aiExText) return `<div class="ai-ex-result">✨ ${pr.aiExText.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>`;
-  return '';
-}
+function renderPractice(){ if(pr.screen==='setup')return renderPracSetup(); if(pr.screen==='results')return renderPracResults(); if(pr.mode==='flashcard')return renderFlashcard(); if(pr.mode==='quiz')return renderQuiz(false); if(pr.mode==='pinyin')return renderQuiz(true); if(pr.mode==='typein')return renderTypeIn(); return renderFlashcard(); }
 
-function renderPractice(){
-  if(pr.screen==='setup')   return renderPracSetup();
-  if(pr.screen==='results') return renderPracResults();
-  if(pr.mode==='flashcard') return renderFlashcard();
-  if(pr.mode==='quiz')      return renderQuiz(false);
-  if(pr.mode==='pinyin')    return renderQuiz(true);
-  if(pr.mode==='typein')    return renderTypeIn();
-  return renderFlashcard();
-}
-
-/* ── SETUP ── */
 function renderPracSetup(){
   const poolSize=buildDeck().length;
   const limits=[5,10,15,20,30,0];
-  const modes=[
-    {id:'flashcard',icon:'🎴',title:'Flashcards',desc:'Tap to flip. Mark known or needs practice.'},
-    {id:'quiz',icon:'🧠',title:'Multiple Choice',desc:'See Chinese — pick the correct English.'},
-    {id:'pinyin',icon:'🔤',title:'Pinyin Quiz',desc:'See Chinese — pick the correct pinyin.'},
-    {id:'typein',icon:'✍️',title:'Type the Answer',desc:'See Chinese — type the English meaning.'},
-  ];
+  const modes=[{id:'flashcard',icon:'🎴',title:'Flashcards',desc:'Tap to flip. Mark known or needs practice.'},{id:'quiz',icon:'🧠',title:'Multiple Choice',desc:'See Chinese — pick the correct English.'},{id:'pinyin',icon:'🔤',title:'Pinyin Quiz',desc:'See Chinese — pick the correct pinyin.'},{id:'typein',icon:'✍️',title:'Type the Answer',desc:'See Chinese — type the English meaning.'}];
   let h='<div class="prac-setup fu">';
   h+='<div style="font-family:var(--serif);font-size:1.25rem;font-weight:500;margin-bottom:5px">Practice</div>';
   h+='<p style="font-size:.9rem;color:var(--muted);margin-bottom:1.5rem">Pick a mode, choose how many cards, and start reviewing.</p>';
-
-  // mode cards
   h+='<div class="prac-modes">';
-  modes.forEach(m=>{
-    h+=`<div class="prac-mode-card${pr.mode===m.id?' selected':''}" onclick="pr.mode='${m.id}';render()">`;
-    h+=`<div class="prac-mode-icon">${m.icon}</div>`;
-    h+=`<div class="prac-mode-title">${m.title}</div>`;
-    h+=`<div class="prac-mode-desc">${m.desc}</div>`;
-    h+='</div>';
-  });
-  h+='</div>';
-
-  // options panel
-  h+='<div class="prac-opts">';
-  h+='<div class="prac-opts-title">Options</div>';
-
-  // card count
-  h+='<div class="prac-opts-row"><span class="prac-lbl">How many</span><div class="count-chips">';
-  limits.forEach(n=>{
-    const lbl=n===0?'All':String(n);
-    h+=`<div class="count-chip${pr.cardLimit===n?' selected':''}" onclick="pr.cardLimit=${n};render()">${lbl}</div>`;
-  });
+  modes.forEach(m=>{ h+=`<div class="prac-mode-card${pr.mode===m.id?' selected':''}" onclick="pr.mode='${m.id}';render()"><div class="prac-mode-icon">${m.icon}</div><div class="prac-mode-title">${m.title}</div><div class="prac-mode-desc">${m.desc}</div></div>`; });
+  h+='</div><div class="prac-opts"><div class="prac-opts-title">Options</div><div class="prac-opts-row"><span class="prac-lbl">How many</span><div class="count-chips">';
+  limits.forEach(n=>{ const lbl=n===0?'All':String(n); h+=`<div class="count-chip${pr.cardLimit===n?' selected':''}" onclick="pr.cardLimit=${n};render()">${lbl}</div>`; });
   h+=`</div><span style="font-size:.82rem;color:var(--faint);margin-left:8px">${poolSize} available</span></div>`;
-
-  // lesson filter
   h+='<div class="prac-opts-row"><span class="prac-lbl">Lesson</span>';
   h+=`<select class="sel" onchange="pr.filterLesson=this.value;render()"><option value="all"${pr.filterLesson==='all'?' selected':''}>All lessons</option>`;
   lessons.forEach(l=>h+=`<option value="${l.id}"${pr.filterLesson===l.id?' selected':''}>${l.lessonTitle}</option>`);
   h+='</select></div>';
-
-  // type filter
   h+='<div class="prac-opts-row"><span class="prac-lbl">Word type</span>';
   h+=`<select class="sel" onchange="pr.filterType=this.value;render()">`;
   ['all','word','phrase','sentence','idiom'].forEach(t=>h+=`<option value="${t}"${pr.filterType===t?' selected':''}>${t==='all'?'All types':t[0].toUpperCase()+t.slice(1)+'s'}</option>`);
   h+='</select></div>';
-
-  // Focus weak words toggle
-  const mastMap = getMasteryMap();
-  const allPool2 = lessons.flatMap(l=>(l.vocabulary||[]).map(v=>({...v})));
-  const newWords   = allPool2.filter(v=>(mastMap[masteryKey(v)]||0)<=1).length;
-  const learningW  = allPool2.filter(v=>{const s=mastMap[masteryKey(v)]||0;return s>=2&&s<=3;}).length;
-  const masteredW  = allPool2.filter(v=>(mastMap[masteryKey(v)]||0)>=4).length;
-  h+=`<div class="prac-opts-row" style="flex-direction:column;align-items:flex-start;gap:10px">`;
-  h+=`<div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">`;
-  h+=`<div class="focus-toggle${pr.focusWeak?' on':''}" onclick="pr.focusWeak=!pr.focusWeak;render()">`;
-  h+=`<div class="focus-toggle-dot"></div>`;
-  h+=`<span>${pr.focusWeak?'🎯 Focusing on weak words':'⚖️ Random order'}</span>`;
-  h+=`</div>`;
-  h+=`<span style="font-size:.78rem;color:var(--faint)">${pr.focusWeak?'Unmastered words appear more often':''}</span>`;
-  h+=`</div>`;
-  h+=`<div style="display:flex;gap:10px;flex-wrap:wrap">`;
-  h+=`<div style="font-size:.73rem;color:#c93a2b;background:rgba(201,58,43,.1);padding:3px 10px;border-radius:4px">🔴 New/struggling: ${newWords}</div>`;
-  h+=`<div style="font-size:.73rem;color:#c4933a;background:rgba(196,147,58,.1);padding:3px 10px;border-radius:4px">🟡 Learning: ${learningW}</div>`;
-  h+=`<div style="font-size:.73rem;color:#2d9e6b;background:rgba(45,158,107,.1);padding:3px 10px;border-radius:4px">🟢 Mastered: ${masteredW}</div>`;
-  h+=`</div>`;
-  h+=`</div>`;
-
-  // direction (flashcards only)
-  if(pr.mode==='flashcard'){
-    h+='<div class="prac-opts-row"><span class="prac-lbl">Direction</span>';
-    h+=`<select class="sel" onchange="pr.direction=this.value;render()">`;
-    h+=`<option value="zh2en"${pr.direction==='zh2en'?' selected':''}>Chinese \u2192 English</option>`;
-    h+=`<option value="en2zh"${pr.direction==='en2zh'?' selected':''}>English \u2192 Chinese</option>`;
-    h+='</select></div>';
-  }
-
-  h+='</div>'; // close prac-opts
-
-  const estCount=buildDeck().length;
-  const needsMin2=pr.mode==='quiz'||pr.mode==='pinyin';
-  const disabled=estCount<1||(needsMin2&&estCount<2);
-  h+=`<button class="btn primary" style="width:100%;padding:15px;font-size:1rem;justify-content:center;border-radius:var(--r-md)" onclick="startPractice()" ${disabled?'disabled':''}>`;
-  h+=`Start \u2014 ${estCount} card${estCount!==1?'s':''} \u2192</button>`;
-  if(disabled) h+=`<p style="font-size:.8rem;color:var(--faint);text-align:center;margin-top:.75rem">Not enough cards for this mode. Try a different filter.</p>`;
+  const mastMap=getMasteryMap(); const allPool2=lessons.flatMap(l=>(l.vocabulary||[]).map(v=>({...v}))); const newW=allPool2.filter(v=>(mastMap[masteryKey(v)]||0)<=1).length; const learningW=allPool2.filter(v=>{const s=mastMap[masteryKey(v)]||0;return s>=2&&s<=3;}).length; const masteredW=allPool2.filter(v=>(mastMap[masteryKey(v)]||0)>=4).length;
+  h+=`<div class="prac-opts-row" style="flex-direction:column;align-items:flex-start;gap:10px"><div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap"><div class="focus-toggle${pr.focusWeak?' on':''}" onclick="pr.focusWeak=!pr.focusWeak;render()"><div class="focus-toggle-dot"></div><span>${pr.focusWeak?'🎯 Focusing on weak words':'⚖️ Random order'}</span></div><span style="font-size:.78rem;color:var(--faint)">${pr.focusWeak?'Unmastered words appear more often':''}</span></div><div style="display:flex;gap:10px;flex-wrap:wrap"><div style="font-size:.73rem;color:#c93a2b;background:rgba(201,58,43,.1);padding:3px 10px;border-radius:4px">🔴 New/struggling: ${newW}</div><div style="font-size:.73rem;color:#c4933a;background:rgba(196,147,58,.1);padding:3px 10px;border-radius:4px">🟡 Learning: ${learningW}</div><div style="font-size:.73rem;color:#2d9e6b;background:rgba(45,158,107,.1);padding:3px 10px;border-radius:4px">🟢 Mastered: ${masteredW}</div></div></div>`;
+  if(pr.mode==='flashcard'){ h+='<div class="prac-opts-row"><span class="prac-lbl">Direction</span>'; h+=`<select class="sel" onchange="pr.direction=this.value;render()"><option value="zh2en"${pr.direction==='zh2en'?' selected':''}>Chinese → English</option><option value="en2zh"${pr.direction==='en2zh'?' selected':''}>English → Chinese</option></select></div>`; }
   h+='</div>';
-  return h;
+  const estCount=buildDeck().length; const needsMin2=pr.mode==='quiz'||pr.mode==='pinyin'; const disabled=estCount<1||(needsMin2&&estCount<2);
+  h+=`<button class="btn primary" style="width:100%;padding:15px;font-size:1rem;justify-content:center;border-radius:var(--r-md)" onclick="startPractice()" ${disabled?'disabled':''}>Start — ${estCount} card${estCount!==1?'s':''} →</button>`;
+  if(disabled)h+=`<p style="font-size:.8rem;color:var(--faint);text-align:center;margin-top:.75rem">Not enough cards for this mode.</p>`;
+  h+='</div>'; return h;
 }
 
-/* ── shared header + progress ── */
-function pracHeader(label,total,done,known,wrong){
-  const pct=Math.round((done/total)*100);
-  let h=`<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">`;
-  h+=`<div style="font-size:.88rem;color:var(--muted)">${label}</div>`;
-  h+=`<button class="fc-btn-nav" onclick="pracRestart()">\u2190 Setup</button>`;
-  h+='</div>';
-  h+=`<div class="prac-prog-wrap">`;
-  h+=`<div class="prac-prog-bar"><div class="prac-prog-fill" style="width:${pct}%"></div></div>`;
-  h+=`<span style="font-size:.82rem;color:#4dd892">\u2713 ${known}</span>`;
-  h+=`<span style="font-size:.82rem;color:#f08080">\u2717 ${wrong}</span>`;
-  h+=`<span style="font-size:.82rem;color:var(--faint)">${done}/${total}</span>`;
-  h+='</div>';
-  return h;
-}
+function pracHeader(label,total,done,known,wrong){ const pct=Math.round((done/total)*100); let h=`<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem"><div style="font-size:.88rem;color:var(--muted)">${label}</div><button class="fc-btn-nav" onclick="pracRestart()">← Setup</button></div>`; h+=`<div class="prac-prog-wrap"><div class="prac-prog-bar"><div class="prac-prog-fill" style="width:${pct}%"></div></div><span style="font-size:.82rem;color:#4dd892">✓ ${known}</span><span style="font-size:.82rem;color:#f08080">✗ ${wrong}</span><span style="font-size:.82rem;color:var(--faint)">${done}/${total}</span></div>`; return h; }
 
-/* ── FLASHCARD ── */
 function renderFlashcard(){
-  const v=pr.deck[pr.idx];
-  const total=pr.deck.length,done=pr.idx;
-  const front=pr.direction==='zh2en';
-  const esc=s=>(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  const isLong=s=>(s||'').length>10;
-
-  let h=`<div class="fu" style="max-width:640px;margin:0 auto">`;
-  h+=pracHeader('Flashcards',total,done,pr.known,pr.unsure);
-
-  /* ── FRONT ── */
+  const v=pr.deck[pr.idx]; const total=pr.deck.length,done=pr.idx; const front=pr.direction==='zh2en'; const esc=s=>(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); const isLong=s=>(s||'').length>10;
+  let h=`<div class="fu" style="max-width:640px;margin:0 auto">`; h+=pracHeader('Flashcards',total,done,pr.known,pr.unsure);
   if(!pr.flipped){
-    h+=`<div class="fc-card" onclick="fcFlip()">`;
-    h+=`<div class="fc-face-label">${front?'Chinese \u2192 English':'English \u2192 Chinese'} &nbsp;\u00B7&nbsp; tap to reveal</div>`;
-    h+=`<div class="fc-badge-row">${bdg(v.type||'word',tc(v.type))}</div>`;
-    if(front){
-      h+=`<div class="${isLong(v.chinese)?'fc-zh-sm':'fc-zh-lg'}">${esc(v.chinese)}</div>`;
-    } else {
-      h+=`<div class="fc-eng-lg">${esc(v.english)}</div>`;
-    }
-    h+=`<div class="fc-tap-hint">tap the card to flip</div>`;
-    h+=`</div>`;
-
-    // skip button only
-    h+=`<div style="text-align:center;margin-bottom:1.5rem">`;
-    h+=`<button class="fc-btn-nav" onclick="fcMark(true)">Skip this card \u2192</button>`;
-    h+=`</div>`;
-
-  /* ── BACK ── */
+    h+=`<div class="fc-card" onclick="fcFlip()"><div class="fc-face-label">${front?'Chinese → English':'English → Chinese'} · tap to reveal</div><div class="fc-badge-row">${bdg(v.type||'word',tc(v.type))}</div>`;
+    if(front){h+=`<div class="${isLong(v.chinese)?'fc-zh-sm':'fc-zh-lg'}">${esc(v.chinese)}</div>`;}else{h+=`<div class="fc-eng-lg">${esc(v.english)}</div>`;}
+    h+=`<div class="fc-tap-hint">tap the card to flip</div></div>`;
+    h+=`<div style="text-align:center;margin-bottom:1.5rem"><button class="fc-btn-nav" onclick="fcMark(true)">Skip this card →</button></div>`;
   } else {
-    h+=`<div class="fc-card revealed" onclick="fcFlip()">`;
-    h+=`<div class="fc-face-label">Answer &nbsp;\u00B7&nbsp; tap to go back</div>`;
-    if(front){
-      h+=`<div class="fc-badge-row">${bdg(v.type||'word',tc(v.type))}&nbsp;${renderMasteryBar(getMastery(v),true)}</div>`;
-      h+=`<div class="fc-pin-row">${esc(v.pinyin)}</div>`;
-      h+=`<div class="${isLong(v.english)?'fc-eng-row':'fc-eng-lg'}">${esc(v.english)}</div>`;
-      if(v.example) h+=`<div class="fc-ex-row">${esc(v.example)}</div>`;
-      else h+=renderAIExample(v);
-    } else {
-      h+=`<div class="fc-badge-row">${bdg(v.type||'word',tc(v.type))}&nbsp;${renderMasteryBar(getMastery(v),true)}</div>`;
-      h+=`<div class="${isLong(v.chinese)?'fc-zh-sm':'fc-zh-lg'}">${esc(v.chinese)}</div>`;
-      h+=`<div class="fc-pin-row">${esc(v.pinyin)}</div>`;
-      if(v.example) h+=`<div class="fc-ex-row">${esc(v.example)}</div>`;
-      else h+=renderAIExample(v);
-    }
-    h+=`</div>`;
-
-    // know / unsure buttons
-    h+=`<div class="fc-actions">`;
-    h+=`<button class="fc-btn unsure" onclick="fcMark(false)">\u2717 &nbsp; Need more practice</button>`;
-    h+=`<button class="fc-btn know"   onclick="fcMark(true)">\u2713 &nbsp; Got it!</button>`;
-    h+=`</div>`;
+    h+=`<div class="fc-card revealed" onclick="fcFlip()"><div class="fc-face-label">Answer · tap to go back</div>`;
+    if(front){ h+=`<div class="fc-badge-row">${bdg(v.type||'word',tc(v.type))} ${renderMasteryBar(getMastery(v),true)}</div><div class="fc-pin-row">${esc(v.pinyin)}</div><div class="${isLong(v.english)?'fc-eng-row':'fc-eng-lg'}">${esc(v.english)}</div>`; if(v.example)h+=`<div class="fc-ex-row">${esc(v.example)}</div>`;else h+=renderAIExample(v); }
+    else { h+=`<div class="fc-badge-row">${bdg(v.type||'word',tc(v.type))} ${renderMasteryBar(getMastery(v),true)}</div><div class="${isLong(v.chinese)?'fc-zh-sm':'fc-zh-lg'}">${esc(v.chinese)}</div><div class="fc-pin-row">${esc(v.pinyin)}</div>`; if(v.example)h+=`<div class="fc-ex-row">${esc(v.example)}</div>`;else h+=renderAIExample(v); }
+    h+=`</div><div class="fc-actions"><button class="fc-btn unsure" onclick="fcMark(false)">✗ &nbsp;Need more practice</button><button class="fc-btn know" onclick="fcMark(true)">✓ &nbsp;Got it!</button></div>`;
   }
-
-  // progress dots
   h+=`<div style="display:flex;gap:4px;justify-content:center;flex-wrap:wrap;margin-top:.25rem">`;
-  pr.deck.forEach((_,i)=>{
-    const w=Math.max(6,Math.min(20,Math.floor(600/pr.deck.length)-5));
-    const col=i<pr.idx?(i%2===0?'#2d9e6b':'#c93a2b'):i===pr.idx?'var(--red)':'var(--border2)';
-    const op=i<=pr.idx?1:.3;
-    h+=`<div style="width:${w}px;height:5px;border-radius:3px;background:${col};opacity:${op};transition:background .3s"></div>`;
-  });
-  h+=`</div></div>`;
-  return h;
+  pr.deck.forEach((_,i)=>{ const w=Math.max(6,Math.min(20,Math.floor(600/pr.deck.length)-5)); const col=i<pr.idx?(i%2===0?'#2d9e6b':'#c93a2b'):i===pr.idx?'var(--red)':'var(--border2)'; h+=`<div style="width:${w}px;height:5px;border-radius:3px;background:${col};opacity:${i<=pr.idx?1:.3};transition:background .3s"></div>`; });
+  h+=`</div></div>`; return h;
 }
 
-/* ── QUIZ (multiple choice & pinyin) ── */
 function renderQuiz(isPinyin){
-  const v=pr.deck[pr.idx];
-  const total=pr.deck.length,done=pr.idx;
-  const esc=s=>(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  const modeLabel=isPinyin?'Pinyin Quiz':'Multiple Choice';
-
-  let h=`<div class="fu" style="max-width:640px;margin:0 auto">`;
-  h+=pracHeader(modeLabel,total,done,pr.qCorrect,pr.qWrong);
-
-  h+='<div class="qz-wrap">';
-  h+='<div class="qz-q-card">';
-  if(isPinyin){
-    h+=`<div class="qz-q-label">${bdg(v.type||'word',tc(v.type))} &nbsp; Which pinyin matches?</div>`;
-    h+=`<div class="qz-q-zh">${esc(v.chinese)}</div>`;
-    h+=`<div style="font-size:.88rem;color:var(--muted);margin-top:.5rem">${esc(v.english)}</div>`;
-  } else {
-    h+=`<div class="qz-q-label">${bdg(v.type||'word',tc(v.type))} &nbsp; What does this mean?</div>`;
-    h+=`<div class="qz-q-zh">${esc(v.chinese)}</div>`;
-    h+=`<div class="qz-q-pin">${esc(v.pinyin)}</div>`;
-  }
+  const v=pr.deck[pr.idx]; const total=pr.deck.length,done=pr.idx; const esc=s=>(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  let h=`<div class="fu" style="max-width:640px;margin:0 auto">`; h+=pracHeader(isPinyin?'Pinyin Quiz':'Multiple Choice',total,done,pr.qCorrect,pr.qWrong);
+  h+='<div class="qz-wrap"><div class="qz-q-card">';
+  if(isPinyin){ h+=`<div class="qz-q-label">${bdg(v.type||'word',tc(v.type))} · Which pinyin matches?</div><div class="qz-q-zh">${esc(v.chinese)}</div><div style="font-size:.88rem;color:var(--muted);margin-top:.5rem">${esc(v.english)}</div>`; }
+  else { h+=`<div class="qz-q-label">${bdg(v.type||'word',tc(v.type))} · What does this mean?</div><div class="qz-q-zh">${esc(v.chinese)}</div><div class="qz-q-pin">${esc(v.pinyin)}</div>`; }
+  h+='</div><div class="qz-opts">';
+  pr.opts.forEach((opt,i)=>{ const isCorrect=opt.chinese===v.chinese; let cls='qz-opt'; if(pr.answered){ if(i===pr.chosen&&isCorrect)cls+=' correct'; else if(i===pr.chosen&&!isCorrect)cls+=' wrong'; else if(isCorrect)cls+=' reveal'; } const label=isPinyin?esc(opt.pinyin):esc(opt.english); h+=`<button class="${cls}" ${pr.answered?'disabled':''} onclick="qzChoose(${i})">${label}</button>`; });
   h+='</div>';
-
-  h+='<div class="qz-opts">';
-  pr.opts.forEach((opt,i)=>{
-    const isCorrect=opt.chinese===v.chinese;
-    let cls='qz-opt';
-    if(pr.answered){
-      if(i===pr.chosen&&isCorrect) cls+=' correct';
-      else if(i===pr.chosen&&!isCorrect) cls+=' wrong';
-      else if(isCorrect) cls+=' reveal';
-    }
-    const label=isPinyin?esc(opt.pinyin):esc(opt.english);
-    h+=`<button class="${cls}" ${pr.answered?'disabled':''} onclick="qzChoose(${i})">${label}</button>`;
-  });
-  h+='</div>';
-
-  if(pr.answered){
-    const ok=pr.opts[pr.chosen]?.chinese===v.chinese;
-    h+=`<div class="qz-feedback ${ok?'ok':'bad'}">${ok?'\u2713 Correct!':'\u2717 Not quite \u2014 the right answer is highlighted in green'}</div>`;
-    h+=`<div style="display:flex;align-items:center;gap:8px;justify-content:center;margin-bottom:.85rem">${renderMasteryBar(getMastery(v),true)}</div>`;
-    if(v.example) h+=`<div style="font-size:.85rem;color:var(--muted);font-style:italic;text-align:center;margin-bottom:.85rem;padding:0 .5rem">"${esc(v.example)}"</div>`;
-    else h+=`<div style="text-align:center;margin-bottom:.85rem">${renderAIExample(v)}</div>`;
-    const isLast=pr.idx+1>=pr.deck.length;
-    h+=`<button class="qz-next" onclick="qzNext()">${isLast?'See results \u2192':'Next question \u2192'}</button>`;
-  }
-  h+='</div></div>';
-  return h;
+  if(pr.answered){ const ok=pr.opts[pr.chosen]?.chinese===v.chinese; h+=`<div class="qz-feedback ${ok?'ok':'bad'}">${ok?'✓ Correct!':'✗ Not quite — the right answer is highlighted in green'}</div><div style="display:flex;align-items:center;gap:8px;justify-content:center;margin-bottom:.85rem">${renderMasteryBar(getMastery(v),true)}</div>`; if(v.example)h+=`<div style="font-size:.85rem;color:var(--muted);font-style:italic;text-align:center;margin-bottom:.85rem;padding:0 .5rem">"${esc(v.example)}"</div>`;else h+=`<div style="text-align:center;margin-bottom:.85rem">${renderAIExample(v)}</div>`; const isLast=pr.idx+1>=pr.deck.length; h+=`<button class="qz-next" onclick="qzNext()">${isLast?'See results →':'Next question →'}</button>`; }
+  h+='</div></div>'; return h;
 }
 
-/* ── TYPE-IN MODE ── */
 function renderTypeIn(){
-  const v=pr.deck[pr.idx];
-  const total=pr.deck.length,done=pr.idx;
-  const esc=s=>(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-
-  let h=`<div class="fu" style="max-width:600px;margin:0 auto">`;
-  h+=pracHeader('Type the Answer',total,done,pr.qCorrect,pr.qWrong);
-
-  h+='<div class="type-card">';
-  h+=`<div class="qz-q-label">${bdg(v.type||'word',tc(v.type))} &nbsp; Type the English meaning</div>`;
-  h+=`<div class="fc-zh">${esc(v.chinese)}</div>`;
-  h+=`<div class="fc-pin">${esc(v.pinyin)}</div>`;
-
-  if(!pr.answered){
-    h+=`<input class="type-inp" id="type-inp" type="text" placeholder="Type English meaning…" autocomplete="off" onkeydown="if(event.key==='Enter')typeSubmit()">`;
-    h+=`<button class="type-submit" onclick="typeSubmit()">Check answer \u2192</button>`;
-    h+=`<div class="type-reveal" onclick="typeReveal()">I don\u2019t know \u2014 show me</div>`;
-  } else {
-    const userAns=(pr.typeVal||'').trim().toLowerCase();
-    const correct=v.english.toLowerCase();
-    const keywords=correct.replace(/[/\-()]/g,' ').split(/\s+/).filter(w=>w.length>2);
-    const isOk=pr.typeRevealed?false:(keywords.some(kw=>userAns.includes(kw))||userAns===correct||correct.includes(userAns));
-    if(pr.typeRevealed){
-      h+=`<div style="margin-top:1.25rem;padding:1rem;background:rgba(201,58,43,.08);border-radius:var(--r-md);border:1px solid rgba(201,58,43,.25)">`;
-      h+=`<div style="font-size:.78rem;color:var(--faint);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.4rem">Answer</div>`;
-      h+=`<div style="font-size:1.1rem;color:#4dd892">${esc(v.english)}</div>`;
-      h+='</div>';
-    } else {
-      const borderCls=isOk?'correct-border':'wrong-border';
-      h+=`<input class="type-inp ${borderCls}" type="text" value="${esc(pr.typeVal)}" disabled>`;
-      h+=`<div style="margin-top:.75rem;font-size:.92rem;${isOk?'color:#4dd892':'color:#f08080'}">${isOk?'\u2713 Great answer!':'\u2717 Not quite'}</div>`;
-      if(!isOk) h+=`<div style="font-size:.88rem;color:var(--muted);margin-top:.35rem">Correct: <span style="color:#4dd892">${esc(v.english)}</span></div>`;
-    }
-    if(v.example) h+=`<div style="font-size:.83rem;color:var(--muted);font-style:italic;margin-top:.75rem;padding-top:.75rem;border-top:1px solid var(--border)">"${esc(v.example)}"</div>`;
-    else h+=`<div style="margin-top:.75rem;padding-top:.75rem;border-top:1px solid var(--border)">${renderAIExample(v)}</div>`;
-    h+=`<div style="display:flex;align-items:center;gap:8px;margin-top:.75rem">${renderMasteryBar(getMastery(v),true)}</div>`;
-    const isLast=pr.idx+1>=pr.deck.length;
-    h+=`<button class="type-submit" style="margin-top:1rem;background:var(--red);border-color:var(--red);color:#fff" onclick="typeNext()">${isLast?'See results \u2192':'Next \u2192'}</button>`;
-  }
+  const v=pr.deck[pr.idx]; const total=pr.deck.length,done=pr.idx; const esc=s=>(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  let h=`<div class="fu" style="max-width:600px;margin:0 auto">`; h+=pracHeader('Type the Answer',total,done,pr.qCorrect,pr.qWrong);
+  h+='<div class="type-card">'; h+=`<div class="qz-q-label">${bdg(v.type||'word',tc(v.type))} · Type the English meaning</div><div class="fc-zh">${esc(v.chinese)}</div><div class="fc-pin">${esc(v.pinyin)}</div>`;
+  if(!pr.answered){ h+=`<input class="type-inp" id="type-inp" type="text" placeholder="Type English meaning…" autocomplete="off" onkeydown="if(event.key==='Enter')typeSubmit()"><button class="type-submit" onclick="typeSubmit()">Check answer →</button><div class="type-reveal" onclick="typeReveal()">I don't know — show me</div>`; }
+  else { const userAns=(pr.typeVal||'').trim().toLowerCase(); const correct=v.english.toLowerCase(); const keywords=correct.replace(/[/\-()]/g,' ').split(/\s+/).filter(w=>w.length>2); const isOk=pr.typeRevealed?false:(keywords.some(kw=>userAns.includes(kw))||userAns===correct||correct.includes(userAns)); if(pr.typeRevealed){ h+=`<div style="margin-top:1.25rem;padding:1rem;background:rgba(201,58,43,.08);border-radius:var(--r-md);border:1px solid rgba(201,58,43,.25)"><div style="font-size:.78rem;color:var(--faint);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.4rem">Answer</div><div style="font-size:1.1rem;color:#4dd892">${esc(v.english)}</div></div>`; } else { h+=`<input class="type-inp ${isOk?'correct-border':'wrong-border'}" type="text" value="${esc(pr.typeVal)}" disabled><div style="margin-top:.75rem;font-size:.92rem;${isOk?'color:#4dd892':'color:#f08080'}">${isOk?'✓ Great answer!':'✗ Not quite'}</div>`; if(!isOk)h+=`<div style="font-size:.88rem;color:var(--muted);margin-top:.35rem">Correct: <span style="color:#4dd892">${esc(v.english)}</span></div>`; } if(v.example)h+=`<div style="font-size:.83rem;color:var(--muted);font-style:italic;margin-top:.75rem;padding-top:.75rem;border-top:1px solid var(--border)">"${esc(v.example)}"</div>`;else h+=`<div style="margin-top:.75rem;padding-top:.75rem;border-top:1px solid var(--border)">${renderAIExample(v)}</div>`; h+=`<div style="display:flex;align-items:center;gap:8px;margin-top:.75rem">${renderMasteryBar(getMastery(v),true)}</div>`; const isLast=pr.idx+1>=pr.deck.length; h+=`<button class="type-submit" style="margin-top:1rem;background:var(--red);border-color:var(--red);color:#fff" onclick="typeNext()">${isLast?'See results →':'Next →'}</button>`; }
   h+='</div></div>';
-
-  if(!pr.answered){
-    setTimeout(()=>{const el=document.getElementById('type-inp');if(el)el.focus();},30);
-  }
+  if(!pr.answered){ setTimeout(()=>{const el=document.getElementById('type-inp');if(el)el.focus();},30); }
   return h;
 }
 
-/* ── RESULTS ── */
 function renderPracResults(){
-  const isFC=pr.mode==='flashcard';
-  const total=pr.deck.length;
-  const correct=isFC?pr.known:pr.qCorrect;
-  const wrong=isFC?pr.unsure:pr.qWrong;
-  const pct=Math.round((correct/total)*100);
-  const color=pct>=80?'#2d9e6b':pct>=50?'#c4933a':'#c93a2b';
-  const msg=pct>=80?'Excellent! \uD83C\uDF89':pct>=60?'Good work! \uD83D\uDCAA':pct>=40?'Getting there! \uD83D\uDCDA':'Keep practising! \u52A0\u6CB9!';
-  const modeLabels={flashcard:'Flashcards',quiz:'Multiple Choice',pinyin:'Pinyin Quiz',typein:'Type-In'};
-
-  let h=`<div class="prac-results fu">`;
-  h+=`<div style="font-size:.82rem;color:var(--faint);margin-bottom:1.25rem;text-transform:uppercase;letter-spacing:.07em">${modeLabels[pr.mode]||''} \u2014 ${pr.deck.length} cards</div>`;
-  h+=`<div class="prac-score-circle" style="border-color:${color}">`;
-  h+=`<div class="prac-score-num" style="color:${color}">${pct}%</div>`;
-  h+=`<div class="prac-score-lbl" style="color:${color}">${isFC?'Known':'Score'}</div>`;
-  h+='</div>';
-  h+=`<div style="font-family:var(--serif);font-size:1.3rem;margin-bottom:.5rem">${msg}</div>`;
-  h+=`<div style="font-size:.88rem;color:var(--muted);margin-bottom:1.5rem">You reviewed ${total} card${total!==1?'s':''}</div>`;
-  h+='<div class="prac-res-grid">';
-  h+=`<div class="prac-res-card"><div class="prac-res-num" style="color:#4dd892">${correct}</div><div class="prac-res-lbl">${isFC?'Known':'Correct'}</div></div>`;
-  h+=`<div class="prac-res-card"><div class="prac-res-num" style="color:#f08080">${wrong}</div><div class="prac-res-lbl">${isFC?'Need practice':'Incorrect'}</div></div>`;
-  h+='</div>';
-  h+='<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">';
-  h+=`<button class="btn primary" onclick="startPractice()">Practice again</button>`;
-  h+=`<button class="btn" onclick="pracRestart()">Change settings</button>`;
-  h+='</div>';
-
-  // Mastery progress summary
-  const mastered5 = pr.deck.filter(v=>getMastery(v)>=4).length;
-  const weak5     = pr.deck.filter(v=>getMastery(v)<=1).length;
-  h+=`<div style="margin-top:1.5rem;padding:1rem 1.25rem;background:var(--card);border:1px solid var(--border);border-radius:var(--r-md);font-size:.85rem;color:var(--muted)">`;
-  h+=`<div style="font-size:.72rem;color:var(--faint);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.65rem">Mastery after this session</div>`;
-  h+=`<div style="display:flex;gap:10px;flex-wrap:wrap">`;
-  h+=`<span style="color:#2d9e6b">🟢 Mastered: ${mastered5} words</span>`;
-  h+=`<span style="color:#c93a2b">🔴 Still weak: ${weak5} words</span>`;
-  h+=`</div>`;
-  if(weak5>0) h+=`<div style="margin-top:.65rem;font-size:.78rem;color:var(--faint)">Tip: Enable "Focus on weak words" and practice again to drill these.</div>`;
-  h+=`</div>`;
-  h+=`</div>`;
+  const isFC=pr.mode==='flashcard'; const total=pr.deck.length; const correct=isFC?pr.known:pr.qCorrect; const wrong=isFC?pr.unsure:pr.qWrong; const pct=Math.round((correct/total)*100); const color=pct>=80?'#2d9e6b':pct>=50?'#c4933a':'#c93a2b'; const msg=pct>=80?'Excellent! 🎉':pct>=60?'Good work! 💪':pct>=40?'Getting there! 📚':'Keep practising! 加油!';
+  let h=`<div class="prac-results fu"><div style="font-size:.82rem;color:var(--faint);margin-bottom:1.25rem;text-transform:uppercase;letter-spacing:.07em">${pr.mode} — ${pr.deck.length} cards</div><div class="prac-score-circle" style="border-color:${color}"><div class="prac-score-num" style="color:${color}">${pct}%</div><div class="prac-score-lbl" style="color:${color}">${isFC?'Known':'Score'}</div></div><div style="font-family:var(--serif);font-size:1.3rem;margin-bottom:.5rem">${msg}</div><div style="font-size:.88rem;color:var(--muted);margin-bottom:1.5rem">You reviewed ${total} card${total!==1?'s':''}</div><div class="prac-res-grid"><div class="prac-res-card"><div class="prac-res-num" style="color:#4dd892">${correct}</div><div class="prac-res-lbl">${isFC?'Known':'Correct'}</div></div><div class="prac-res-card"><div class="prac-res-num" style="color:#f08080">${wrong}</div><div class="prac-res-lbl">${isFC?'Need practice':'Incorrect'}</div></div></div><div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><button class="btn primary" onclick="startPractice()">Practice again</button><button class="btn" onclick="pracRestart()">Change settings</button></div>`;
+  const mastered5=pr.deck.filter(v=>getMastery(v)>=4).length; const weak5=pr.deck.filter(v=>getMastery(v)<=1).length;
+  h+=`<div style="margin-top:1.5rem;padding:1rem 1.25rem;background:var(--card);border:1px solid var(--border);border-radius:var(--r-md);font-size:.85rem;color:var(--muted)"><div style="font-size:.72rem;color:var(--faint);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.65rem">Mastery after this session</div><div style="display:flex;gap:10px;flex-wrap:wrap"><span style="color:#2d9e6b">🟢 Mastered: ${mastered5} words</span><span style="color:#c93a2b">🔴 Still weak: ${weak5} words</span></div>${weak5>0?'<div style="margin-top:.65rem;font-size:.78rem;color:var(--faint)">Tip: Enable "Focus on weak words" and practice again to drill these.</div>':''}</div></div>`;
   return h;
 }
 
-/* ════════════════════════════════
-   SENTENCE ANALYSER
-════════════════════════════════ */
-async function analyseSentence(){
-  const ta=document.getElementById('sn-ta');
-  if(!ta)return;
-  sn.text=ta.value.trim();
-  if(!sn.text){sn.msg='Please paste a Chinese sentence first.';sn.err=true;sn.ok=false;render();return;}
-  const apiKey=(ls.get('mn-apikey')||'').trim();
-  if(!apiKey){sn.msg='Add your Anthropic API key in the Upload PDF tab first.';sn.err=true;sn.ok=false;render();return;}
-  sn.busy=true;sn.msg='Analysing sentence…';sn.ok=false;sn.err=false;sn.preview=null;render();
-  try{
-    const resp=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:2000,messages:[{role:'user',content:[{type:'text',text:'Break down this Chinese text into vocabulary for a language learner. Extract every meaningful word, phrase, and idiom worth learning. Return ONLY valid JSON, no markdown:\n{"lessonTitle":"3-5 word title describing the topic","category":"Daily Life|Travel|Work & Business|Idioms & Expressions|Food|People & Relationships|Other","vocabulary":[{"chinese":"characters","pinyin":"pinyin with tones","english":"meaning","type":"word|phrase|sentence|idiom","example":"the original sentence if this word appears in it, else empty string"}]}\nText: '+sn.text}]}]})});
-    const data=await resp.json();
-    if(data.error)throw new Error(data.error.message||'API error');
-    const txt=data.content.map(i=>i.text||'').join('');
-    const parsed=JSON.parse(txt.replace(/```json|```/g,'').trim());
-    sn.preview=parsed;sn.busy=false;sn.msg='';render();
-  }catch(err){
-    sn.busy=false;sn.err=true;sn.ok=false;sn.msg='Error: '+err.message;render();
-  }
-}
-
-function snToggleWord(i){
-  if(!sn.preview)return;
-  sn.preview.vocabulary[i]._selected=!sn.preview.vocabulary[i]._selected;
-  render();
-}
+async function analyseSentence(){ const ta=document.getElementById('sn-ta'); if(!ta)return; sn.text=ta.value.trim(); if(!sn.text){sn.msg='Please paste a Chinese sentence first.';sn.err=true;sn.ok=false;render();return;} const apiKey=(ls.get('mn-apikey')||'').trim(); if(!apiKey){sn.msg='Add your Anthropic API key in the Upload PDF tab first.';sn.err=true;sn.ok=false;render();return;} sn.busy=true;sn.msg='Analysing sentence…';sn.ok=false;sn.err=false;sn.preview=null;render(); try{ const resp=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:2000,messages:[{role:'user',content:[{type:'text',text:'Break down this Chinese text into vocabulary for a language learner. Extract every meaningful word, phrase, and idiom worth learning. Return ONLY valid JSON, no markdown:\n{"lessonTitle":"3-5 word title describing the topic","category":"Daily Life|Travel|Work & Business|Idioms & Expressions|Food|People & Relationships|Other","vocabulary":[{"chinese":"characters","pinyin":"pinyin with tones","english":"meaning","type":"word|phrase|sentence|idiom","example":"the original sentence if this word appears in it, else empty string"}]}\nText: '+sn.text}]}]})}); const data=await resp.json(); if(data.error)throw new Error(data.error.message||'API error'); const txt=data.content.map(i=>i.text||'').join(''); const parsed=JSON.parse(txt.replace(/```json|```/g,'').trim()); sn.preview=parsed;sn.busy=false;sn.msg='';render(); }catch(err){sn.busy=false;sn.err=true;sn.ok=false;sn.msg='Error: '+err.message;render();} }
+function snToggleWord(i){ if(!sn.preview)return; sn.preview.vocabulary[i]._selected=!sn.preview.vocabulary[i]._selected; render(); }
 function snSelectAll(val){if(!sn.preview)return;sn.preview.vocabulary.forEach(v=>v._selected=val);render();}
-
-function snSave(){
-  if(!sn.preview)return;
-  const toSave=(sn.preview.vocabulary||[]).filter(v=>v._selected!==false);
-  if(!toSave.length){alert('Select at least one word to save.');return;}
-  const lid='lesson:'+Date.now();
-  const lesson={id:lid,fileName:'Sentence Analysis',lessonTitle:sn.preview.lessonTitle||'Sentence Vocabulary',category:sn.preview.category||'Other',vocabulary:toSave.map(v=>({chinese:v.chinese,pinyin:v.pinyin,english:v.english,type:v.type,example:v.example||''})),date:new Date().toISOString(),wordCount:toSave.length};
-  ls.set(lid,JSON.stringify(lesson));
-  loadLessons();
-  sn={text:'',busy:false,msg:'Saved '+toSave.length+' words to your notebook!',ok:true,err:false,preview:null};
-  render();
-  setTimeout(()=>gotoTab('review'),1800);
-}
+function snSave(){ if(!sn.preview)return; const toSave=(sn.preview.vocabulary||[]).filter(v=>v._selected!==false); if(!toSave.length){alert('Select at least one word to save.');return;} const lid='lesson:'+Date.now(); const lesson={id:lid,fileName:'Sentence Analysis',lessonTitle:sn.preview.lessonTitle||'Sentence Vocabulary',category:sn.preview.category||'Other',vocabulary:toSave.map(v=>({chinese:v.chinese,pinyin:v.pinyin,english:v.english,type:v.type,example:v.example||''})),date:new Date().toISOString(),wordCount:toSave.length}; ls.set(lid,JSON.stringify(lesson)); loadLessons(); sn={text:'',busy:false,msg:'Saved '+toSave.length+' words to your notebook!',ok:true,err:false,preview:null}; render(); setTimeout(()=>gotoTab('review'),1800); }
 
 function renderSentences(){
   const esc=s=>(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   let h='<div class="fu" style="max-width:760px;margin:0 auto">';
   h+='<div style="font-family:var(--serif);font-size:1.25rem;font-weight:500;margin-bottom:5px">Sentence Analyser</div>';
   h+='<p style="font-size:.9rem;color:var(--muted);margin-bottom:1.5rem">Paste any Chinese text and Claude will break it into vocabulary you can add to your notebook.</p>';
-
-  // text area
   h+='<div style="background:var(--card);border:1px solid var(--border2);border-radius:var(--r-lg);padding:1.25rem;margin-bottom:1rem">';
   h+='<div style="font-size:.75rem;color:var(--faint);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.75rem">Paste your Chinese sentence or paragraph</div>';
   h+=`<textarea id="sn-ta" style="width:100%;min-height:110px;background:var(--card2);border:1px solid var(--border2);border-radius:var(--r-md);padding:12px 14px;color:var(--text);font-size:.95rem;font-family:var(--sans);resize:vertical;line-height:1.7;outline:none" placeholder="Paste Chinese text here…">${esc(sn.text)}</textarea>`;
-  h+=`<div style="display:flex;gap:10px;margin-top:.85rem;align-items:center">`;
-  h+=`<button class="btn primary" style="padding:11px 24px;font-size:.92rem" onclick="analyseSentence()" ${sn.busy?'disabled':''}>`;
-  h+=sn.busy?'<span class="spinner" style="width:15px;height:15px;margin-right:6px"></span> Analysing…':'🔍 &nbsp;Extract vocabulary';
-  h+='</button>';
-  if(sn.text&&!sn.busy) h+=`<button class="btn" onclick="sn.text='';sn.preview=null;sn.msg='';render()">Clear</button>`;
-  h+='</div></div>';
-
-  // status
-  if(sn.msg){
-    h+=`<div style="padding:.9rem 1.25rem;border-radius:var(--r-md);margin-bottom:1rem;font-size:.9rem;`;
-    h+=sn.ok?'background:#122a1e;color:#4dd892;border:1px solid rgba(45,158,107,.3)':'background:#2a1212;color:#f08080;border:1px solid rgba(201,58,43,.3)';
-    h+=`">${esc(sn.msg)}</div>`;
-  }
-
-  // preview table
-  if(sn.preview&&sn.preview.vocabulary){
-    const vocab=sn.preview.vocabulary;
-    const selCount=vocab.filter(v=>v._selected!==false).length;
-    h+=`<div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;margin-bottom:1rem">`;
-    // preview header
-    h+=`<div style="display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;border-bottom:1px solid var(--border)">`;
-    h+=`<div><span style="font-family:var(--serif);font-size:.95rem;font-weight:500">${esc(sn.preview.lessonTitle)}</span>`;
-    h+=` &nbsp;${bdg(sn.preview.category,cc(sn.preview.category))}`;
-    h+=`<span style="font-size:.8rem;color:var(--faint);margin-left:10px">${vocab.length} words found</span></div>`;
-    h+=`<div style="display:flex;gap:8px">`;
-    h+=`<button class="btn" onclick="snSelectAll(true)" style="font-size:.78rem;padding:5px 12px">Select all</button>`;
-    h+=`<button class="btn" onclick="snSelectAll(false)" style="font-size:.78rem;padding:5px 12px">Deselect all</button>`;
-    h+=`</div></div>`;
-    // word grid
-    h+=`<div style="padding:.75rem 1rem;display:flex;flex-wrap:wrap;gap:8px">`;
-    vocab.forEach((v,i)=>{
-      const sel=v._selected!==false;
-      const bg=sel?'var(--card2)':'var(--surface)';
-      const bord=sel?'1.5px solid var(--red)':'1px solid var(--border)';
-      h+=`<div onclick="snToggleWord(${i})" style="background:${bg};border:${bord};border-radius:var(--r-md);padding:10px 14px;cursor:pointer;min-width:120px;transition:all .15s">`;
-      h+=`<div style="font-family:var(--zh);font-size:1.4rem;margin-bottom:3px">${esc(v.chinese)}</div>`;
-      h+=`<div style="font-family:var(--mono);font-style:italic;color:var(--gold);font-size:.78rem;margin-bottom:3px">${esc(v.pinyin)}</div>`;
-      h+=`<div style="font-size:.78rem;color:var(--muted);line-height:1.4">${esc(v.english)}</div>`;
-      h+=`<div style="margin-top:5px">${bdg(v.type||'word',tc(v.type),true)}</div>`;
-      if(sel) h+=`<div style="font-size:.65rem;color:var(--red);margin-top:4px;font-weight:500">\u2713 selected</div>`;
-      h+=`</div>`;
-    });
-    h+=`</div>`;
-    h+=`</div>`;
-    h+=`<button class="btn primary" onclick="snSave()" style="width:100%;padding:14px;font-size:.95rem;justify-content:center" ${selCount===0?'disabled':''}>`;
-    h+=`Save ${selCount} word${selCount!==1?'s':''} to notebook \u2192</button>`;
-  }
-
-  h+='</div>';
-  return h;
+  h+=`<div style="display:flex;gap:10px;margin-top:.85rem;align-items:center"><button class="btn primary" style="padding:11px 24px;font-size:.92rem" onclick="analyseSentence()" ${sn.busy?'disabled':''}>${sn.busy?'<span class="spinner" style="width:15px;height:15px;margin-right:6px"></span> Analysing…':'🔍 &nbsp;Extract vocabulary'}</button>${sn.text&&!sn.busy?`<button class="btn" onclick="sn.text='';sn.preview=null;sn.msg='';render()">Clear</button>`:''}</div></div>`;
+  if(sn.msg){ h+=`<div style="padding:.9rem 1.25rem;border-radius:var(--r-md);margin-bottom:1rem;font-size:.9rem;${sn.ok?'background:#122a1e;color:#4dd892;border:1px solid rgba(45,158,107,.3)':'background:#2a1212;color:#f08080;border:1px solid rgba(201,58,43,.3)'}">${esc(sn.msg)}</div>`; }
+  if(sn.preview&&sn.preview.vocabulary){ const vocab=sn.preview.vocabulary; const selCount=vocab.filter(v=>v._selected!==false).length; h+=`<div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;margin-bottom:1rem"><div style="display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;border-bottom:1px solid var(--border)"><div><span style="font-family:var(--serif);font-size:.95rem;font-weight:500">${esc(sn.preview.lessonTitle)}</span> &nbsp;${bdg(sn.preview.category,cc(sn.preview.category))}<span style="font-size:.8rem;color:var(--faint);margin-left:10px">${vocab.length} words found</span></div><div style="display:flex;gap:8px"><button class="btn" onclick="snSelectAll(true)" style="font-size:.78rem;padding:5px 12px">Select all</button><button class="btn" onclick="snSelectAll(false)" style="font-size:.78rem;padding:5px 12px">Deselect all</button></div></div><div style="padding:.75rem 1rem;display:flex;flex-wrap:wrap;gap:8px">`; vocab.forEach((v,i)=>{ const sel=v._selected!==false; h+=`<div onclick="snToggleWord(${i})" style="background:${sel?'var(--card2)':'var(--surface)'};border:${sel?'1.5px solid var(--red)':'1px solid var(--border)'};border-radius:var(--r-md);padding:10px 14px;cursor:pointer;min-width:120px;transition:all .15s"><div style="font-family:var(--zh);font-size:1.4rem;margin-bottom:3px">${esc(v.chinese)}</div><div style="font-family:var(--mono);font-style:italic;color:var(--gold);font-size:.78rem;margin-bottom:3px">${esc(v.pinyin)}</div><div style="font-size:.78rem;color:var(--muted);line-height:1.4">${esc(v.english)}</div><div style="margin-top:5px">${bdg(v.type||'word',tc(v.type),true)}</div>${sel?'<div style="font-size:.65rem;color:var(--red);margin-top:4px;font-weight:500">✓ selected</div>':''}</div>`; }); h+=`</div></div><button class="btn primary" onclick="snSave()" style="width:100%;padding:14px;font-size:.95rem;justify-content:center" ${selCount===0?'disabled':''}>Save ${selCount} word${selCount!==1?'s':''} to notebook →</button>`; }
+  h+='</div>'; return h;
 }
 
-/* ════════════════════════════════
-   HSK TAB
-════════════════════════════════ */
-function hskMastered(level){
-  try{ return new Set(JSON.parse(localStorage.getItem(currentUser.id+'_hsk_mastered_'+level)||'[]')); }catch(e){ return new Set(); }
-}
-function hskSaveMastered(level,set){
-  localStorage.setItem(currentUser.id+'_hsk_mastered_'+level, JSON.stringify([...set]));
-}
-function hskToggleMastered(level,chinese){
-  const m=hskMastered(level);
-  m.has(chinese)?m.delete(chinese):m.add(chinese);
-  hskSaveMastered(level,m);
-  render();
-}
-function hskResetLevel(level){
-  if(!confirm('Reset all mastered words for '+level.toUpperCase()+'? This cannot be undone.'))return;
-  localStorage.removeItem(currentUser.id+'_hsk_mastered_'+level);
-  render();
-}
+function hskMastered(level){ try{return new Set(JSON.parse(localStorage.getItem(currentUser.id+'_hsk_mastered_'+level)||'[]'));}catch(e){return new Set();} }
+function hskSaveMastered(level,set){ localStorage.setItem(currentUser.id+'_hsk_mastered_'+level,JSON.stringify([...set])); }
+function hskToggleMastered(level,chinese){ const m=hskMastered(level); m.has(chinese)?m.delete(chinese):m.add(chinese); hskSaveMastered(level,m); render(); }
+function hskResetLevel(level){ if(!confirm('Reset all mastered words for '+level.toUpperCase()+'?'))return; localStorage.removeItem(currentUser.id+'_hsk_mastered_'+level); render(); }
 
-async function loadHSKWords(level){
-  hsk.loading=true; hsk.loadErr=false; hsk.words=[]; render();
-  const isJames=currentUser.id==='james';
-  const file=isJames?(level+'.json'):'hsk_bubu.json';
-  try{
-    const r=await fetch(file);
-    if(!r.ok) throw new Error('File not found: '+file);
-    const data=await r.json();
-    // if bubu file, filter to requested level
-    if(!isJames && data.levels){
-      hsk.words=data.levels[level]||[];
-    } else {
-      hsk.words=data.words||data||[];
-    }
-    hsk.loading=false; render();
-  }catch(e){
-    hsk.loading=false; hsk.loadErr=true;
-    hsk.words=[]; render();
-  }
-}
+async function loadHSKWords(level){ hsk.loading=true;hsk.loadErr=false;hsk.words=[];render(); const isJames=currentUser.id==='james'; const file=isJames?(level+'.json'):'hsk_bubu.json'; try{ const r=await fetch(file); if(!r.ok)throw new Error('File not found: '+file); const data=await r.json(); if(!isJames&&data.levels){hsk.words=data.levels[level]||[];}else{hsk.words=data.words||data||[];} hsk.loading=false;render(); }catch(e){hsk.loading=false;hsk.loadErr=true;hsk.words=[];render();} }
+function switchHSKLevel(level){ hsk.level=level;hsk.words=[];hsk.loading=false;hsk.loadErr=false;hsk.view='browse';hsk.filter='all';hsk.search='';hsk.exItems=[];hsk.exIdx=0;hsk.exOk=0;hsk.exWrong=0; loadHSKWords(level); }
 
-function switchHSKLevel(level){
-  hsk.level=level; hsk.words=[]; hsk.loading=false; hsk.loadErr=false;
-  hsk.view='browse'; hsk.filter='all'; hsk.search='';
-  hsk.exItems=[]; hsk.exIdx=0; hsk.exOk=0; hsk.exWrong=0;
-  loadHSKWords(level);
-}
-
-async function generateHSKExercise(){
-  const apiKey=(ls.get('mn-apikey')||'').trim();
-  if(!apiKey){ alert('Add your Anthropic API key in the Upload PDF tab first.'); return; }
-  const mastered=hskMastered(hsk.level);
-  const pool=hsk.words.filter(w=>!mastered.has(w.c)).slice(0,80);
-  if(pool.length<4){ alert('Not enough unmastered words to generate exercises. Keep studying!'); return; }
-  const pick=shuffle(pool).slice(0,15);
-  hsk.exBusy=true; hsk.exItems=[]; hsk.exIdx=0; hsk.exOk=0; hsk.exWrong=0; render();
-  try{
-    const wordList=pick.map(w=>`${w.c}(${w.p}): ${w.e}`).join('\n');
-    const modePrompt=hsk.exMode==='fill'
-      ?'Create 8 fill-in-the-blank sentences in Chinese. Each sentence must use exactly one word from the list below in a natural context. Return ONLY valid JSON:\n{"exercises":[{"sentence":"Chinese sentence with ___ for the blank","answer":"the Chinese word that fills the blank","english_hint":"English translation of the sentence","options":["correct answer","wrong1","wrong2","wrong3"]}]}\nShuffle the options array. Use natural, realistic Chinese sentences.'
-      :'Create 6 scenario-based questions in Chinese that test understanding of the words below. Mix question types: some fill-in-blank, some choose-the-right-word. Return ONLY valid JSON:\n{"exercises":[{"sentence":"Chinese sentence or question with ___ for the blank","answer":"correct Chinese word","english_hint":"English context/hint","options":["correct","wrong1","wrong2","wrong3"]}]}\nMake scenarios feel real — conversations, situations, stories.';
-    const resp=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:2000,messages:[{role:'user',content:modePrompt+'\n\nWord list:\n'+wordList}]})});
-    const data=await resp.json();
-    if(data.error)throw new Error(data.error.message);
-    const txt=data.content.map(i=>i.text||'').join('');
-    const parsed=JSON.parse(txt.replace(/```json|```/g,'').trim());
-    hsk.exItems=(parsed.exercises||[]).map(e=>({...e,feedback:'',chosen:null,answered:false}));
-    hsk.exBusy=false; hsk.view='exercise'; render();
-  }catch(err){
-    hsk.exBusy=false;
-    alert('Error generating exercises: '+err.message);
-    render();
-  }
-}
-
-function hskExChoose(i){
-  const item=hsk.exItems[hsk.exIdx];
-  if(!item||item.answered)return;
-  item.chosen=i; item.answered=true;
-  const ok=item.options[i]===item.answer;
-  item.feedback=ok?'✓ Correct!':'✗ Not quite — the correct answer is: '+item.answer;
-  if(ok)hsk.exOk++;else hsk.exWrong++;
-  render();
-}
-function hskExNext(){
-  if(hsk.exIdx<hsk.exItems.length-1){hsk.exIdx++;render();}
-  else{hsk.view='exercise_done';render();}
-}
+async function generateHSKExercise(){ const apiKey=(ls.get('mn-apikey')||'').trim(); if(!apiKey){alert('Add your Anthropic API key in the Upload PDF tab first.');return;} const mastered=hskMastered(hsk.level); const pool=hsk.words.filter(w=>!mastered.has(w.c)).slice(0,80); if(pool.length<4){alert('Not enough unmastered words to generate exercises.');return;} const pick=shuffle(pool).slice(0,15); hsk.exBusy=true;hsk.exItems=[];hsk.exIdx=0;hsk.exOk=0;hsk.exWrong=0;render(); try{ const wordList=pick.map(w=>`${w.c}(${w.p}): ${w.e}`).join('\n'); const modePrompt=hsk.exMode==='fill'?'Create 8 fill-in-the-blank sentences in Chinese. Each sentence must use exactly one word from the list below in a natural context. Return ONLY valid JSON:\n{"exercises":[{"sentence":"Chinese sentence with ___ for the blank","answer":"the Chinese word that fills the blank","english_hint":"English translation of the sentence","options":["correct answer","wrong1","wrong2","wrong3"]}]}\nShuffle the options array.':'Create 6 scenario-based questions in Chinese that test understanding of the words below. Return ONLY valid JSON:\n{"exercises":[{"sentence":"Chinese sentence or question with ___ for the blank","answer":"correct Chinese word","english_hint":"English context/hint","options":["correct","wrong1","wrong2","wrong3"]}]}'; const resp=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:2000,messages:[{role:'user',content:modePrompt+'\n\nWord list:\n'+wordList}]})}); const data=await resp.json(); if(data.error)throw new Error(data.error.message); const txt=data.content.map(i=>i.text||'').join(''); const parsed=JSON.parse(txt.replace(/```json|```/g,'').trim()); hsk.exItems=(parsed.exercises||[]).map(e=>({...e,feedback:'',chosen:null,answered:false})); hsk.exBusy=false;hsk.view='exercise';render(); }catch(err){hsk.exBusy=false;alert('Error: '+err.message);render();} }
+function hskExChoose(i){ const item=hsk.exItems[hsk.exIdx]; if(!item||item.answered)return; item.chosen=i;item.answered=true; const ok=item.options[i]===item.answer; item.feedback=ok?'✓ Correct!':'✗ Not quite — the correct answer is: '+item.answer; if(ok)hsk.exOk++;else hsk.exWrong++; render(); }
+function hskExNext(){ if(hsk.exIdx<hsk.exItems.length-1){hsk.exIdx++;render();}else{hsk.view='exercise_done';render();} }
 
 function renderHSK(){
-  const isJames=currentUser.id==='james';
-  const levels=isJames?['hsk4','hsk5']:['hsk1','hsk2','hsk3','hsk4'];
-  const levelLabels={hsk1:'HSK 1',hsk2:'HSK 2',hsk3:'HSK 3',hsk4:'HSK 4',hsk5:'HSK 5'};
-  const esc=s=>(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const isJames=currentUser.id==='james'; const levels=isJames?['hsk4','hsk5']:['hsk1','hsk2','hsk3','hsk4']; const levelLabels={hsk1:'HSK 1',hsk2:'HSK 2',hsk3:'HSK 3',hsk4:'HSK 4',hsk5:'HSK 5'}; const esc=s=>(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   let h='<div class="fu">';
-
-  // header
-  h+=`<div class="hsk-header">`;
-  h+=`<div><div style="font-family:var(--serif);font-size:1.2rem;font-weight:500;margin-bottom:3px">🏆 HSK Study</div>`;
-  h+=`<div style="font-size:.82rem;color:var(--muted)">${isJames?'Focus on HSK 4 & 5 vocabulary':'HSK 1–4 vocabulary by level'}</div></div>`;
-  h+=`<div class="hsk-level-tabs">`;
+  h+=`<div class="hsk-header"><div><div style="font-family:var(--serif);font-size:1.2rem;font-weight:500;margin-bottom:3px">🏆 HSK Study</div><div style="font-size:.82rem;color:var(--muted)">${isJames?'Focus on HSK 4 & 5 vocabulary':'HSK 1–4 vocabulary by level'}</div></div><div class="hsk-level-tabs">`;
   levels.forEach(lv=>h+=`<button class="hsk-lvl${hsk.level===lv?' active':''}" onclick="switchHSKLevel('${lv}')">${levelLabels[lv]}</button>`);
   h+=`</div></div>`;
-
-  // loading / error states
-  if(hsk.loading){
-    h+=`<div style="text-align:center;padding:4rem 2rem;color:var(--muted)"><span class="spinner" style="width:28px;height:28px;border-width:3px;margin-bottom:1rem;display:block;margin:0 auto 1rem"></span>Loading ${levelLabels[hsk.level]||''} words…</div>`;
-    return h+'</div>';
-  }
-  if(hsk.loadErr){
-    h+=`<div style="background:#2a1212;border:1px solid rgba(201,58,43,.35);border-radius:var(--r-lg);padding:2rem;text-align:center">`;
-    h+=`<div style="font-size:1rem;color:#f08080;margin-bottom:.75rem">Could not load HSK word list</div>`;
-    h+=`<div style="font-size:.85rem;color:var(--muted);margin-bottom:1.25rem">The JSON file wasn't found. Make sure you've uploaded <code style="background:var(--card);padding:2px 6px;border-radius:4px">${isJames?hsk.level+'.json':'hsk_bubu.json'}</code> to your GitHub repo.</div>`;
-    h+=`<button class="btn" onclick="loadHSKWords('${hsk.level}')">Try again</button></div>`;
-    return h+'</div>';
-  }
-  if(!hsk.words.length) return h+'</div>';
-
-  // progress bar
-  const mastered=hskMastered(hsk.level);
-  const total=hsk.words.length, masteredCount=mastered.size, pct=Math.round((masteredCount/total)*100);
-  h+=`<div class="hsk-prog">`;
-  h+=`<div style="font-size:.88rem;color:var(--muted);white-space:nowrap">${levelLabels[hsk.level]}</div>`;
-  h+=`<div class="hsk-prog-bar"><div class="hsk-prog-fill" style="width:${pct}%"></div></div>`;
-  h+=`<div style="font-size:.82rem;color:#4dd892;white-space:nowrap;font-weight:500">${masteredCount}/${total} mastered (${pct}%)</div>`;
-  h+=`<button class="btn" onclick="hskResetLevel('${hsk.level}')" style="font-size:.75rem;padding:5px 10px;color:var(--faint)">Reset</button>`;
-  h+=`</div>`;
-
-  // view tabs
-  h+=`<div class="hsk-view-tabs">`;
-  h+=`<button class="hsk-vtab${hsk.view==='browse'||hsk.view==='exercise_done'?'':hsk.view==='browse'?' active':''} ${hsk.view==='browse'?'active':''}" onclick="hsk.view='browse';render()">Browse Words</button>`;
-  h+=`<button class="hsk-vtab${hsk.view==='exercise'||hsk.view==='exercise_done'?' active':''}" onclick="hsk.view='exercise';if(!hsk.exItems.length)hsk.view='browse';render()">Exercises</button>`;
-  h+=`</div>`;
-
+  if(hsk.loading){h+=`<div style="text-align:center;padding:4rem 2rem;color:var(--muted)"><span class="spinner" style="width:28px;height:28px;border-width:3px;display:block;margin:0 auto 1rem"></span>Loading…</div>`;return h+'</div>';}
+  if(hsk.loadErr){h+=`<div style="background:#2a1212;border:1px solid rgba(201,58,43,.35);border-radius:var(--r-lg);padding:2rem;text-align:center"><div style="font-size:1rem;color:#f08080;margin-bottom:.75rem">Could not load HSK word list</div><button class="btn" onclick="loadHSKWords('${hsk.level}')">Try again</button></div>`;return h+'</div>';}
+  if(!hsk.words.length)return h+'</div>';
+  const mastered=hskMastered(hsk.level); const total=hsk.words.length,masteredCount=mastered.size,pct=Math.round((masteredCount/total)*100);
+  h+=`<div class="hsk-prog"><div style="font-size:.88rem;color:var(--muted);white-space:nowrap">${levelLabels[hsk.level]}</div><div class="hsk-prog-bar"><div class="hsk-prog-fill" style="width:${pct}%"></div></div><div style="font-size:.82rem;color:#4dd892;white-space:nowrap;font-weight:500">${masteredCount}/${total} mastered (${pct}%)</div><button class="btn" onclick="hskResetLevel('${hsk.level}')" style="font-size:.75rem;padding:5px 10px;color:var(--faint)">Reset</button></div>`;
+  h+=`<div class="hsk-view-tabs"><button class="hsk-vtab${hsk.view==='browse'?' active':''}" onclick="hsk.view='browse';render()">Browse Words</button><button class="hsk-vtab${hsk.view==='exercise'||hsk.view==='exercise_done'?' active':''}" onclick="hsk.view='exercise';if(!hsk.exItems.length)hsk.view='browse';render()">Exercises</button></div>`;
   if(hsk.view==='browse'){
-    // filter + search
-    h+=`<div style="display:flex;gap:8px;margin-bottom:1rem;flex-wrap:wrap;align-items:center">`;
-    h+=`<div class="search-wrap" style="flex:1;min-width:160px"><span class="search-icon">⌕</span><input class="search-inp" type="text" placeholder="Search…" value="${esc(hsk.search)}" oninput="hsk.search=this.value;render()"></div>`;
-    h+=`<select class="sel" onchange="hsk.filter=this.value;render()">`;
-    h+=`<option value="all"${hsk.filter==='all'?' selected':''}>All (${total})</option>`;
-    h+=`<option value="learning"${hsk.filter==='learning'?' selected':''}>Still learning (${total-masteredCount})</option>`;
-    h+=`<option value="mastered"${hsk.filter==='mastered'?' selected':''}>Mastered (${masteredCount})</option>`;
-    h+=`</select>`;
-    // exercise generator button
-    h+=`<button class="btn primary" onclick="generateHSKExercise()" ${hsk.exBusy?'disabled':''} style="white-space:nowrap">`;
-    h+=hsk.exBusy?'<span class="spinner" style="width:14px;height:14px;margin-right:6px"></span>Generating…':'⚡ Generate exercises';
-    h+=`</button>`;
+    h+=`<div style="display:flex;gap:8px;margin-bottom:1rem;flex-wrap:wrap;align-items:center"><div class="search-wrap" style="flex:1;min-width:160px"><span class="search-icon">⌕</span><input class="search-inp" type="text" placeholder="Search…" value="${esc(hsk.search)}" oninput="hsk.search=this.value;render()"></div><select class="sel" onchange="hsk.filter=this.value;render()"><option value="all"${hsk.filter==='all'?' selected':''}>All (${total})</option><option value="learning"${hsk.filter==='learning'?' selected':''}>Still learning (${total-masteredCount})</option><option value="mastered"${hsk.filter==='mastered'?' selected':''}>Mastered (${masteredCount})</option></select><button class="btn primary" onclick="generateHSKExercise()" ${hsk.exBusy?'disabled':''} style="white-space:nowrap">${hsk.exBusy?'<span class="spinner" style="width:14px;height:14px;margin-right:6px"></span>Generating…':'⚡ Generate exercises'}</button></div>`;
+    let filtered=hsk.words; if(hsk.filter==='learning')filtered=filtered.filter(w=>!mastered.has(w.c)); if(hsk.filter==='mastered')filtered=filtered.filter(w=>mastered.has(w.c)); if(hsk.search){const q=hsk.search.toLowerCase();filtered=filtered.filter(w=>w.c.includes(q)||w.p.toLowerCase().includes(q)||w.e.toLowerCase().includes(q));}
+    h+=`<div style="font-size:.75rem;color:var(--faint);margin-bottom:.75rem">Showing ${filtered.length} of ${total} words</div><div class="hsk-words-grid">`;
+    filtered.forEach(w=>{ const isMast=mastered.has(w.c); h+=`<div class="hsk-wcard${isMast?' mastered':''}"><div class="hsk-wcard-zh">${esc(w.c)}</div><div class="hsk-wcard-pin">${esc(w.p)}</div><div class="hsk-wcard-eng">${esc(w.e)}</div>${w.x?`<div class="hsk-wcard-ex">${esc(w.x)}</div>`:''}<div class="hsk-wcard-foot"><span>${bdg(w.t||'word',tc(w.t),true)}</span><button class="hsk-mask-btn ${isMast?'mask-on':'mask-off'}" onclick="hskToggleMastered('${hsk.level}','${w.c.replace(/'/g,"\\'")}')">${isMast?'✓ Mastered':'Mark mastered'}</button></div></div>`; });
     h+=`</div>`;
-
-    let filtered=hsk.words;
-    if(hsk.filter==='learning') filtered=filtered.filter(w=>!mastered.has(w.c));
-    if(hsk.filter==='mastered') filtered=filtered.filter(w=>mastered.has(w.c));
-    if(hsk.search){const q=hsk.search.toLowerCase();filtered=filtered.filter(w=>w.c.includes(q)||w.p.toLowerCase().includes(q)||w.e.toLowerCase().includes(q));}
-    h+=`<div style="font-size:.75rem;color:var(--faint);margin-bottom:.75rem">Showing ${filtered.length} of ${total} words</div>`;
-    h+=`<div class="hsk-words-grid">`;
-    filtered.forEach(w=>{
-      const isMast=mastered.has(w.c);
-      h+=`<div class="hsk-wcard${isMast?' mastered':''}">`;
-      h+=`<div class="hsk-wcard-zh">${esc(w.c)}</div>`;
-      h+=`<div class="hsk-wcard-pin">${esc(w.p)}</div>`;
-      h+=`<div class="hsk-wcard-eng">${esc(w.e)}</div>`;
-      if(w.x) h+=`<div class="hsk-wcard-ex">${esc(w.x)}</div>`;
-      h+=`<div class="hsk-wcard-foot"><span>${bdg(w.t||'word',tc(w.t),true)}</span>`;
-      h+=`<button class="hsk-mask-btn ${isMast?'mask-on':'mask-off'}" onclick="hskToggleMastered('${hsk.level}','${w.c.replace(/'/g,"\\'")}')">${isMast?'✓ Mastered':'Mark mastered'}</button>`;
-      h+=`</div></div>`;
-    });
-    h+=`</div>`;
-  }
-
-  else if(hsk.view==='exercise'&&hsk.exItems.length){
-    const item=hsk.exItems[hsk.exIdx];
-    const total_q=hsk.exItems.length;
-    const pctQ=Math.round((hsk.exIdx/total_q)*100);
-    // progress
-    h+=`<div class="prac-prog-wrap"><div class="prac-prog-bar"><div class="prac-prog-fill" style="width:${pctQ}%"></div></div>`;
-    h+=`<span style="font-size:.82rem;color:#4dd892">✓ ${hsk.exOk}</span>`;
-    h+=`<span style="font-size:.82rem;color:#f08080">✗ ${hsk.exWrong}</span>`;
-    h+=`<span style="font-size:.82rem;color:var(--faint)">${hsk.exIdx}/${total_q}</span></div>`;
-    // exercise mode switcher
-    h+=`<div style="display:flex;gap:8px;margin-bottom:1rem;align-items:center">`;
-    h+=`<span style="font-size:.82rem;color:var(--muted)">Mode:</span>`;
-    h+=`<select class="sel" onchange="hsk.exMode=this.value" style="font-size:.8rem">`;
-    h+=`<option value="fill"${hsk.exMode==='fill'?' selected':''}>Fill in the blank</option>`;
-    h+=`<option value="scenario"${hsk.exMode==='scenario'?' selected':''}>Scenarios</option>`;
-    h+=`</select>`;
-    h+=`<button class="btn" onclick="generateHSKExercise()" style="font-size:.78rem;padding:5px 12px">New set</button>`;
-    h+=`<button class="btn" onclick="hsk.view='browse';render()" style="font-size:.78rem;padding:5px 12px">← Browse</button>`;
-    h+=`</div>`;
-    // question card
+  } else if(hsk.view==='exercise'&&hsk.exItems.length){
+    const item=hsk.exItems[hsk.exIdx]; const total_q=hsk.exItems.length; const pctQ=Math.round((hsk.exIdx/total_q)*100);
+    h+=`<div class="prac-prog-wrap"><div class="prac-prog-bar"><div class="prac-prog-fill" style="width:${pctQ}%"></div></div><span style="font-size:.82rem;color:#4dd892">✓ ${hsk.exOk}</span><span style="font-size:.82rem;color:#f08080">✗ ${hsk.exWrong}</span><span style="font-size:.82rem;color:var(--faint)">${hsk.exIdx}/${total_q}</span></div>`;
+    h+=`<div style="display:flex;gap:8px;margin-bottom:1rem;align-items:center"><span style="font-size:.82rem;color:var(--muted)">Mode:</span><select class="sel" onchange="hsk.exMode=this.value" style="font-size:.8rem"><option value="fill"${hsk.exMode==='fill'?' selected':''}>Fill in the blank</option><option value="scenario"${hsk.exMode==='scenario'?' selected':''}>Scenarios</option></select><button class="btn" onclick="generateHSKExercise()" style="font-size:.78rem;padding:5px 12px">New set</button><button class="btn" onclick="hsk.view='browse';render()" style="font-size:.78rem;padding:5px 12px">← Browse</button></div>`;
     const sentParts=item.sentence.split('___');
-    h+=`<div class="hsk-ex-card">`;
-    h+=`<div style="font-size:.72rem;color:var(--faint);text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem">Question ${hsk.exIdx+1} of ${total_q}</div>`;
-    h+=`<div class="hsk-ex-q">`;
-    if(sentParts.length>1){
-      h+=`<span style="font-family:var(--zh);font-size:1.15rem">${esc(sentParts[0])}</span>`;
-      h+=`<span class="hsk-ex-blank">${item.answered?esc(item.answer):'___'}</span>`;
-      h+=`<span style="font-family:var(--zh);font-size:1.15rem">${esc(sentParts[1]||'')}</span>`;
-    } else {
-      h+=`<span style="font-family:var(--zh);font-size:1.15rem">${esc(item.sentence)}</span>`;
-    }
-    h+=`</div>`;
-    if(item.english_hint) h+=`<div style="font-size:.82rem;color:var(--faint);font-style:italic;margin-bottom:1rem">${esc(item.english_hint)}</div>`;
-    h+=`</div>`;
-    // options
+    h+=`<div class="hsk-ex-card"><div style="font-size:.72rem;color:var(--faint);text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem">Question ${hsk.exIdx+1} of ${total_q}</div><div class="hsk-ex-q">`;
+    if(sentParts.length>1){h+=`<span style="font-family:var(--zh);font-size:1.15rem">${esc(sentParts[0])}</span><span class="hsk-ex-blank">${item.answered?esc(item.answer):'___'}</span><span style="font-family:var(--zh);font-size:1.15rem">${esc(sentParts[1]||'')}</span>`;}else{h+=`<span style="font-family:var(--zh);font-size:1.15rem">${esc(item.sentence)}</span>`;}
+    h+=`</div>${item.english_hint?`<div style="font-size:.82rem;color:var(--faint);font-style:italic;margin-bottom:1rem">${esc(item.english_hint)}</div>`:''}</div>`;
     h+=`<div class="hsk-ex-opts">`;
-    (item.options||[]).forEach((opt,i)=>{
-      const isCorrect=opt===item.answer;
-      let cls='hsk-ex-opt';
-      if(item.answered){
-        if(i===item.chosen&&isCorrect) cls+=' correct';
-        else if(i===item.chosen&&!isCorrect) cls+=' wrong';
-        else if(isCorrect) cls+=' reveal';
-      }
-      h+=`<button class="${cls}" ${item.answered?'disabled':''} onclick="hskExChoose(${i})"><span style="font-family:var(--zh)">${esc(opt)}</span></button>`;
-    });
+    (item.options||[]).forEach((opt,i)=>{ const isCorrect=opt===item.answer; let cls='hsk-ex-opt'; if(item.answered){if(i===item.chosen&&isCorrect)cls+=' correct';else if(i===item.chosen&&!isCorrect)cls+=' wrong';else if(isCorrect)cls+=' reveal';} h+=`<button class="${cls}" ${item.answered?'disabled':''} onclick="hskExChoose(${i})"><span style="font-family:var(--zh)">${esc(opt)}</span></button>`; });
     h+=`</div>`;
-    if(item.answered){
-      h+=`<div class="hsk-ex-feedback ${item.feedback.startsWith('✓')?'ok':'bad'}">${esc(item.feedback)}</div>`;
-      const isLast=hsk.exIdx>=total_q-1;
-      h+=`<button class="qz-next" onclick="hskExNext()">${isLast?'See results →':'Next →'}</button>`;
-    }
+    if(item.answered){h+=`<div class="hsk-ex-feedback ${item.feedback.startsWith('✓')?'ok':'bad'}">${esc(item.feedback)}</div><button class="qz-next" onclick="hskExNext()">${hsk.exIdx>=total_q-1?'See results →':'Next →'}</button>`;}
+  } else if(hsk.view==='exercise_done'){
+    const total_q=hsk.exItems.length,pct2=Math.round((hsk.exOk/total_q)*100),col=pct2>=80?'#2d9e6b':pct2>=50?'#c4933a':'#c93a2b';
+    h+=`<div class="prac-results"><div class="prac-score-circle" style="border-color:${col}"><div class="prac-score-num" style="color:${col}">${pct2}%</div><div class="prac-score-lbl" style="color:${col}">Score</div></div><div style="font-family:var(--serif);font-size:1.2rem;margin-bottom:.5rem">${pct2>=80?'Excellent! 🎉':pct2>=60?'Good work! 💪':'Keep practising! 加油!'}</div><div style="font-size:.88rem;color:var(--muted);margin-bottom:1.5rem">${hsk.exOk} correct out of ${total_q}</div><div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><button class="btn primary" onclick="generateHSKExercise()">New exercise set</button><button class="btn" onclick="hsk.view='browse';render()">Back to browse</button></div></div>`;
+  } else {
+    h+=`<div style="text-align:center;padding:3rem 2rem"><div style="font-size:2.5rem;margin-bottom:1rem">⚡</div><div style="font-family:var(--serif);font-size:1.1rem;color:var(--muted);margin-bottom:.75rem">Ready to test yourself?</div><div style="font-size:.85rem;color:var(--faint);margin-bottom:1.5rem">Claude AI will generate fresh exercises from your unmastered words.</div><div style="display:flex;gap:8px;justify-content:center;margin-bottom:1.5rem"><select class="sel" onchange="hsk.exMode=this.value"><option value="fill">Fill in the blank</option><option value="scenario">Scenarios</option></select></div><button class="btn primary" onclick="generateHSKExercise()" style="padding:12px 28px;font-size:.95rem">Generate exercises →</button></div>`;
   }
-
-  else if(hsk.view==='exercise_done'){
-    const total_q=hsk.exItems.length, pct2=Math.round((hsk.exOk/total_q)*100);
-    const col=pct2>=80?'#2d9e6b':pct2>=50?'#c4933a':'#c93a2b';
-    h+=`<div class="prac-results">`;
-    h+=`<div class="prac-score-circle" style="border-color:${col}"><div class="prac-score-num" style="color:${col}">${pct2}%</div><div class="prac-score-lbl" style="color:${col}">Score</div></div>`;
-    h+=`<div style="font-family:var(--serif);font-size:1.2rem;margin-bottom:.5rem">${pct2>=80?'Excellent! 🎉':pct2>=60?'Good work! 💪':'Keep practising! 加油!'}</div>`;
-    h+=`<div style="font-size:.88rem;color:var(--muted);margin-bottom:1.5rem">${hsk.exOk} correct out of ${total_q} questions</div>`;
-    h+=`<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">`;
-    h+=`<button class="btn primary" onclick="generateHSKExercise()">New exercise set</button>`;
-    h+=`<button class="btn" onclick="hsk.view='browse';render()">Back to browse</button>`;
-    h+=`</div></div>`;
-  }
-
-  else {
-    // exercise tab but no items yet
-    h+=`<div style="text-align:center;padding:3rem 2rem">`;
-    h+=`<div style="font-size:2.5rem;margin-bottom:1rem">⚡</div>`;
-    h+=`<div style="font-family:var(--serif);font-size:1.1rem;color:var(--muted);margin-bottom:.75rem">Ready to test yourself?</div>`;
-    h+=`<div style="font-size:.85rem;color:var(--faint);margin-bottom:1.5rem">Claude AI will generate fresh exercises from your unmastered words.</div>`;
-    h+=`<div style="display:flex;gap:8px;justify-content:center;margin-bottom:1.5rem">`;
-    h+=`<select class="sel" onchange="hsk.exMode=this.value"><option value="fill">Fill in the blank</option><option value="scenario">Scenarios</option></select>`;
-    h+=`</div>`;
-    h+=`<button class="btn primary" onclick="generateHSKExercise()" style="padding:12px 28px;font-size:.95rem">Generate exercises →</button>`;
-    h+=`</div>`;
-  }
-
-  h+='</div>';
-  return h;
+  h+='</div>'; return h;
 }
 
 function renderLessons(){
   let h=`<div class="lessons-hdr fu"><div style="font-family:var(--serif);font-size:1.1rem;font-weight:500">All lessons (${lessons.length})</div><button class="btn primary" onclick="gotoTab('upload')">+ Upload new PDF</button></div>`;
-  if(!lessons.length){h+=`<div class="empty fu1"><div class="empty-zh">学</div><div class="empty-ttl">No lessons yet</div><div class="empty-sub">Upload your first lesson PDF</div><button class="btn primary" onclick="gotoTab('upload')">Upload now</button></div>`;return h;}
+  if(!lessons.length){h+=`<div class="empty fu1"><div class="empty-zh">学</div><div class="empty-ttl">No lessons yet</div><button class="btn primary" onclick="gotoTab('upload')">Upload now</button></div>`;return h;}
   h+=`<div class="lessons-grid fu1">`;
   lessons.forEach(l=>{
     const vocab=l.vocabulary||[],counts={};
     vocab.forEach(v=>{counts[v.type]=(counts[v.type]||0)+1;});
     const dt=new Date(l.date).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
     const eid=l.id.replace(/'/g,"&#39;");
-    h+=`<div class="lcard"><div class="lcard-accent" style="background:${cc(l.category)}"></div>
-      <div class="lcard-title">${l.lessonTitle}</div>
+    const isDiDi=l.id==='lesson:didi_yinxiang';
+    h+=`<div class="lcard"><div class="lcard-accent" style="background:${cc(l.category)}"></div>`;
+    if(isDiDi) h+=`<div style="display:flex;align-items:center;gap:6px;margin-top:8px;margin-bottom:2px"><div style="font-size:.68rem;background:#7B5EA71a;color:#7B5EA7;border:1px solid #7B5EA733;padding:2px 8px;border-radius:4px;font-weight:500">🎓 DiDi Laoshi</div></div>`;
+    h+=`<div class="lcard-title">${l.lessonTitle}</div>
       <div class="lcard-meta">${l.fileName} &nbsp;·&nbsp; ${dt}</div>
       <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px">${bdg(l.category,cc(l.category))}${bdg(vocab.length+' items','#4A5568')}</div>
       <div style="display:flex;gap:4px;flex-wrap:wrap;flex:1;margin-bottom:4px">`;
     Object.entries(counts).forEach(([t,n])=>h+=`<span style="font-size:.67rem;padding:1px 7px;border-radius:3px;background:${tc(t)}1a;color:${tc(t)}">${n} ${t}${n>1?'s':''}</span>`);
     h+=`</div><div class="lcard-acts"><button class="btn" style="flex:1" onclick="filterLesson('${eid}')">Review →</button><button class="btn danger" onclick="deleteLesson('${eid}')">Delete</button></div></div>`;
   });
-  h+=`</div>`;return h;
+  h+=`</div>`; return h;
 }
 
 function renderUpload(){
   const apiKey=ls.get('mn-apikey')||'';
-  const zoneIcon=busy?'<div style="margin-bottom:.75rem"><span class="spinner"></span></div>':'<div style="font-family:var(--zh);font-size:2.5rem;color:var(--red);opacity:.5;margin-bottom:.75rem">\u6587</div>';
+  const zoneIcon=busy?'<div style="margin-bottom:.75rem"><span class="spinner"></span></div>':'<div style="font-family:var(--zh);font-size:2.5rem;color:var(--red);opacity:.5;margin-bottom:.75rem">文</div>';
   const zoneClick=busy?'':'document.getElementById(\'fup\').click()';
   let h='<div class="upload-wrap fu">';
   h+='<div style="font-family:var(--serif);font-size:1.15rem;font-weight:500;margin-bottom:6px">Upload lesson PDF</div>';
-  h+='<p style="font-size:.83rem;color:var(--muted);margin-bottom:1.5rem">Claude AI extracts and categorizes every word, phrase, sentence and idiom automatically from your teacher\'s notes.</p>';
-  h+=`<div class="upload-zone${busy?' busy':''}" onclick="${zoneClick}">`+zoneIcon;
-  h+=`<div class="upload-title">${busy?'Processing your lesson\u2026':'Click to select your lesson PDF'}</div>`;
-  h+=`<div class="upload-sub" style="font-size:.8rem;color:var(--faint)">${busy?'Extracting vocabulary with AI \u2014 please wait':'Any PDF format from your teacher works'}</div>`;
-  h+='</div><input type="file" id="fup" accept=".pdf" style="display:none" onchange="doUpload(this)">';
-  if(upMsg){
-    h+=`<div class="status-box"><div class="status-msg${upOk?' ok':upErr?' err':''}">${upMsg}</div>`;
-    if(busy)h+=`<div class="prog-bar"><div class="prog-fill" style="width:${upPct}%"></div></div>`;
-    h+=`</div>`;
-  }
-  h+=`<div class="apikey-box">
-    <label class="apikey-lbl" for="akey">Anthropic API key — required to extract vocabulary from PDFs</label>
-    <input class="inp" type="password" id="akey" placeholder="sk-ant-…" value="${apiKey}" oninput="ls.set('mn-apikey',this.value)" style="font-family:var(--mono);font-size:.8rem">
-    <div class="apikey-note">Stored only in your browser, sent directly to Anthropic only. Get a free key at <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a></div>
-  </div>
-  <div class="upload-types">`;
+  h+='<p style="font-size:.83rem;color:var(--muted);margin-bottom:1.5rem">Claude AI extracts and categorizes every word, phrase, sentence and idiom automatically.</p>';
+  h+=`<div class="upload-zone${busy?' busy':''}" onclick="${zoneClick}">${zoneIcon}<div>${busy?'Processing your lesson…':'Click to select your lesson PDF'}</div><div style="font-size:.8rem;color:var(--faint)">${busy?'Extracting vocabulary with AI — please wait':'Any PDF format from your teacher works'}</div></div>`;
+  h+='<input type="file" id="fup" accept=".pdf" style="display:none" onchange="doUpload(this)">';
+  if(upMsg){ h+=`<div class="status-box"><div class="status-msg${upOk?' ok':upErr?' err':''}">${upMsg}</div>${busy?'<div class="prog-bar"><div class="prog-fill" style="width:'+upPct+'%"></div></div>':''}</div>`; }
+  h+=`<div class="apikey-box"><label class="apikey-lbl" for="akey">Anthropic API key</label><input class="inp" type="password" id="akey" placeholder="sk-ant-…" value="${apiKey}" oninput="ls.set('mn-apikey',this.value)" style="font-family:var(--mono);font-size:.8rem"><div class="apikey-note">Stored only in your browser. Get a key at <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a></div></div>`;
+  h+=`<div class="upload-types">`;
   [['word','Words','Single vocabulary items',tc('word')],['phrase','Phrases','Multi-word expressions',tc('phrase')],['sentence','Sentences','Full example sentences',tc('sentence')],['idiom','Idioms','惯用语 and internet slang',tc('idiom')]].forEach(([t,l,d,c])=>h+=`<div class="utype-card">${bdg(l,c)}<div style="font-size:.74rem;color:var(--faint);margin-top:8px">${d}</div></div>`);
-  h+=`</div></div>`;return h;
+  h+=`</div></div>`; return h;
 }
 
 async function doUpload(input){
@@ -2274,18 +1022,14 @@ async function doUpload(input){
     upMsg='Saving to notebook…';upPct=90;render();
     const lid='lesson:'+Date.now();
     const lesson={id:lid,fileName:file.name,lessonTitle:parsed.lessonTitle,category:parsed.category,vocabulary:parsed.vocabulary||[],date:new Date().toISOString(),wordCount:(parsed.vocabulary||[]).length};
-    ls.set(lid,JSON.stringify(lesson));
-    loadLessons();
+    ls.set(lid,JSON.stringify(lesson)); loadLessons();
     busy=false;upOk=true;upErr=false;upPct=100;
     upMsg=`Done! Extracted ${lesson.wordCount} vocabulary items from "${lesson.lessonTitle}"`;
     render();setTimeout(()=>gotoTab('review'),2200);
-  }catch(err){
-    busy=false;upErr=true;upOk=false;upMsg='Error: '+err.message;render();
-  }
+  }catch(err){busy=false;upErr=true;upOk=false;upMsg='Error: '+err.message;render();}
   if(input)input.value='';
 }
 
-/* ── init ── */
 showProfiles();
 </script>
 </body>
