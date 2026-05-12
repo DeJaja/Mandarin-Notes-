@@ -364,6 +364,7 @@ td { padding:13px 16px; font-size:.92rem; vertical-align:middle; }
       <button class="nav-btn"        id="nav-sentences" onclick="gotoTab('sentences')">✂️ Sentences</button>
       <button class="nav-btn"        id="nav-lessons"   onclick="gotoTab('lessons')">📚 Lessons</button>
       <button class="nav-btn"        id="nav-hsk"       onclick="gotoTab('hsk')">🏆 HSK</button>
+      <button class="nav-btn"        id="nav-interview" onclick="gotoTab('interview')" style="display:none">🎤 Interview</button>
       <button class="nav-btn"        id="nav-upload"    onclick="gotoTab('upload')">⬆ Upload PDF</button>
     </nav>
     <button onclick="switchUser()" style="background:transparent;border:1px solid var(--border2);border-radius:99px;padding:5px 14px;color:var(--muted);font-size:.78rem;font-family:var(--sans);cursor:pointer;display:flex;align-items:center;gap:7px;white-space:nowrap;transition:all .15s" id="user-btn" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--muted)'">
@@ -379,6 +380,7 @@ td { padding:13px 16px; font-size:.92rem; vertical-align:middle; }
     <button class="mob-tab active" id="mob-review"    onclick="gotoTab('review')"><span class="mob-tab-icon">📖</span><span class="mob-tab-label">Review</span></button>
     <button class="mob-tab" id="mob-practice"  onclick="gotoTab('practice')"><span class="mob-tab-icon">🎴</span><span class="mob-tab-label">Practice</span></button>
     <button class="mob-tab" id="mob-hsk"       onclick="gotoTab('hsk')"><span class="mob-tab-icon">🏆</span><span class="mob-tab-label">HSK</span></button>
+    <button class="mob-tab" id="mob-interview" onclick="gotoTab('interview')" style="display:none"><span class="mob-tab-icon">🎤</span><span class="mob-tab-label">Interview</span></button>
     <button class="mob-tab" id="mob-lessons"   onclick="gotoTab('lessons')"><span class="mob-tab-icon">📚</span><span class="mob-tab-label">Lessons</span></button>
     <button class="mob-tab" id="mob-upload"    onclick="gotoTab('upload')"><span class="mob-tab-icon">⬆</span><span class="mob-tab-label">Upload</span></button>
   </nav>
@@ -555,6 +557,11 @@ const SAMPLE = [
     {chinese:'牛马',pinyin:'niú mǎ',english:'worked like a beast / corporate slave / overworked employee',type:'idiom',example:'很多人喜欢戏称自己是"打工人""牛马""社畜"。Many jokingly call themselves wage slaves and work beasts.'},
     {chinese:'打工人',pinyin:'dǎ gōng rén',english:'working-class wage earner / grind-culture worker',type:'phrase',example:'很多人喜欢戏称自己是"打工人""牛马""社畜"。Many jokingly call themselves wage slaves, work beasts, and corporate livestock.'},
   ]},
+  {id:'lesson:selftaughtHSK',fileName:'',lessonTitle:'Self Taught Words',category:'Random Words',date:'2026-05-11T00:00:00Z',vocabulary:[
+    {chinese:'幽默',pinyin:'yōu mò',english:'humorous',type:'word',example:'他还给我发一些幽默短信。He also gave me a funny text.'},
+    {chinese:'平时',pinyin:'píng shí',english:'Usually / Normally',type:'word',example:'他平时很忙，只有周末有空。He is ordinarily very busy; he only has time on weekends.'},
+    {chinese:'友谊',pinyin:'yǒu yì',english:'Friendship',type:'word',example:'我们之间有深厚的友谊。We have a deep friendship between us.'},
+  ]},
 ];
 
 let lessons=[], curTab='review', expanded=new Set(), flt={s:'',c:'all',t:'all',l:'all',m:'all'};
@@ -572,7 +579,7 @@ function masteryLabel(score){ if(score<=0)return{label:'New',color:'#4A5568',dot
 function renderMasteryBar(score, showLabel){ const info=masteryLabel(score); let h=`<div class="mst-bar">`; for(let i=0;i<5;i++){ const filled=i<info.dots; h+=`<div class="mst-dot" style="background:${filled?info.color:'var(--border2)'}"></div>`; } if(showLabel)h+=`<span class="mst-label" style="color:${info.color}">${info.label}</span>`; h+=`</div>`; return h; }
 
 const PROFILES = [
-  {id:'james', defaultName:'Dudu', color:'#C93A2B', sampleKey:'james_mn-ver', sampleVer:'11'},
+  {id:'james', defaultName:'Dudu', color:'#C93A2B', sampleKey:'james_mn-ver', sampleVer:'12'},
   {id:'gf',    defaultName:'Bubu', color:'#C4699A', sampleKey:'gf_mn-ver',    sampleVer:'4'},
 ];
 let currentUser = null;
@@ -623,7 +630,13 @@ function selectUser(id){
   const dot=document.getElementById('user-dot'); const lbl=document.getElementById('user-label');
   if(dot) dot.style.background=profile.color;
   if(lbl) lbl.textContent=nm;
-  loadLessons(); gotoTab('review');
+  loadLessons();
+  // Show interview tab only for James
+  const ivBtn = document.getElementById('nav-interview');
+  const ivMob = document.getElementById('mob-interview');
+  if(ivBtn) ivBtn.style.display = (id==='james') ? '' : 'none';
+  if(ivMob) ivMob.style.display = (id==='james') ? '' : 'none';
+  gotoTab('review');
 }
 function switchUser(){ currentUser=null; document.getElementById('pg-app').style.display='none'; document.getElementById('pg-profiles').style.display='flex'; renderProfileCards(); }
 function showProfiles(){ const last=localStorage.getItem('mn-last-user'); if(last&&PROFILES.find(p=>p.id===last)){ selectUser(last); } else { document.getElementById('pg-profiles').style.display='flex'; renderProfileCards(); } }
@@ -639,7 +652,7 @@ function loadLessons(){
   const keys=ls.keys('lesson:');
   const ver=ls.get('mn-ver');
   const isJames=currentUser.id==='james';
-  const targetVer=isJames?'11':'4';
+  const targetVer=isJames?'12':'4';
   if(isJames&&(!keys.length||ver!==targetVer)){
     SAMPLE.forEach(s=>ls.set(s.id,JSON.stringify(s)));
     ls.set('mn-ver',targetVer);
@@ -678,7 +691,7 @@ function gotoTab(tab){
   if(tab==='sentences'){sn.preview=null;sn.msg='';sn.ok=false;sn.err=false;}
   if(tab==='hsk'&&!hsk.level){ hsk.level=currentUser.id==='james'?'hsk4':'hsk1'; }
   if(tab==='hsk'&&hsk.level&&!hsk.words.length&&!hsk.loading){ loadHSKWords(hsk.level); }
-  ['review','practice','sentences','lessons','hsk','upload'].forEach(t=>{ const b=document.getElementById('nav-'+t); if(b)b.className='nav-btn'+(t===tab?' active':''); const m=document.getElementById('mob-'+t); if(m)m.className='mob-tab'+(t===tab?' active':''); });
+  ['review','practice','sentences','lessons','hsk','upload','interview'].forEach(t=>{ const b=document.getElementById('nav-'+t); if(b)b.className='nav-btn'+(t===tab?' active':''); const m=document.getElementById('mob-'+t); if(m)m.className='mob-tab'+(t===tab?' active':''); });
   render();
   if(isMobile()) window.scrollTo({top:0,behavior:'smooth'});
 }
@@ -691,6 +704,7 @@ function render(){
   else if(curTab==='sentences') el.innerHTML=renderSentences();
   else if(curTab==='lessons')   el.innerHTML=renderLessons();
   else if(curTab==='hsk')       el.innerHTML=renderHSK();
+  else if(curTab==='interview') el.innerHTML=renderInterview();
   else                          el.innerHTML=renderUpload();
 }
 
@@ -1028,6 +1042,489 @@ async function doUpload(input){
     render();setTimeout(()=>gotoTab('review'),2200);
   }catch(err){busy=false;upErr=true;upOk=false;upMsg='Error: '+err.message;render();}
   if(input)input.value='';
+}
+
+/* ══════════════════════════════════════════════
+   JAMES — INTERVIEW PRACTICE (China Mobile ID)
+   Source: James面试建议.docx
+   ══════════════════════════════════════════════ */
+const INTERVIEW_DATA = [
+  {
+    section: '一、基础认知类',
+    sectionEn: 'Basic Company Knowledge',
+    color: '#2D7DD2',
+    qa: [
+      {
+        q: 'Why are you interested in China Mobile Indonesia?',
+        qZh: '你为什么对中国移动印尼公司感兴趣？',
+        qPin: 'Nǐ wèishéme duì Zhōngguó Yídòng Yìnní gōngsī gǎn xìngqù?',
+        a: 'I admire China Mobile-s global influence, especially its expertise in international communications and digital solutions. I hope to contribute my skills while growing with the company in the Indonesian market.',
+        aZh: '我钦佩中国移动的全球影响力，尤其在国际通信和数字解决方案领域的专业能力。我希望贡献自身技能，同时在印尼市场与公司共同成长。',
+        aPin: 'Wǒ qīnpèi Zhōngguó Yídòng de quánqiú yǐngxiǎnglì, yóuqí zài guójì tōngxìn hé shùzì jiějuéfang-an lǐngyù de zhuānyè nénglì. Wǒ xīwàng gòngxiàn zìshēn jìnéng, tóngshí zài Yìnní shìchǎng yǔ gōngsī gòngtóng chéngzhǎng.',
+        keywords: ['全球影响力','国际通信','数字解决方案','专业能力','印尼市场','共同成长'],
+        keywordPins: ['quánqiú yǐngxiǎnglì','guójì tōngxìn','shùzì jiějuéfang-an','zhuānyè nénglì','Yìnní shìchǎng','gòngtóng chéngzhǎng']
+      },
+      {
+        q: 'What do you know about the Assistant Solution Manager role?',
+        qZh: '你对助理解决方案经理岗位有何理解？',
+        qPin: 'Nǐ duì zhùlǐ jiějuéfang-an jīnglǐ gǎngwèi yǒu hé lǐjiě?',
+        a: 'This role supports the Solution Manager in designing, implementing, and optimizing enterprise solutions (e.g., cloud, network, digital services) for clients. It requires cross-team coordination, client communication, and basic technical & commercial awareness.',
+        aZh: '该岗位协助解决方案经理为客户设计、落地并优化企业解决方案（如云、网络、数字服务），需跨团队协作、客户沟通，以及基础技术和商业意识。',
+        aPin: 'Gāi gǎngwèi xiézhù jiějuéfang-an jīnglǐ wèi kèhù shèjì, luòdì bìng yōuhuà qǐyè jiějuéfang-an (rú yún, wǎngluò, shùzì fúwù), xū kuà tuánduì xiézuò, kèhù gōutōng, yǐjí jīchǔ jìshù hé shāngyè yìshí.',
+        keywords: ['解决方案经理','企业解决方案','跨团队协作','客户沟通','商业意识'],
+        keywordPins: ['jiějuéfang-an jīnglǐ','qǐyè jiějuéfang-an','kuà tuánduì xiézuò','kèhù gōutōng','shāngyè yìshí']
+      },
+      {
+        q: 'What-s your understanding of China Mobile-s international business?',
+        qZh: '你对中国移动国际业务的理解是什么？',
+        qPin: 'Nǐ duì Zhōngguó Yídòng guójì yèwù de lǐjiě shì shénme?',
+        a: 'China Mobile International focuses on global connectivity, cloud services, data centers, and digital solutions, serving multinational enterprises and local clients. It emphasizes localized operations and cross-border collaboration.',
+        aZh: '中国移动国际业务聚焦全球互联、云服务、数据中心和数字解决方案，服务跨国企业与本地客户，强调本地化运营与跨境协作。',
+        aPin: 'Zhōngguó Yídòng guójì yèwù jùjiāo quánqiú hùlián, yún fúwù, shùjù zhōngxīn hé shùzì jiějuéfang-an, fúwù kuàguó qǐyè yǔ běndì kèhù, qiángdiào běndìhuà yùnyíng yǔ kuàjìng xiézuò.',
+        keywords: ['全球互联','云服务','数据中心','跨国企业','本地化运营','跨境协作'],
+        keywordPins: ['quánqiú hùlián','yún fúwù','shùjù zhōngxīn','kuàguó qǐyè','běndìhuà yùnyíng','kuàjìng xiézuò']
+      }
+    ]
+  },
+  {
+    section: '二、专业技能类',
+    sectionEn: 'Professional Skills',
+    color: '#2D9E6B',
+    qa: [
+      {
+        q: 'How do you translate client requirements into feasible solutions?',
+        qZh: '你如何将客户需求转化为可行方案？',
+        qPin: 'Nǐ rúhé jiāng kèhù xūqiú zhuǎnhuà wèi kěxíng fang-an?',
+        a: 'First, I clarify core needs & pain points via detailed communication. Then, I align with technical/sales teams to design solutions balancing functionality, cost, and timeline. Finally, I validate with clients and adjust iteratively.',
+        aZh: '首先通过深度沟通明确核心需求与痛点；再联动技术、销售团队设计兼顾功能、成本、周期的方案；最后与客户确认并迭代优化。',
+        aPin: 'Shǒuxiān tōngguò shēndù gōutōng míngquè héxīn xūqiú yǔ tòngdiǎn; zài liándòng jìshù, xiāoshòu tuánduì shèjì jiāngù gōngnéng, chéngběn, zhōuqī de fang-an; zuìhòu yǔ kèhù quèrèn bìng diédài yōuhuà.',
+        keywords: ['核心需求','痛点','深度沟通','迭代优化','功能','成本','周期'],
+        keywordPins: ['héxīn xūqiú','tòngdiǎn','shēndù gōutōng','diédài yōuhuà','gōngnéng','chéngběn','zhōuqī']
+      },
+      {
+        q: 'What experience do you have with cloud/network/digital solutions?',
+        qZh: '你有哪些云/网络/数字解决方案相关经验？',
+        qPin: 'Nǐ yǒu nǎxiē yún / wǎngluò / shùzì jiějuéfang-an xiāngguān jīngyàn?',
+        a: 'I have assisted in designing SD-WAN/cloud solutions for enterprise clients, coordinating with technical teams for implementation, and supporting post-launch operation & maintenance. I-m familiar with basic network architecture and cloud service models.',
+        aZh: '我曾协助为企业客户设计SD-WAN/云解决方案，协调技术团队落地，并支持上线后运维；熟悉基础网络架构与云服务模式。',
+        aPin: 'Wǒ céng xiézhù wèi qǐyè kèhù shèjì SD-WAN / yún jiějuéfang-an, xiétiáo jìshù tuánduì luòdì, bìng zhīchí shàngxiàn hòu yùnwéi; shúxī jīchǔ wǎngluò jiàgòu yǔ yún fúwù móshì.',
+        keywords: ['SD-WAN','云解决方案','技术团队','运维','网络架构','云服务模式'],
+        keywordPins: ['SD-WAN','yún jiějuéfang-an','jìshù tuánduì','yùnwéi','wǎngluò jiàgòu','yún fúwù móshì']
+      },
+      {
+        q: 'How do you ensure solution security and compliance?',
+        qZh: '你如何保障方案的安全性与合规性？',
+        qPin: 'Nǐ rúhé bǎozhàng fang-an de ānquánxìng yǔ héguīxìng?',
+        a: 'I conduct risk assessments first, integrate encryption, access control, and firewalls. I also align with local regulations (e.g., Indonesia-s data privacy laws) and industry standards, collaborating with security teams for validation.',
+        aZh: '先开展风险评估，融入加密、访问控制、防火墙等机制；同时贴合印尼数据隐私法等本地法规与行业标准，联动安全团队确认合规。',
+        aPin: 'Xiān kāizhǎn fēngxiǎn pínggū, róngrù jiāmì, fǎngwèn kòngzhì, fánghuǒqiáng děng jīzhì; tóngshí tiēhé Yìnní shùjù yǐnsīfǎ děng běndì fǎguī yǔ hángyè biāozhǔn, liándòng ānquán tuánduì quèrèn héguī.',
+        keywords: ['风险评估','加密','访问控制','防火墙','数据隐私法','合规'],
+        keywordPins: ['fēngxiǎn pínggū','jiāmì','fǎngwèn kòngzhì','fánghuǒqiáng','shùjù yǐnsīfǎ','héguī']
+      }
+    ]
+  },
+  {
+    section: '三、项目与协作类',
+    sectionEn: 'Projects & Teamwork',
+    color: '#C4933A',
+    qa: [
+      {
+        q: 'Describe a time you supported a complex project. What was your role?',
+        qZh: '描述一次你协助的复杂项目，你的角色是什么？',
+        qPin: 'Miáoshù yīcì nǐ xiézhù de fùzá xiàngmù, nǐ de juésè shì shénme?',
+        a: 'I supported a cross-border cloud migration project. My tasks included collecting client data, coordinating internal teams (technical, sales, operation), tracking project milestones, and resolving minor issues. The project was delivered on time with 95% client satisfaction.',
+        aZh: '我曾协助跨境云迁移项目，负责收集客户资料、协调内部技术/销售/运营团队、跟进项目节点、解决小问题；项目按期交付，客户满意度95%。',
+        aPin: 'Wǒ céng xiézhù kuàjìng yún qiānyí xiàngmù, fùzé shōují kèhù zīliào, xiétiáo nèibù jìshù / xiāoshòu / yùnyíng tuánduì, gēnjìn xiàngmù jiédiǎn, jiějué xiǎo wèntí; xiàngmù ànqī jiāofù, kèhù mǎnyìdù 95%.',
+        keywords: ['跨境云迁移','客户资料','项目节点','按期交付','客户满意度'],
+        keywordPins: ['kuàjìng yún qiānyí','kèhù zīliào','xiàngmù jiédiǎn','ànqī jiāofù','kèhù mǎnyìdù']
+      },
+      {
+        q: 'How do you handle conflicts between technical and commercial teams?',
+        qZh: '你如何处理技术团队与商务团队的分歧？',
+        qPin: 'Nǐ rúhé chǔlǐ jìshù tuánduì yǔ shāngwù tuánduì de fēnqí?',
+        a: 'I listen to both sides- priorities (technical feasibility vs. commercial goals), identify common ground, and propose compromise solutions. I communicate transparently to align expectations and focus on client value.',
+        aZh: '倾听双方核心诉求（技术可行性vs商务目标），寻找共识，提出折中方案；透明沟通以统一预期，聚焦客户价值。',
+        aPin: 'Qīngtīng shuāngfāng héxīn sùqiú (jìshù kěxíngxìng vs shāngwù mùbiāo), xúnzhǎo gòngshí, tíchū zhézhōng fang-an; tòumíng gōutōng yǐ tǒngyī yùqī, jùjiāo kèhù jiàzhí.',
+        keywords: ['技术可行性','商务目标','共识','折中方案','透明沟通','客户价值'],
+        keywordPins: ['jìshù kěxíngxìng','shāngwù mùbiāo','gòngshí','zhézhōng fang-an','tòumíng gōutōng','kèhù jiàzhí']
+      },
+      {
+        q: 'How do you prioritize multiple tasks under tight deadlines?',
+        qZh: '工期紧张时，你如何排序多项任务？',
+        qPin: 'Gōngqī jǐnzhāng shí, nǐ rúhé páixù duō xiàng rènwù?',
+        a: 'I use the Eisenhower Matrix to categorize tasks by urgency and importance. I focus on high-urgency & high-impact tasks first, delegate when possible, and communicate proactively if adjustments are needed.',
+        aZh: '用四象限法则按紧急性和重要性分类任务，优先处理高紧急高影响项；可授权则分工，需调整时主动沟通。',
+        aPin: 'Yòng sì xiànglàn fǎzé àn jǐnjíxìng hé zhòngyàoxìng fēnlèi rènwù, yōuxiān chǔlǐ gāo jǐnjí gāo yǐngxiǎng xiàng; kě shòuquán zé fēngōng, xū tiáozhěng shí zhǔdòng gōutōng.',
+        keywords: ['四象限法则','紧急性','重要性','授权','主动沟通'],
+        keywordPins: ['sì xiànglàn fǎzé','jǐnjíxìng','zhòngyàoxìng','shòuquán','zhǔdòng gōutōng']
+      }
+    ]
+  },
+  {
+    section: '四、客户与市场类',
+    sectionEn: 'Client & Market',
+    color: '#C93A2B',
+    qa: [
+      {
+        q: 'How do you communicate with Indonesian clients effectively?',
+        qZh: '你如何高效与印尼客户沟通？',
+        qPin: 'Nǐ rúhé gāoxiào yǔ Yìnní kèhù gōutōng?',
+        a: 'I respect local culture (e.g., politeness, hierarchy), use clear & simple English (or basic Indonesian), listen actively to understand needs, and respond promptly. I focus on building long-term trust rather than one-time deals.',
+        aZh: '尊重本地文化（如礼貌、层级意识），用简洁英语（或基础印尼语）沟通，积极倾听需求并及时反馈；注重建立长期信任而非一次性交易。',
+        aPin: 'Zūnzhòng běndì wénhuà (rú lǐmào, céng jí yìshí), yòng jiǎnjié Yīngyǔ (huò jīchǔ Yìnníyǔ) gōutōng, jījí qīngtīng xūqiú bìng jíshí fǎnkuì; zhùzhòng jiànlì chángqī xìnrèn ér fēi yīcìxìng jiāoyì.',
+        keywords: ['本地文化','礼貌','层级意识','积极倾听','长期信任'],
+        keywordPins: ['běndì wénhuà','lǐmào','céngjí yìshí','jījí qīngtīng','chángqī xìnrèn']
+      },
+      {
+        q: 'What would you do if a client is dissatisfied with your solution?',
+        qZh: '客户对你的方案不满时，你会怎么做？',
+        qPin: 'Kèhù duì nǐ de fang-an bùmǎn shí, nǐ huì zěnme zuò?',
+        a: 'I apologize sincerely, listen to specific complaints, and analyze the root cause. I propose corrective actions with a clear timeline, follow up closely, and ensure the client-s concerns are fully addressed.',
+        aZh: '真诚致歉，倾听具体不满并分析根源；提出有明确周期的整改方案，紧密跟进，确保客户问题彻底解决。',
+        aPin: 'Zhēnchéng zhìqiàn, qīngtīng jùtǐ bùmǎn bìng fēnxī gēnyuán; tíchū yǒu míngquè zhōuqī de zhěnggǎi fang-an, jǐnmì gēnjìn, quèbǎo kèhù wèntí chèdǐ jiějué.',
+        keywords: ['真诚致歉','根源分析','整改方案','紧密跟进','彻底解决'],
+        keywordPins: ['zhēnchéng zhìqiàn','gēnyuán fēnxī','zhěnggǎi fang-an','jǐnmì gēnjìn','chèdǐ jiějué']
+      },
+      {
+        q: 'What do you know about Indonesia-s enterprise digital market?',
+        qZh: '你对印尼企业数字化市场有何了解？',
+        qPin: 'Nǐ duì Yìnní qǐyè shùzìhuà shìchǎng yǒu hé liǎojiě?',
+        a: 'Indonesia has growing demand for cloud, connectivity, and digital transformation solutions, driven by SMEs and multinational corporations. Local clients value cost-effectiveness, reliability, and localized support.',
+        aZh: '印尼企业对云、互联、数字化转型方案需求增长，中小企业与跨国企业为主要驱动力；本地客户看重性价比、稳定性与本地化服务。',
+        aPin: 'Yìnní qǐyè duì yún, hùlián, shùzìhuà zhuǎnxíng fang-an xūqiú zēngzhǎng, zhōngxiǎo qǐyè yǔ kuàguó qǐyè wèi zhǔyào qūdònglì; běndì kèhù kànzhòng xìngjiàbǐ, wěndìngxìng yǔ běndìhuà fúwù.',
+        keywords: ['数字化转型','中小企业','跨国企业','性价比','稳定性','本地化服务'],
+        keywordPins: ['shùzìhuà zhuǎnxíng','zhōngxiǎo qǐyè','kuàguó qǐyè','xìngjiàbǐ','wěndìngxìng','běndìhuà fúwù']
+      }
+    ]
+  },
+  {
+    section: '五、行为与职业规划类',
+    sectionEn: 'Behaviour & Career',
+    color: '#7B5EA7',
+    qa: [
+      {
+        q: 'What are your strengths for this role?',
+        qZh: '你胜任该岗位的优势是什么？',
+        qPin: 'Nǐ shèngrèn gāi gǎngwèi de yōushì shì shénme?',
+        a: 'I have strong cross-team coordination, client communication, and quick learning skills. I-m familiar with basic enterprise solutions and passionate about the Indonesian market. I can work under pressure and adapt to a multicultural environment.',
+        aZh: '我具备较强的跨团队协作、客户沟通和快速学习能力；熟悉基础企业解决方案，对印尼市场充满热情；能抗压并适应多元文化环境。',
+        aPin: 'Wǒ jùbèi jiào qiáng de kuà tuánduì xiézuò, kèhù gōutōng hé kuàisù xuéxí nénglì; shúxī jīchǔ qǐyè jiějuéfang-an, duì Yìnní shìchǎng chōngmǎn rèqíng; néng kàngyā bìng shìyìng duōyuán wénhuà huánjìng.',
+        keywords: ['跨团队协作','快速学习','印尼市场','抗压','多元文化环境'],
+        keywordPins: ['kuà tuánduì xiézuò','kuàisù xuéxí','Yìnní shìchǎng','kàngyā','duōyuán wénhuà huánjìng']
+      },
+      {
+        q: 'Where do you see yourself in 3-5 years?',
+        qZh: '3-5年内你的职业规划是什么？',
+        qPin: '3-5 nián nèi nǐ de zhíyè guīhuà shì shénme?',
+        a: 'I aim to grow into a Solution Manager, capable of independently designing and delivering end-to-end enterprise solutions for clients. I want to deepen my expertise in the Indonesian market and contribute to the company-s local business growth.',
+        aZh: '我希望成长为解决方案经理，能独立为客户设计并交付端到端企业解决方案；深耕印尼市场专业能力，助力公司本地业务增长。',
+        aPin: 'Wǒ xīwàng chéngzhǎng wèi jiějuéfang-an jīnglǐ, néng dúlì wèi kèhù shèjì bìng jiāofù duān-dào-duān qǐyè jiějuéfang-an; shēngēng Yìnní shìchǎng zhuānyè nénglì, zhùlì gōngsī běndì yèwù zēngzhǎng.',
+        keywords: ['解决方案经理','端到端','深耕','本地业务增长'],
+        keywordPins: ['jiějuéfang-an jīnglǐ','duān dào duān','shēngēng','běndì yèwù zēngzhǎng']
+      },
+      {
+        q: 'How do you handle work stress?',
+        qZh: '你如何应对工作压力？',
+        qPin: 'Nǐ rúhé yìngduì gōngzuò yālì?',
+        a: 'I stay organized, break down complex tasks into small steps, and maintain open communication with the team. I also balance work with regular exercise to stay positive and focused.',
+        aZh: '保持工作条理，将复杂任务拆解为小步骤，与团队保持开放沟通；同时通过规律运动平衡工作，维持积极专注的状态。',
+        aPin: 'Bǎochí gōngzuò tiáolǐ, jiāng fùzá rènwù chāijiě wèi xiǎo bùzhòu, yǔ tuánduì bǎochí kāifàng gōutōng; tóngshí tōngguò guīlǜ yùndòng pínghéng gōngzuò, wéichí jījí zhuānzhù de zhuàngtài.',
+        keywords: ['工作条理','任务拆解','开放沟通','规律运动','积极专注'],
+        keywordPins: ['gōngzuò tiáolǐ','rènwù chāijiě','kāifàng gōutōng','guīlǜ yùndòng','jījí zhuānzhù']
+      }
+    ]
+  },
+  {
+    section: '六、反问环节',
+    sectionEn: 'Questions to Ask',
+    color: '#C4699A',
+    qa: [
+      {
+        q: 'What-s the team structure for this role?',
+        qZh: '该岗位所属团队架构是怎样的？',
+        qPin: 'Gāi gǎngwèi suǒshǔ tuánduì jiàgòu shì zěnyàng de?',
+        a: 'Use this question to understand the reporting line, team size, and collaboration model.',
+        aZh: '用这个问题了解汇报关系、团队规模和合作模式。',
+        aPin: 'Yòng zhège wèntí liǎojiě huìbào guānxi, tuánduì guīmó hé hézuò móshì.',
+        keywords: ['团队架构','汇报关系','合作模式'],
+        keywordPins: ['tuánduì jiàgòu','huìbào guānxi','hézuò móshì']
+      },
+      {
+        q: 'What are the key KPIs for this position?',
+        qZh: '该岗位的核心绩效考核指标是什么？',
+        qPin: 'Gāi gǎngwèi de héxīn jīxiào kǎohé zhǐbiāo shì shénme?',
+        a: 'This shows you think about performance and accountability — important for a business-facing role.',
+        aZh: '这表明你重视绩效和责任感——对面向客户的岗位很重要。',
+        aPin: 'Zhè biǎomíng nǐ zhòngshì jīxiào hé zérèngǎn — duì miànxiàng kèhù de gǎngwèi hěn zhòngyào.',
+        keywords: ['绩效考核','KPI','责任感'],
+        keywordPins: ['jīxiào kǎohé','KPI','zérèngǎn']
+      },
+      {
+        q: 'How does the company support employees- career development in Indonesia?',
+        qZh: '公司在印尼为员工提供哪些职业发展支持？',
+        qPin: 'Gōngsī zài Yìnní wèi yuángōng tígōng nǎxiē zhíyè fāzhǎn zhīchí?',
+        a: 'Shows long-term commitment and interest in growing within the company.',
+        aZh: '表明你的长期投入和在公司内成长的意愿。',
+        aPin: 'Biǎomíng nǐ de chángqī tóurù hé zài gōngsī nèi chéngzhǎng de yìyuàn.',
+        keywords: ['职业发展','员工支持','长期投入'],
+        keywordPins: ['zhíyè fāzhǎn','yuángōng zhīchí','chángqī tóurù']
+      }
+    ]
+  }
+];
+
+let iv = {
+  mode: 'study',        // 'study' | 'flashcard' | 'quiz'
+  section: 'all',
+  cardIdx: 0,
+  revealed: false,
+  quizOpts: [],
+  quizChosen: null,
+  quizAnswered: false,
+  quizCorrect: 0,
+  quizTotal: 0,
+  quizDeck: [],
+  quizIdx: 0,
+  quizScreen: 'setup',  // 'setup' | 'playing' | 'done'
+  showZh: true,
+};
+
+function ivAllQA(){
+  const sec = iv.section === 'all' ? INTERVIEW_DATA : INTERVIEW_DATA.filter(s=>s.section===iv.section);
+  return sec.flatMap(s=>s.qa.map(q=>({...q, _section:s.section, _sectionEn:s.sectionEn, _color:s.color})));
+}
+function ivBuildQuizDeck(){ iv.quizDeck = shuffle(ivAllQA()); iv.quizIdx=0; iv.quizCorrect=0; iv.quizTotal=iv.quizDeck.length; iv.quizChosen=null; iv.quizAnswered=false; iv.quizOpts=[]; }
+function ivBuildOpts(){
+  const all = ivAllQA();
+  const cur = iv.quizDeck[iv.quizIdx];
+  const wrong = shuffle(all.filter(q=>q.q!==cur.q)).slice(0,3);
+  iv.quizOpts = shuffle([cur, ...wrong]);
+}
+function ivStartQuiz(){ ivBuildQuizDeck(); ivBuildOpts(); iv.quizScreen='playing'; render(); }
+function ivQuizChoose(i){
+  if(iv.quizAnswered) return;
+  iv.quizChosen=i; iv.quizAnswered=true;
+  if(iv.quizOpts[i].q === iv.quizDeck[iv.quizIdx].q) iv.quizCorrect++;
+  render();
+}
+function ivQuizNext(){
+  iv.quizIdx++;
+  if(iv.quizIdx>=iv.quizDeck.length){ iv.quizScreen='done'; render(); return; }
+  iv.quizAnswered=false; iv.quizChosen=null;
+  ivBuildOpts(); render();
+}
+
+function zhPin(zh, pin, col){
+  // Renders Chinese text with pinyin underneath in a tidy block
+  return `<div style="display:inline-block;text-align:center;vertical-align:top">
+    <div style="font-family:var(--zh);font-size:.95rem;color:var(--text);line-height:1.5">${zh}</div>
+    <div style="font-family:var(--mono);font-style:italic;font-size:.72rem;color:${col||'var(--gold)'};line-height:1.3;margin-top:1px">${pin}</div>
+  </div>`;
+}
+function zhPinBlock(zh, pin, col, zhSize, pinSize){
+  // Full-width block: Chinese paragraph + pinyin below it
+  return `<div style="margin-bottom:.2rem">
+    <div style="font-family:var(--zh);font-size:${zhSize||'.95rem'};color:var(--text);line-height:1.9">${zh}</div>
+    <div style="font-family:var(--mono);font-style:italic;font-size:${pinSize||'.75rem'};color:${col||'var(--gold)'};line-height:1.6;margin-top:2px">${pin}</div>
+  </div>`;
+}
+
+function renderInterview(){
+  const esc=s=>(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  let h = '<div class="fu" style="max-width:860px;margin:0 auto">';
+
+  // Header
+  h += `<div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:1.5rem">
+    <div>
+      <div style="font-family:var(--serif);font-size:1.3rem;font-weight:500;margin-bottom:4px">🎤 面试准备</div>
+      <div style="font-size:.85rem;color:var(--muted)">China Mobile Indonesia — Assistant Solution Manager</div>
+    </div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap">
+      <button class="btn${iv.mode==='study'?' primary':''}" onclick="iv.mode='study';iv.cardIdx=0;render()">📖 Study</button>
+      <button class="btn${iv.mode==='flashcard'?' primary':''}" onclick="iv.mode='flashcard';iv.cardIdx=0;iv.revealed=false;render()">🎴 Flashcards</button>
+      <button class="btn${iv.mode==='quiz'?' primary':''}" onclick="iv.mode='quiz';iv.quizScreen='setup';render()">🧠 Quiz</button>
+    </div>
+  </div>`;
+
+  // Section filter
+  h += `<div style="display:flex;gap:7px;flex-wrap:wrap;margin-bottom:1.25rem;align-items:center"><span style="font-size:.75rem;color:var(--faint);text-transform:uppercase;letter-spacing:.07em">Section:</span>`;
+  h += `<button class="hsk-lvl${iv.section==='all'?' active':''}" onclick="iv.section='all';iv.cardIdx=0;iv.revealed=false;render()">All</button>`;
+  INTERVIEW_DATA.forEach(s=>{
+    h += `<button class="hsk-lvl${iv.section===s.section?' active':''}" onclick="iv.section='${esc(s.section)}';iv.cardIdx=0;iv.revealed=false;render()" style="${iv.section===s.section?'':'border-color:'+s.color+'44;color:'+s.color+';'}">${esc(s.sectionEn)}</button>`;
+  });
+  h += `</div>`;
+
+  // ── STUDY MODE ──
+  if(iv.mode==='study'){
+    const sections = iv.section==='all' ? INTERVIEW_DATA : INTERVIEW_DATA.filter(s=>s.section===iv.section);
+    let qNum=0;
+    sections.forEach(sec=>{
+      h += `<div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;margin-bottom:1.25rem">
+        <div style="background:${sec.color}18;border-bottom:1px solid ${sec.color}33;padding:.85rem 1.25rem;display:flex;align-items:center;gap:10px">
+          <div style="width:4px;height:24px;background:${sec.color};border-radius:2px;flex-shrink:0"></div>
+          <div>
+            <div style="font-family:var(--serif);font-size:.95rem;font-weight:500">${esc(sec.sectionEn)}</div>
+            <div style="font-size:.72rem;color:var(--faint)">${esc(sec.section)} · ${sec.qa.length} questions</div>
+          </div>
+        </div>`;
+      sec.qa.forEach((item,qi)=>{
+        qNum++;
+        h += `<div style="padding:1.1rem 1.25rem;border-bottom:1px solid var(--border)">
+          <div style="display:flex;gap:10px;margin-bottom:.85rem">
+            <div style="width:22px;height:22px;border-radius:50%;background:${sec.color}22;color:${sec.color};font-size:.72rem;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px">Q${qNum}</div>
+            <div style="flex:1">
+              <div style="font-size:.92rem;font-weight:500;color:var(--text);margin-bottom:6px">${esc(item.q)}</div>
+              <div style="background:${sec.color}08;border-radius:var(--r-sm);padding:.5rem .75rem">
+                ${zhPinBlock(esc(item.qZh), esc(item.qPin), sec.color+'cc', '.9rem', '.72rem')}
+              </div>
+            </div>
+          </div>
+          <div style="margin-left:32px">
+            <div style="background:${sec.color}0d;border-left:3px solid ${sec.color}55;border-radius:0 var(--r-sm) var(--r-sm) 0;padding:.75rem 1rem;margin-bottom:.6rem">
+              <div style="font-size:.72rem;color:${sec.color};text-transform:uppercase;letter-spacing:.07em;margin-bottom:.5rem">English Answer</div>
+              <div style="font-size:.9rem;color:var(--text);line-height:1.7">${esc(item.a)}</div>
+            </div>
+            <div style="background:var(--card2);border-left:3px solid ${sec.color}33;border-radius:0 var(--r-sm) var(--r-sm) 0;padding:.75rem 1rem;margin-bottom:.7rem">
+              <div style="font-size:.72rem;color:var(--faint);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.5rem">中文答案 + Pīnyīn</div>
+              ${zhPinBlock(esc(item.aZh), esc(item.aPin), 'var(--gold)', '.95rem', '.76rem')}
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:flex-start">
+              <span style="font-size:.68rem;color:var(--faint);margin-right:3px;padding-top:6px">Key words:</span>
+              ${item.keywords.map((kw,ki)=>`<div style="text-align:center">
+                <div style="font-family:var(--zh);font-size:.8rem;background:${sec.color}15;color:${sec.color};padding:3px 9px 1px;border-radius:4px 4px 0 0;border:1px solid ${sec.color}30;border-bottom:none">${esc(kw)}</div>
+                <div style="font-family:var(--mono);font-style:italic;font-size:.65rem;color:${sec.color}99;background:${sec.color}08;padding:1px 9px 3px;border-radius:0 0 4px 4px;border:1px solid ${sec.color}20;border-top:none">${esc(item.keywordPins[ki]||'')}</div>
+              </div>`).join('')}
+            </div>
+          </div>
+        </div>`;
+      });
+      h += `</div>`;
+    });
+  }
+
+  // ── FLASHCARD MODE ──
+  else if(iv.mode==='flashcard'){
+    const deck = ivAllQA();
+    if(!deck.length){ h+=`<div class="empty"><div class="empty-ttl">No questions in this section</div></div>`; }
+    else {
+      const cur = deck[iv.cardIdx % deck.length];
+      const total=deck.length, idx=iv.cardIdx%total;
+
+      h+=`<div class="prac-prog-wrap" style="margin-bottom:1.25rem"><div class="prac-prog-bar"><div class="prac-prog-fill" style="width:${(idx/total*100)}%"></div></div><span style="font-size:.82rem;color:var(--muted)">${idx+1} / ${total}</span></div>`;
+
+      if(!iv.revealed){
+        h+=`<div class="fc-card" onclick="iv.revealed=true;render()" style="min-height:240px;border-color:${cur._color}44">
+          <div class="fc-face-label" style="color:${cur._color}99">Tap to reveal answer · ${esc(cur._sectionEn)}</div>
+          <div style="font-size:.72rem;color:var(--faint);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.85rem">English question:</div>
+          <div style="font-size:1.05rem;font-weight:500;color:var(--text);line-height:1.65;max-width:520px;text-align:center;margin-bottom:.75rem">${esc(cur.q)}</div>
+          <div style="background:${cur._color}0a;border-radius:var(--r-md);padding:.6rem 1rem;text-align:center;max-width:560px">
+            <div style="font-family:var(--zh);font-size:.88rem;color:var(--muted);line-height:1.7">${esc(cur.qZh)}</div>
+            <div style="font-family:var(--mono);font-style:italic;font-size:.72rem;color:${cur._color}aa;margin-top:3px;line-height:1.5">${esc(cur.qPin)}</div>
+          </div>
+          <div class="fc-tap-hint">tap to reveal</div>
+        </div>`;
+      } else {
+        h+=`<div class="fc-card revealed" onclick="iv.revealed=false;render()" style="min-height:340px;border-color:${cur._color}88">
+          <div class="fc-face-label" style="color:${cur._color}">Answer · tap to flip back</div>
+          <div style="font-size:.85rem;font-weight:500;color:var(--muted);margin-bottom:1rem;text-align:center;max-width:500px">${esc(cur.q)}</div>
+          <div style="background:${cur._color}10;border-radius:var(--r-md);padding:1rem 1.25rem;margin-bottom:.85rem;max-width:580px;text-align:left;width:100%">
+            <div style="font-size:.7rem;color:${cur._color};text-transform:uppercase;letter-spacing:.07em;margin-bottom:.4rem">English</div>
+            <div style="font-size:.9rem;color:var(--text);line-height:1.7">${esc(cur.a)}</div>
+          </div>
+          <div style="background:var(--card2);border-radius:var(--r-md);padding:1rem 1.25rem;margin-bottom:.85rem;max-width:580px;text-align:left;width:100%">
+            <div style="font-size:.7rem;color:var(--faint);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.5rem">中文 + Pīnyīn</div>
+            ${zhPinBlock(esc(cur.aZh), esc(cur.aPin), 'var(--gold)', '1rem', '.76rem')}
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;max-width:580px">
+            ${cur.keywords.map((kw,ki)=>`<div style="text-align:center">
+              <div style="font-family:var(--zh);font-size:.78rem;background:${cur._color}15;color:${cur._color};padding:2px 8px 1px;border-radius:4px 4px 0 0;border:1px solid ${cur._color}30;border-bottom:none">${esc(kw)}</div>
+              <div style="font-family:var(--mono);font-style:italic;font-size:.63rem;color:${cur._color}99;background:${cur._color}08;padding:1px 8px 2px;border-radius:0 0 4px 4px;border:1px solid ${cur._color}20;border-top:none">${esc(cur.keywordPins[ki]||'')}</div>
+            </div>`).join('')}
+          </div>
+        </div>`;
+      }
+      h+=`<div class="fc-actions" style="justify-content:center;gap:12px">
+        <button class="fc-btn-nav" onclick="iv.cardIdx=Math.max(0,(iv.cardIdx||0)-1);iv.revealed=false;render()" ${idx===0?'disabled':''}>← Prev</button>
+        <button class="btn primary" onclick="iv.cardIdx=(iv.cardIdx||0)+1;iv.revealed=false;render()" style="padding:12px 32px">${idx+1<total?'Next →':'Restart 🔄'}</button>
+        <button class="fc-btn-nav" onclick="iv.cardIdx=(iv.cardIdx||0)+1;iv.revealed=false;render()">Skip →</button>
+      </div>`;
+      h+=`<div style="display:flex;gap:3px;justify-content:center;flex-wrap:wrap;margin-top:1rem">`;
+      deck.forEach((_,i)=>{ const w=Math.max(6,Math.min(20,Math.floor(560/deck.length)-4)); const col=i<idx?'#2d9e6b':i===idx?'var(--red)':'var(--border2)'; h+=`<div style="width:${w}px;height:4px;border-radius:2px;background:${col};transition:background .3s"></div>`; });
+      h+=`</div>`;
+    }
+  }
+
+  // ── QUIZ MODE ──
+  else if(iv.mode==='quiz'){
+    if(iv.quizScreen==='setup'){
+      h+=`<div class="prac-setup" style="max-width:580px;margin:0 auto">
+        <div style="font-family:var(--serif);font-size:1.1rem;font-weight:500;margin-bottom:6px">Interview Quiz</div>
+        <p style="font-size:.88rem;color:var(--muted);margin-bottom:1.5rem">Read the English question, then pick the correct Chinese answer (with pinyin!) from the choices below.</p>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.25rem;margin-bottom:1.25rem">
+          <div style="font-size:.75rem;color:var(--faint);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.85rem">Quiz covers</div>
+          ${INTERVIEW_DATA.map(s=>`<div style="display:flex;align-items:center;gap:8px;margin-bottom:.6rem"><div style="width:10px;height:10px;border-radius:50%;background:${s.color};flex-shrink:0"></div><span style="font-size:.85rem;color:var(--text)">${esc(s.sectionEn)}</span><span style="font-size:.75rem;color:var(--faint)">${s.qa.length} Qs</span></div>`).join('')}
+        </div>
+        <div style="font-size:.82rem;color:var(--muted);background:var(--card2);border-radius:var(--r-md);padding:.75rem 1rem;margin-bottom:1.25rem">💡 Tip: Each answer option shows Chinese characters <em>and</em> pinyin so you can practise reading both!</div>
+        <button class="btn primary" style="width:100%;padding:15px;font-size:1rem;justify-content:center;border-radius:var(--r-md)" onclick="ivStartQuiz()">Start Quiz (${ivAllQA().length} questions) →</button>
+      </div>`;
+    }
+    else if(iv.quizScreen==='playing'){
+      const cur = iv.quizDeck[iv.quizIdx];
+      const total=iv.quizDeck.length, done=iv.quizIdx;
+      h+=`<div style="max-width:680px;margin:0 auto">`;
+      h+=`<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
+        <span style="font-size:.85rem;color:var(--muted)">Question ${done+1} of ${total}</span>
+        <button class="fc-btn-nav" onclick="iv.quizScreen='setup';render()">← Setup</button>
+      </div>`;
+      h+=`<div class="prac-prog-wrap"><div class="prac-prog-bar"><div class="prac-prog-fill" style="width:${Math.round(done/total*100)}%"></div></div><span style="font-size:.82rem;color:#4dd892">✓ ${iv.quizCorrect}</span><span style="font-size:.82rem;color:#f08080">✗ ${done-iv.quizCorrect}</span></div>`;
+      // Question card — show English question + Chinese question with pinyin
+      h+=`<div class="qz-q-card" style="margin-bottom:1rem;border-color:${cur._color}44">
+        <div class="qz-q-label" style="color:${cur._color}">${esc(cur._sectionEn)} · Pick the correct Chinese answer</div>
+        <div style="font-size:1.05rem;font-weight:500;color:var(--text);line-height:1.65;margin-bottom:.75rem">${esc(cur.q)}</div>
+        <div style="background:${cur._color}0a;border-radius:var(--r-md);padding:.6rem 1rem;display:inline-block;text-align:left">
+          <div style="font-family:var(--zh);font-size:.88rem;color:var(--muted);line-height:1.7">${esc(cur.qZh)}</div>
+          <div style="font-family:var(--mono);font-style:italic;font-size:.72rem;color:${cur._color}aa;margin-top:2px;line-height:1.5">${esc(cur.qPin)}</div>
+        </div>
+      </div>`;
+      // Options — Chinese answer + pinyin stacked
+      h+=`<div class="qz-opts" style="grid-template-columns:1fr">`;
+      iv.quizOpts.forEach((opt,i)=>{
+        const isCorrect=opt.q===cur.q;
+        let cls='qz-opt';
+        if(iv.quizAnswered){ if(i===iv.quizChosen&&isCorrect)cls+=' correct'; else if(i===iv.quizChosen&&!isCorrect)cls+=' wrong'; else if(isCorrect)cls+=' reveal'; }
+        h+=`<button class="${cls}" ${iv.quizAnswered?'disabled':''} onclick="ivQuizChoose(${i})" style="text-align:left;padding:12px 16px">
+          <div style="font-family:var(--zh);font-size:.95rem;line-height:1.7;margin-bottom:3px">${esc(opt.aZh)}</div>
+          <div style="font-family:var(--mono);font-style:italic;font-size:.72rem;opacity:.7;line-height:1.4">${esc(opt.aPin)}</div>
+        </button>`;
+      });
+      h+=`</div>`;
+      if(iv.quizAnswered){
+        const ok=iv.quizOpts[iv.quizChosen].q===cur.q;
+        h+=`<div class="qz-feedback ${ok?'ok':'bad'}" style="margin-top:.75rem">${ok?'✓ Correct! 做得好！':'✗ Not quite — the correct answer is highlighted in green'}</div>`;
+        if(!ok) h+=`<div style="background:${cur._color}0e;border-radius:var(--r-md);padding:.85rem 1rem;margin-bottom:.75rem"><div style="font-size:.72rem;color:${cur._color};text-transform:uppercase;letter-spacing:.07em;margin-bottom:.4rem">Correct English Answer</div><div style="font-size:.88rem;color:var(--text);line-height:1.65">${esc(cur.a)}</div></div>`;
+        h+=`<button class="qz-next" onclick="ivQuizNext()" style="margin-top:.5rem">${iv.quizIdx+1>=total?'See results →':'Next question →'}</button>`;
+      }
+      h+=`</div>`;
+    }
+    else if(iv.quizScreen==='done'){
+      const total=iv.quizDeck.length, correct=iv.quizCorrect, pct=Math.round(correct/total*100);
+      const color=pct>=80?'#2d9e6b':pct>=60?'#c4933a':'#c93a2b';
+      const msg=pct>=80?'面试准备很到位！🎉':pct>=60?'不错！继续加油！💪':'继续练习！加油！📚';
+      h+=`<div class="prac-results" style="max-width:480px;margin:0 auto;text-align:center">
+        <div class="prac-score-circle" style="border-color:${color}"><div class="prac-score-num" style="color:${color}">${pct}%</div><div class="prac-score-lbl" style="color:${color}">Score</div></div>
+        <div style="font-family:var(--serif);font-size:1.2rem;margin-bottom:.4rem">${msg}</div>
+        <div style="font-size:.88rem;color:var(--muted);margin-bottom:1.5rem">${correct} / ${total} correct</div>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+          <button class="btn primary" onclick="ivStartQuiz()">Practice again</button>
+          <button class="btn" onclick="iv.mode='study';render()">Back to study</button>
+          <button class="btn" onclick="iv.quizScreen='setup';render()">Change settings</button>
+        </div>
+      </div>`;
+    }
+  }
+
+  h+='</div>';
+  return h;
 }
 
 showProfiles();
