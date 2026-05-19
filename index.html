@@ -562,6 +562,28 @@ const SAMPLE = [
     {chinese:'平时',pinyin:'píng shí',english:'Usually / Normally',type:'word',example:'他平时很忙，只有周末有空。He is ordinarily very busy; he only has time on weekends.'},
     {chinese:'友谊',pinyin:'yǒu yì',english:'Friendship',type:'word',example:'我们之间有深厚的友谊。We have a deep friendship between us.'},
   ]},
+  {id:'lesson:s_chars_admin',fileName:'',lessonTitle:'Characters, Admin Levels & Relationships',category:'Daily Life',date:'2026-05-19T09:00:00Z',wordCount:20,vocabulary:[
+    {chinese:'繁体字',pinyin:'fántǐzì',english:'traditional Chinese characters (complex form)',type:'word',example:'繁体字笔画比较多，比较复杂。Traditional characters have more strokes and are more complex.'},
+    {chinese:'简体字',pinyin:'jiǎntǐzì',english:'simplified Chinese characters',type:'word',example:'中国大陆使用简体字。Mainland China uses simplified characters.'},
+    {chinese:'行政等级',pinyin:'xíngzhèng děngjí',english:'administrative level / level of government',type:'phrase',example:'中国的行政等级分为几个层次。China\'s administrative levels are divided into several tiers.'},
+    {chinese:'中央政府',pinyin:'zhōngyāng zhèngfǔ',english:'central government',type:'phrase',example:'中央政府在北京。The central government is in Beijing.'},
+    {chinese:'首都',pinyin:'shǒudū',english:'capital city',type:'word',example:'北京是中国的首都。Beijing is the capital of China.'},
+    {chinese:'直辖市',pinyin:'zhíxiáshì',english:'directly-administered municipality (e.g. Beijing, Shanghai)',type:'word',example:'北京是直辖市。Beijing is a directly-administered municipality.'},
+    {chinese:'省份',pinyin:'shěngfèn',english:'province',type:'word',example:'中国有三十四个省级行政区。China has 34 provincial-level administrative regions.'},
+    {chinese:'城市',pinyin:'chéngshì',english:'city',type:'word',example:'上海是一个大城市。Shanghai is a big city.'},
+    {chinese:'区域',pinyin:'qūyù',english:'district / region / area',type:'word',example:'这个区域交通很方便。The transport in this district is very convenient.'},
+    {chinese:'县',pinyin:'xiàn',english:'county',type:'word',example:'这个县有很多农村。This county has many villages.'},
+    {chinese:'乡',pinyin:'xiāng',english:'township / rural town',type:'word',example:'他从小在乡里长大。He grew up in a township.'},
+    {chinese:'村',pinyin:'cūn',english:'village',type:'word',example:'这个村子很安静。This village is very quiet.'},
+    {chinese:'物以稀为贵',pinyin:'wù yǐ xī wéi guì',english:'rare things are precious / things are valued because of their scarcity',type:'idiom',example:'物以稀为贵，所以这种茶叶很贵。Rare things are precious, so this type of tea is very expensive.'},
+    {chinese:'文言文',pinyin:'wényánwén',english:'classical Chinese / literary Chinese (ancient written style)',type:'word',example:'文言文很难理解。Classical Chinese is difficult to understand.'},
+    {chinese:'情况',pinyin:'qíngkuàng',english:'situation / circumstances / condition',type:'word',example:'你能介绍一下这里的情况吗？Can you describe the situation here?'},
+    {chinese:'闺蜜',pinyin:'guīmì',english:'best female friend / bestie (female-to-female)',type:'word',example:'她是我的闺蜜，我们什么都聊。She is my bestie — we talk about everything.'},
+    {chinese:'好朋友',pinyin:'hǎo péngyou',english:'good friend / close friend',type:'phrase',example:'他是我的好朋友。He is my good friend.'},
+    {chinese:'普通朋友',pinyin:'pǔtōng péngyou',english:'ordinary friend / acquaintance',type:'phrase',example:'我们只是普通朋友。We are just ordinary friends.'},
+    {chinese:'好兄弟',pinyin:'hǎo xiōngdì',english:'close male friend / good brother / bro',type:'phrase',example:'他是我的好兄弟，什么事都帮我。He\'s my bro — he always helps me out.'},
+    {chinese:'中国 → 河北省 → 石家庄市 → 长安区',pinyin:'Zhōngguó → Héběi Shěng → Shíjiāzhuāng Shì → Cháng\'ān Qū',english:'China → Hebei Province → Shijiazhuang City → Chang\'an District (example admin hierarchy)',type:'sentence',example:'这个地址的行政等级是：中国、河北省、石家庄市、长安区。The admin levels of this address are: China, Hebei Province, Shijiazhuang City, Chang\'an District.'},
+  ]},
 ];
 
 let lessons=[], curTab='review', expanded=new Set(), flt={s:'',c:'all',t:'all',l:'all',m:'all'};
@@ -579,7 +601,7 @@ function masteryLabel(score){ if(score<=0)return{label:'New',color:'#4A5568',dot
 function renderMasteryBar(score, showLabel){ const info=masteryLabel(score); let h=`<div class="mst-bar">`; for(let i=0;i<5;i++){ const filled=i<info.dots; h+=`<div class="mst-dot" style="background:${filled?info.color:'var(--border2)'}"></div>`; } if(showLabel)h+=`<span class="mst-label" style="color:${info.color}">${info.label}</span>`; h+=`</div>`; return h; }
 
 const PROFILES = [
-  {id:'james', defaultName:'Dudu', color:'#C93A2B', sampleKey:'james_mn-ver', sampleVer:'12'},
+  {id:'james', defaultName:'Dudu', color:'#C93A2B', sampleKey:'james_mn-ver', sampleVer:'13'},
   {id:'gf',    defaultName:'Bubu', color:'#C4699A', sampleKey:'gf_mn-ver',    sampleVer:'4'},
 ];
 let currentUser = null;
@@ -652,7 +674,7 @@ function loadLessons(){
   const keys=ls.keys('lesson:');
   const ver=ls.get('mn-ver');
   const isJames=currentUser.id==='james';
-  const targetVer=isJames?'12':'4';
+  const targetVer=isJames?'13':'4';
   if(isJames&&(!keys.length||ver!==targetVer)){
     SAMPLE.forEach(s=>ls.set(s.id,JSON.stringify(s)));
     ls.set('mn-ver',targetVer);
