@@ -562,6 +562,27 @@ const SAMPLE = [
     {chinese:'平时',pinyin:'píng shí',english:'Usually / Normally',type:'word',example:'他平时很忙，只有周末有空。He is ordinarily very busy; he only has time on weekends.'},
     {chinese:'友谊',pinyin:'yǒu yì',english:'Friendship',type:'word',example:'我们之间有深厚的友谊。We have a deep friendship between us.'},
   ]},
+  {id:'lesson:s_personality_music_digital',fileName:'',lessonTitle:'Personality, Music & Digital Life',category:'Daily Life',date:'2026-05-28T09:00:00Z',wordCount:19,vocabulary:[
+    {chinese:'大胆',pinyin:'dǎdǎn',english:'bold / daring / brave',type:'word',example:'她大胆地表达了自己的想法。She boldly expressed her thoughts.'},
+    {chinese:'勇敢',pinyin:'yǒnggǎn',english:'courageous / brave',type:'word',example:'他很勇敢，不怕困难。He is very brave and not afraid of difficulties.'},
+    {chinese:'乖乖',pinyin:'guāiguāi',english:'well-behaved / obedient / good (often used affectionately)',type:'word',example:'你要乖乖的，知道吗？You need to be good, okay?'},
+    {chinese:'调皮',pinyin:'tiáopí',english:'naughty / mischievous / cheeky',type:'word',example:'这个小孩很调皮。This child is very naughty.'},
+    {chinese:'相信',pinyin:'xiāngxìn',english:'to believe / to trust',type:'word',example:'我相信你说的话。I believe what you said.'},
+    {chinese:'掌握',pinyin:'zhǎngwò',english:'to master / to grasp / to have command of',type:'word',example:'他已经掌握了这门语言。He has already mastered this language.'},
+    {chinese:'抓住',pinyin:'zhuāzhù',english:'to catch / to grab / to seize (an opportunity)',type:'word',example:'要抓住每一个机会。You have to seize every opportunity.'},
+    {chinese:'知识',pinyin:'zhīshi',english:'knowledge',type:'word',example:'知识就是力量。Knowledge is power.'},
+    {chinese:'天赋',pinyin:'tiānfù',english:'natural talent / gift / innate ability',type:'word',example:'她在音乐方面有天赋。She has a natural talent for music.'},
+    {chinese:'上天的赏赐',pinyin:'shàngtiān de shǎngcì',english:'a gift from heaven / a God-given talent/blessing',type:'phrase',example:'她的嗓音是上天的赏赐。Her voice is a gift from heaven.'},
+    {chinese:'的声音',pinyin:'de shēngyīn',english:'(someone\'s) voice / sound of',type:'phrase',example:'我喜欢她的声音。I love her voice.'},
+    {chinese:'翻唱',pinyin:'fānchàng',english:'to cover (a song) / to sing a cover version',type:'word',example:'她翻唱了很多经典老歌。She covered many classic old songs.'},
+    {chinese:'下载',pinyin:'xiàzài',english:'to download',type:'word',example:'你可以免费下载这首歌。You can download this song for free.'},
+    {chinese:'充会员',pinyin:'chōng huìyuán',english:'to pay for a membership / to subscribe (to a platform)',type:'phrase',example:'要听完整版，你需要充会员。To listen to the full version, you need to subscribe.'},
+    {chinese:'借鉴',pinyin:'jièjiàn',english:'to draw on / to learn from / to use as reference',type:'word',example:'我们可以借鉴其他国家的经验。We can draw on the experience of other countries.'},
+    {chinese:'复制',pinyin:'fùzhì',english:'to copy / to duplicate / to replicate',type:'word',example:'请不要复制别人的作品。Please do not copy other people\'s work.'},
+    {chinese:'血压升高',pinyin:'xuèyā shēnggāo',english:'blood pressure rises / high blood pressure (situational)',type:'phrase',example:'一看到那条消息，我血压就升高了。The moment I saw that message, my blood pressure shot up.'},
+    {chinese:'在崩溃中自愈',pinyin:'zài bēngkuì zhōng zì yù',english:'to heal while falling apart / to recover in the midst of breaking down',type:'phrase',example:'有时候，人就是在崩溃中自愈的。Sometimes, people heal precisely while they are falling apart.'},
+    {chinese:'发脾气',pinyin:'fā píqì',english:'to lose one\'s temper / to throw a tantrum',type:'phrase',example:'他一生气就发脾气。When he gets angry, he loses his temper.'},
+  ]},
   {id:'lesson:s_cars_business',fileName:'',lessonTitle:'Cars, Business & Tax',category:'Daily Life',date:'2026-05-21T09:00:00Z',wordCount:14,vocabulary:[
     {chinese:'电动汽车',pinyin:'diàndòng qìchē',english:'electric vehicle / EV',type:'word',example:'特斯拉是一种电动汽车。Tesla is an electric vehicle.'},
     {chinese:'纯电',pinyin:'chún diàn',english:'fully electric (pure EV)',type:'word',example:'这款车是纯电版本。This model is the fully electric version.'},
@@ -648,7 +669,7 @@ function masteryLabel(score){ if(score<=0)return{label:'New',color:'#4A5568',dot
 function renderMasteryBar(score, showLabel){ const info=masteryLabel(score); let h=`<div class="mst-bar">`; for(let i=0;i<5;i++){ const filled=i<info.dots; h+=`<div class="mst-dot" style="background:${filled?info.color:'var(--border2)'}"></div>`; } if(showLabel)h+=`<span class="mst-label" style="color:${info.color}">${info.label}</span>`; h+=`</div>`; return h; }
 
 const PROFILES = [
-  {id:'james', defaultName:'Dudu', color:'#C93A2B', sampleKey:'james_mn-ver', sampleVer:'14'},
+  {id:'james', defaultName:'Dudu', color:'#C93A2B', sampleKey:'james_mn-ver', sampleVer:'15'},
   {id:'gf',    defaultName:'Bubu', color:'#C4699A', sampleKey:'gf_mn-ver',    sampleVer:'4'},
 ];
 let currentUser = null;
@@ -721,7 +742,7 @@ function loadLessons(){
   const keys=ls.keys('lesson:');
   const ver=ls.get('mn-ver');
   const isJames=currentUser.id==='james';
-  const targetVer=isJames?'14':'4';
+  const targetVer=isJames?'15':'4';
   if(isJames&&(!keys.length||ver!==targetVer)){
     SAMPLE.forEach(s=>ls.set(s.id,JSON.stringify(s)));
     ls.set('mn-ver',targetVer);
