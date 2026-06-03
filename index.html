@@ -562,11 +562,13 @@ const SAMPLE = [
     {chinese:'平时',pinyin:'píng shí',english:'Usually / Normally',type:'word',example:'他平时很忙，只有周末有空。He is ordinarily very busy; he only has time on weekends.'},
     {chinese:'友谊',pinyin:'yǒu yì',english:'Friendship',type:'word',example:'我们之间有深厚的友谊。We have a deep friendship between us.'},
   ]},
-  {id:'lesson:s_china_geography',fileName:'',lessonTitle:'China Geography, Regions & Directions',category:'Culture & History',date:'2026-05-29T09:00:00Z',wordCount:30,vocabulary:[
+  {id:'lesson:s_china_geography',fileName:'',lessonTitle:'China Geography, Regions & Directions',category:'Culture & History',date:'2026-05-29T09:00:00Z',wordCount:32,vocabulary:[
     {chinese:'省',pinyin:'shěng',english:'province',type:'word',example:'中国有23个省。China has 23 provinces.'},
     {chinese:'自治区',pinyin:'zìzhìqū',english:'autonomous region (e.g. Inner Mongolia, Xinjiang, Tibet)',type:'word',example:'西藏自治区位于中国西部。The Tibet Autonomous Region is located in western China.'},
     {chinese:'新疆',pinyin:'Xīnjiāng',english:'Xinjiang (far northwest autonomous region)',type:'noun',example:'新疆的哈密瓜非常好吃。The Hami melons from Xinjiang are delicious.'},
     {chinese:'西藏',pinyin:'Xīzàng',english:'Tibet (autonomous region in southwest China)',type:'noun',example:'西藏的高原反应让很多游客不舒服。Altitude sickness in Tibet makes many tourists uncomfortable.'},
+    {chinese:'青海',pinyin:'Qīnghǎi',english:'Qinghai (province on the Tibetan Plateau, northwest China)',type:'noun',example:'青海湖是中国最大的内陆湖。Qinghai Lake is the largest inland lake in China.'},
+    {chinese:'蒙古包',pinyin:'Ménggǔbāo',english:'yurt / Mongolian tent (traditional nomadic dwelling)',type:'noun',example:'蒙古人住在蒙古包里。Mongolians live in yurts.'},
     {chinese:'吉林',pinyin:'Jílín',english:'Jilin (province in northeast China)',type:'noun',example:'吉林省冬天非常冷。Jilin province is very cold in winter.'},
     {chinese:'漠河',pinyin:'Mòhé',english:'Mohe — northernmost city in China',type:'noun',example:'漠河是中国最北的城市。Mohe is the northernmost city in China.'},
     {chinese:'西北',pinyin:'xīběi',english:'northwest',type:'word',example:'新疆在中国西北部。Xinjiang is in the northwest of China.'},
@@ -593,6 +595,39 @@ const SAMPLE = [
     {chinese:'往返',pinyin:'wǎngfǎn',english:'round trip / to go and return',type:'word',example:'往返票比单程票便宜一些。A round-trip ticket is a bit cheaper than two one-way tickets.'},
     {chinese:'目的地',pinyin:'mùdìdì',english:'destination',type:'word',example:'我们的目的地是云南。Our destination is Yunnan.'},
     {chinese:'小城夏天',pinyin:'xiǎo chéng xiàtiān',english:'Small Town Summer (song title — 小城夏天 by LBI利比)',type:'noun',example:'《小城夏天》是一首很好听的歌。"Small Town Summer" is a very pleasant song.'},
+  ]},
+  {id:'lesson:s_medical_hospital',fileName:'',lessonTitle:'Medical, Hospital & Health',category:'Daily Life',date:'2026-06-03T09:00:00Z',wordCount:16,vocabulary:[
+    {chinese:'找医院',pinyin:'zhǎo yīyuàn',english:'to find / go to a hospital',type:'phrase',example:'我需要找医院看病。I need to find a hospital to see a doctor.'},
+    {chinese:'挂号',pinyin:'guàhào',english:'to register at a hospital / to make an appointment',type:'word',example:'看病之前要先挂号。You need to register before seeing a doctor.'},
+    {chinese:'先挂号',pinyin:'xiān guàhào',english:'to register first (before seeing a doctor)',type:'phrase',example:'请先挂号，再去诊室。Please register first, then go to the consultation room.'},
+    {chinese:'挂号费',pinyin:'guàhào fèi',english:'registration fee (hospital)',type:'noun',example:'挂号费只要十块钱。The registration fee is only ten yuan.'},
+    {chinese:'看病',pinyin:'kànbìng',english:'to see a doctor / to get medical treatment',type:'phrase',example:'他感冒了，去医院看病。He has a cold and went to the hospital to see a doctor.'},
+    {chinese:'中医',pinyin:'zhōngyī',english:'traditional Chinese medicine / TCM doctor',type:'word',example:'我喜欢用中医治疗。I prefer to use traditional Chinese medicine for treatment.'},
+    {chinese:'西医',pinyin:'xīyī',english:'Western medicine / Western-trained doctor',type:'word',example:'他是一位西医，专门治疗心脏病。He is a Western medicine doctor specialising in heart disease.'},
+    {chinese:'针灸',pinyin:'zhēnjiǔ',english:'acupuncture (and moxibustion)',type:'word',example:'针灸可以缓解疼痛。Acupuncture can relieve pain.'},
+    {chinese:'居民医保',pinyin:'jūmín yībǎo',english:'resident medical insurance / public health insurance',type:'noun',example:'居民医保可以报销大部分医疗费用。Resident medical insurance can reimburse most medical expenses.'},
+    {chinese:'商业医保',pinyin:'shāngyè yībǎo',english:'commercial / private health insurance',type:'noun',example:'他还买了商业医保。He also purchased private health insurance.'},
+    {chinese:'报销',pinyin:'bàoxiāo',english:'to reimburse / to claim expenses',type:'word',example:'这笔医疗费可以报销吗？Can this medical expense be reimbursed?'},
+    {chinese:'斟酒',pinyin:'zhēnjiǔ',english:'to pour wine / to fill a glass',type:'word',example:'他给客人斟酒。He poured wine for the guests.'},
+    {chinese:'胆小',pinyin:'dǎnxiǎo',english:'timid / cowardly / easily scared',type:'word',example:'他很胆小，不敢打针。He is very timid and afraid of injections.'},
+    {chinese:'包扎',pinyin:'bāozā',english:'to bandage / to dress a wound',type:'word',example:'护士帮他包扎了伤口。The nurse bandaged his wound.'},
+    {chinese:'诊金',pinyin:'zhěnjīn',english:'consultation fee / doctor\'s fee',type:'noun',example:'诊金要另外付。The consultation fee is paid separately.'},
+    {chinese:'伤筋动骨100天',pinyin:'shāng jīn dòng gǔ yī bǎi tiān',english:'it takes 100 days to heal a muscle or bone injury (proverb)',type:'idiom',example:'伤筋动骨100天，你要好好休息。It takes 100 days to heal — you need to rest properly.'},
+  ]},
+  {id:'lesson:s_culture_beliefs_misc',fileName:'',lessonTitle:'Culture, Beliefs & Misc',category:'Culture & History',date:'2026-06-03T09:30:00Z',wordCount:13,vocabulary:[
+    {chinese:'缘分',pinyin:'yuánfèn',english:'fate / destiny (that connects people)',type:'word',example:'我们能在一起是缘分。It is fate that brought us together.'},
+    {chinese:'见过',pinyin:'jiànguò',english:'have met / have seen (before)',type:'phrase',example:'我们以前见过。We have met before.'},
+    {chinese:'天秤座',pinyin:'tiānchèng zuò',english:'Libra (zodiac sign)',type:'noun',example:'她是天秤座，很注重公平。She is a Libra and values fairness a lot.'},
+    {chinese:'观音赐福',pinyin:'Guānyīn cì fú',english:'Guanyin bestows blessings (Buddhist blessing phrase)',type:'phrase',example:'观音赐福，保佑平安。May Guanyin bestow blessings and keep you safe.'},
+    {chinese:'财源广进',pinyin:'cáiyuán guǎng jìn',english:'may wealth flow in abundantly (auspicious phrase)',type:'idiom',example:'新年快乐，财源广进！Happy New Year — may wealth flow in abundantly!'},
+    {chinese:'招财符',pinyin:'zhāocái fú',english:'lucky money charm / wealth talisman',type:'noun',example:'他在钱包里放了一张招财符。He put a wealth talisman in his wallet.'},
+    {chinese:'宗教信仰',pinyin:'zōngjiào xìnyǎng',english:'religious belief / religion / faith',type:'phrase',example:'每个人都有自己的宗教信仰。Everyone has their own religious beliefs.'},
+    {chinese:'佛教',pinyin:'Fójiào',english:'Buddhism',type:'noun',example:'佛教在中国有很长的历史。Buddhism has a long history in China.'},
+    {chinese:'天主教',pinyin:'Tiānzhǔjiào',english:'Catholicism',type:'noun',example:'他的家人信天主教。His family is Catholic.'},
+    {chinese:'基督教',pinyin:'Jīdūjiào',english:'Christianity / Protestantism',type:'noun',example:'基督教在全球有很多信徒。Christianity has many followers worldwide.'},
+    {chinese:'尊敬',pinyin:'zūnjìng',english:'to respect / to revere',type:'word',example:'我们要尊敬长辈。We should respect our elders.'},
+    {chinese:'宣告誓词',pinyin:'xuāngào shìcí',english:'to recite an oath / to declare a pledge',type:'phrase',example:'他在典礼上宣告誓词。He recited the oath at the ceremony.'},
+    {chinese:'马尔福',pinyin:'Mǎ\'ěrfú',english:'Malfoy (Draco Malfoy from Harry Potter)',type:'noun',example:'马尔福是哈利波特里的角色。Malfoy is a character from Harry Potter.'},
   ]},
   {id:'lesson:s_personality_music_digital',fileName:'',lessonTitle:'Personality, Music & Digital Life',category:'Daily Life',date:'2026-05-28T09:00:00Z',wordCount:19,vocabulary:[
     {chinese:'大胆',pinyin:'dǎdǎn',english:'bold / daring / brave',type:'word',example:'她大胆地表达了自己的想法。She boldly expressed her thoughts.'},
@@ -701,7 +736,7 @@ function masteryLabel(score){ if(score<=0)return{label:'New',color:'#4A5568',dot
 function renderMasteryBar(score, showLabel){ const info=masteryLabel(score); let h=`<div class="mst-bar">`; for(let i=0;i<5;i++){ const filled=i<info.dots; h+=`<div class="mst-dot" style="background:${filled?info.color:'var(--border2)'}"></div>`; } if(showLabel)h+=`<span class="mst-label" style="color:${info.color}">${info.label}</span>`; h+=`</div>`; return h; }
 
 const PROFILES = [
-  {id:'james', defaultName:'Dudu', color:'#C93A2B', sampleKey:'james_mn-ver', sampleVer:'16'},
+  {id:'james', defaultName:'Dudu', color:'#C93A2B', sampleKey:'james_mn-ver', sampleVer:'17'},
   {id:'gf',    defaultName:'Bubu', color:'#C4699A', sampleKey:'gf_mn-ver',    sampleVer:'4'},
 ];
 let currentUser = null;
@@ -774,7 +809,7 @@ function loadLessons(){
   const keys=ls.keys('lesson:');
   const ver=ls.get('mn-ver');
   const isJames=currentUser.id==='james';
-  const targetVer=isJames?'16':'4';
+  const targetVer=isJames?'17':'4';
   if(isJames&&(!keys.length||ver!==targetVer)){
     SAMPLE.forEach(s=>ls.set(s.id,JSON.stringify(s)));
     ls.set('mn-ver',targetVer);
