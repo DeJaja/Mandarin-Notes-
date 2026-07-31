@@ -773,6 +773,19 @@ const SAMPLE = [
     {chinese:'好兄弟',pinyin:'hǎo xiōngdì',english:'close male friend / good brother / bro',type:'phrase',example:'他是我的好兄弟，什么事都帮我。He\'s my bro — he always helps me out.'},
     {chinese:'中国 → 河北省 → 石家庄市 → 长安区',pinyin:'Zhōngguó → Héběi Shěng → Shíjiāzhuāng Shì → Cháng\'ān Qū',english:'China → Hebei Province → Shijiazhuang City → Chang\'an District (example admin hierarchy)',type:'sentence',example:'这个地址的行政等级是：中国、河北省、石家庄市、长安区。The admin levels of this address are: China, Hebei Province, Shijiazhuang City, Chang\'an District.'},
   ]},
+  {id:'lesson:s_biz_written_intro',fileName:'1-职场书面语入门.pptx',lessonTitle:'HSK5 Business Written Language — 职场书面语入门',category:'Work & Business',date:'2026-07-31T09:00:00Z',wordCount:11,vocabulary:[
+    {chinese:'探讨',pinyin:'tàntǎo',english:'to discuss / explore (an issue)',type:'word',example:'我们需要深入探讨市场风险。We need to have an in-depth discussion of market risks.'},
+    {chinese:'阐述',pinyin:'chǎnshù',english:'to elaborate on / expound',type:'word',example:'经理在会议上阐述了新的发展战略。The manager elaborated on the new development strategy at the meeting.'},
+    {chinese:'分析',pinyin:'fēnxī',english:'to analyze',type:'word',example:'请分析一下这份财务报表。Please analyze this financial statement.'},
+    {chinese:'依据',pinyin:'yījù',english:'basis / grounds; based on',type:'word',example:'我们的决策要有充分的依据。Our decisions must have sufficient basis.'},
+    {chinese:'归纳',pinyin:'guīnà',english:'to summarize / induce (generalize)',type:'word',example:'我们需要归纳客户反馈的主要问题。We need to summarize the main issues in customer feedback.'},
+    {chinese:'概括',pinyin:'gàikuò',english:'to summarize / generalize',type:'word',example:'请用一句话概括你的观点。Please summarize your point in one sentence.'},
+    {chinese:'结论',pinyin:'jiélùn',english:'conclusion',type:'word',example:'经过讨论，我们得出了最终的结论。After discussion, we reached the final conclusion.'},
+    {chinese:'层面',pinyin:'céngmiàn',english:'aspect / level (of an issue)',type:'word',example:'这个问题需要从多个层面来考虑。This issue needs to be considered from multiple aspects.'},
+    {chinese:'范畴',pinyin:'fànchóu',english:'category / scope',type:'word',example:'这个业务不属于我们的服务范畴。This business is not within our scope of service.'},
+    {chinese:'评估',pinyin:'pínggū',english:'to evaluate / assess',type:'word',example:'我们需要定期评估投资项目的风险。We need to regularly assess the risk of investment projects.'},
+    {chinese:'考量',pinyin:'kǎoliáng',english:'consideration; to consider',type:'word',example:'做决定时，必须考量成本和收益。When making a decision, you must consider cost and benefit.'},
+  ]},
 ];
 
 let lessons=[], curTab='review', expanded=new Set(), flt={s:'',c:'all',t:'all',l:'all',m:'all'};
@@ -790,7 +803,7 @@ function masteryLabel(score){ if(score<=0)return{label:'New',color:'#4A5568',dot
 function renderMasteryBar(score, showLabel){ const info=masteryLabel(score); let h=`<div class="mst-bar">`; for(let i=0;i<5;i++){ const filled=i<info.dots; h+=`<div class="mst-dot" style="background:${filled?info.color:'var(--border2)'}"></div>`; } if(showLabel)h+=`<span class="mst-label" style="color:${info.color}">${info.label}</span>`; h+=`</div>`; return h; }
 
 const PROFILES = [
-  {id:'james', defaultName:'Dudu', color:'#C93A2B', sampleKey:'james_mn-ver', sampleVer:'18'},
+  {id:'james', defaultName:'Dudu', color:'#C93A2B', sampleKey:'james_mn-ver', sampleVer:'19'},
   {id:'gf',    defaultName:'Bubu', color:'#C4699A', sampleKey:'gf_mn-ver',    sampleVer:'4'},
 ];
 let currentUser = null;
@@ -863,7 +876,7 @@ function loadLessons(){
   const keys=ls.keys('lesson:');
   const ver=ls.get('mn-ver');
   const isJames=currentUser.id==='james';
-  const targetVer=isJames?'18':'4';
+  const targetVer=isJames?'19':'4';
   if(isJames&&(!keys.length||ver!==targetVer)){
     SAMPLE.forEach(s=>ls.set(s.id,JSON.stringify(s)));
     ls.set('mn-ver',targetVer);
